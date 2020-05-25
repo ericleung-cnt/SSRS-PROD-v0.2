@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="oldDemandNoteMMO" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" isFloatColumnFooter="true" uuid="83e7fdec-d0ee-4c1c-99e6-11714cc0bdfc">
+	<property name="ireport.zoom" value="1.464100000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="icon" class="java.lang.Object" isForPrompting="false"/>
+	<parameter name="companyName" class="java.lang.String"/>
+	<parameter name="oldDemandNoteNo" class="java.lang.String"/>
+	<parameter name="code" class="java.lang.String"/>
+	<parameter name="issueDate" class="java.util.Date"/>
+	<parameter name="totalAmount" class="java.lang.String"/>
+	<parameter name="barCodeNo" class="java.lang.String"/>
+	<parameter name="dueDate" class="java.util.Date"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\workspace\\org.mardep.secs.service.secs-service-impl\\src\\main\\resources\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="R0600_SUB" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="qrCode" class="java.io.InputStream"/>
+	<parameter name="grossTons" class="java.math.BigDecimal"/>
+	<parameter name="netTons" class="java.math.BigDecimal"/>
+	<parameter name="shipNameEng" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="shipNameChi" class="java.lang.String"/>
+	<parameter name="billName" class="java.lang.String"/>
+	<parameter name="copyLogo" class="java.lang.String"/>
+	<field name="feeDescription" class="java.lang.String"/>
+	<field name="feeAmount" class="java.math.BigDecimal"/>
+	<field name="feePrice" class="java.math.BigDecimal"/>
+	<field name="chargedUnit" class="java.lang.Integer"/>
+	<variable name="pageTotal" class="java.math.BigDecimal" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{feeAmount}]]></variableExpression>
+		<initialValueExpression><![CDATA[new BigDecimal(0)]]></initialValueExpression>
+	</variable>
+	<variable name="totalAmount" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{feeAmount}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="160" splitType="Stretch">
+			<image>
+				<reportElement x="240" y="55" width="70" height="65" uuid="fa173973-77b7-4536-a2a2-aca45f50eeaf"/>
+				<imageExpression><![CDATA[$P{icon}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="9" y="92" width="150" height="32" uuid="2033e996-e2b6-45df-8787-4765d1b6989d"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" markup="html">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[BILL for <br>MERCANTILE MARINE OFFICE FEES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="34" width="80" height="20" uuid="6cc2c97d-aff9-4c84-80ac-7fe356a20ed7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Invoice No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="39" y="76" width="110" height="16" uuid="816218a6-b01f-4c81-a8b4-7d258bf14489"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[商船海員管理收費單]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="117" width="140" height="15" uuid="efc16e86-2195-452c-81a8-be9d15b47618"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[MARINE DEPARTMENT,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="102" width="140" height="15" uuid="558592cd-a8a3-48aa-82eb-223584b35a64"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[香港特別行政區海事處]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="132" width="140" height="15" uuid="d28b5f18-bb9a-4d4c-823c-42e0bfcad9de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[HKSAR]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="482" y="34" width="60" height="20" uuid="b91315eb-2738-4457-a2ba-aa339fba5fcf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oldDemandNoteNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="404" y="2" width="30" height="15" uuid="8494137a-7d12-48a6-9c0e-971ed59a75e4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="16" width="25" height="15" uuid="54aaefa1-c5a8-4a7c-8473-bbe6e96632e7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement x="446" y="2" width="60" height="14" uuid="eb442899-4329-4076-a69a-7b79a9e29ed9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{issueDate}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Page" pattern="$###,###,###.00">
+				<reportElement x="462" y="56" width="70" height="20" uuid="c99914f2-6a19-4db6-8294-c01f04b2f3d3"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PAGE " + $V{PAGE_NUMBER} + "/" + $V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Page" pattern="$###,###,###.00">
+				<reportElement x="390" y="56" width="70" height="20" uuid="882c80dc-30bf-4c65-8daf-e2247b8266b6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["第 " + $V{PAGE_NUMBER} + "/" + $V{PAGE_COUNT} + "頁"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="435" y="17" width="100" height="1" isPrintWhenDetailOverflows="true" uuid="956a54c2-65de-4899-a92a-e1c79854a724"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="18" width="45" height="15" uuid="e303135b-d82b-4eb1-8380-1c540f794c4b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Messrs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="7" width="45" height="15" uuid="513c9a0d-f0d6-4467-ab4e-1e5b9f71a5dd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[商號名稱]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="33" width="170" height="1" isPrintWhenDetailOverflows="true" uuid="094124e7-c1bb-488d-a134-03f15f2fa1ba"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="65" y="11" width="115" height="20" uuid="7ae3a333-a354-4f4e-b8d8-7420b992fa16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{billName}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="14" y="49" width="170" height="1" isPrintWhenDetailOverflows="true" uuid="2e89deec-29f3-48c2-ab1b-0424192bc7c6"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="10" y="6" width="175" height="1" isPrintWhenDetailOverflows="true" uuid="bfc3db97-238f-43a2-931f-dacd06b881d7"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="10" y="64" width="175" height="1" isPrintWhenDetailOverflows="true" uuid="4c663518-109b-4887-b9a3-7ac5876c496e"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="9" y="7" width="1" height="58" isPrintWhenDetailOverflows="true" uuid="939f1b2e-be97-44cc-942d-b337a619b7bd"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="185" y="7" width="1" height="58" isPrintWhenDetailOverflows="true" uuid="0cb523aa-d7d5-4267-8434-7a44893a6267"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="38">
+			<staticText>
+				<reportElement x="479" y="19" width="50" height="14" uuid="aaaecd78-40af-4ae4-a789-3b5060c07ee6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="2" width="40" height="14" uuid="c10b6399-47ea-4ee1-8a5e-3cac3356119a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[應付款項]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="496" y="2" width="50" height="14" uuid="da0ea741-6439-4e8a-9a43-511e180f1a34"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Amount Due]]></text>
+			</staticText>
+			<line>
+				<reportElement x="8" y="37" width="538" height="1" uuid="0d2b1f8d-ebdf-4da9-b378-6675e162bf19"/>
+			</line>
+			<line>
+				<reportElement x="8" y="1" width="538" height="1" uuid="8356f362-d8be-4808-a88c-5669985e6f1d"/>
+			</line>
+			<line>
+				<reportElement x="450" y="2" width="1" height="34" isPrintWhenDetailOverflows="true" uuid="6f9a55a1-887e-4b34-979c-6d837dcabd59"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="451" y="18" width="95" height="1" uuid="1f2b6e2b-64c3-4cfa-91ef-0cc4b08028f0"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_COUNT} > 0]]></printWhenExpression>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="20" y="2" width="275" height="28" uuid="721e2569-5d6f-42fd-8fd0-c7bdd4719943"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feeDescription}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###.00" isBlankWhenNull="true">
+				<reportElement x="460" y="2" width="74" height="28" uuid="4537b0f2-fc8b-4c61-8907-d6783ac640bf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feeAmount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="450" y="0" width="1" height="30" isPrintWhenDetailOverflows="true" uuid="a89332c6-3081-43d6-9e57-7bfd0a611271"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="371" y="7" width="20" height="14" uuid="d5ebf06b-5ca3-458e-9d84-4d271daf21dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[@]]></text>
+			</staticText>
+			<textField pattern="$###,###.00" isBlankWhenNull="true">
+				<reportElement x="392" y="0" width="45" height="28" uuid="f2fdb764-3ebf-4886-ba39-8578d5fc6e6f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feePrice}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="321" y="0" width="45" height="28" uuid="f151d4ff-1f78-4d5e-93cc-eaa04076a135"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chargedUnit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="60">
+			<printWhenExpression><![CDATA[$V{PAGE_COUNT} > 0]]></printWhenExpression>
+			<staticText>
+				<reportElement x="417" y="13" width="20" height="14" uuid="179f9d69-f77f-407f-9cf1-1c885664975e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[合計]]></text>
+			</staticText>
+			<textField pattern="$#,##0.00">
+				<reportElement x="464" y="10" width="70" height="14" uuid="f5ec26b7-ff00-41ad-978b-c6269ad0605c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="styled">
+					<font size="9" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalAmount}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="451" y="28" width="95" height="1" uuid="3e644ab1-ac00-482f-a6bc-00ed9e2a313e"/>
+			</line>
+			<line>
+				<reportElement x="8" y="35" width="538" height="1" uuid="cfc03feb-1574-4d52-a9ca-42e53f1854b7"/>
+			</line>
+			<line>
+				<reportElement x="8" y="0" width="538" height="1" uuid="f56dfe65-244b-46ff-a893-1a44c2e57d9c"/>
+			</line>
+			<line>
+				<reportElement x="450" y="0" width="1" height="30" isPrintWhenDetailOverflows="true" uuid="1fea8e4c-2473-4d05-a9cc-649fb7fcf159"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<lastPageFooter>
+		<band height="194">
+			<staticText>
+				<reportElement x="9" y="109" width="150" height="14" uuid="a6e0582e-1073-4613-97b8-4b3d0da30adc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[香港特別行政區海事處]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="124" width="150" height="14" uuid="5e935684-7ec4-46d0-8312-0a9cb7a3f5b2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[MARINE DEPARTMENT, HKSAR]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement isPrintRepeatedValues="false" x="326" y="133" width="210" height="30" uuid="19c989bd-be73-4174-8cf7-c91d3cb0c5c0"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="Int2of5" drawText="false" checksumRequired="false" barWidth="1" barHeight="30">
+					<jr:codeExpression><![CDATA[$P{barCodeNo}]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+			<textField>
+				<reportElement x="300" y="167" width="249" height="16" uuid="c410287f-9633-4362-aea2-00ac1e86527b">
+					<printWhenExpression><![CDATA[$P{barCodeNo} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{barCodeNo}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="381" y="108" width="86" height="86" uuid="e702dfc0-40c6-4a7c-8496-dfccff6d2902"/>
+				<imageExpression><![CDATA[$P{qrCode}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="11" y="12" width="100" height="15" uuid="78c2e219-b578-4523-a2ba-d0f65b809762"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false" isUnderline="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[機印所示金額收訖]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="43" width="100" height="15" uuid="80672f45-895f-414a-92ff-dbda074267c3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[state in printed figures.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="28" width="150" height="15" uuid="4574218c-4f86-4f60-81f9-05fc4cac57da"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="false" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[RECEIVED the sum here]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="112" width="60" height="20" uuid="256d9dc1-3ad5-4a26-b3c3-939a1ca78d0f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Invoice No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="96" width="50" height="16" uuid="174f3fb4-448f-4976-9a4b-5ff1452aef2f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[發票號碼
+
+]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="474" y="112" width="60" height="20" uuid="c96c6225-698a-4b79-ba06-c4dd2e62ac11"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{oldDemandNoteNo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="89" width="538" height="1" uuid="5bb0e028-c78a-42e5-9d04-5b2678534ad1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="9" y="144" width="150" height="14" uuid="54cd608b-1347-4966-b4f8-dd354cc094ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[商船海事管理處]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="159" width="150" height="14" uuid="b711594c-60c1-493d-884c-7471201fe707"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[MERCANTILE MARINE OFFICE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="173" width="150" height="14" uuid="9eab4802-c0f5-4835-91a9-6f1bb5bc4b61"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[(CODE 31)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="161" y="13" width="115" height="30" uuid="ddc1081e-7536-45cf-8bbd-f64059a3ebd1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{copyLogo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="161" y="109" width="115" height="30" uuid="be655223-58ec-4484-a0ac-8bfdc9b0ed8b">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{copyLogo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

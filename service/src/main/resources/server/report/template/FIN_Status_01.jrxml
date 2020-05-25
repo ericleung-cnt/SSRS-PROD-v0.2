@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FIN_Status_01" pageWidth="800" pageHeight="595" orientation="Landscape" columnWidth="800" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="5" uuid="20d021eb-715c-401d-9718-09cf6f72461c">
+	<property name="ireport.zoom" value="1.210000000000003"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="part" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="reportId" class="java.lang.String"/>
+	<parameter name="demandNoteCase" class="java.lang.String"/>
+	<parameter name="demandNoteAmount" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="demandNoteNo" class="java.lang.String"/>
+	<field name="issueDate" class="java.lang.String"/>
+	<field name="dueDate" class="java.lang.String"/>
+	<field name="amount" class="java.math.BigDecimal"/>
+	<field name="receiptNo" class="java.lang.String"/>
+	<field name="receiptAmount" class="java.math.BigDecimal"/>
+	<field name="receiptDate" class="java.lang.String"/>
+	<field name="demandNoteStatus" class="java.lang.String"/>
+	<field name="receiptStatus" class="java.lang.String"/>
+	<field name="feeCode" class="java.lang.String"/>
+	<field name="refundAmount" class="java.math.BigDecimal"/>
+	<field name="paymentType" class="java.lang.String"/>
+	<field name="refundDate" class="java.lang.String"/>
+	<field name="isReceiptCancelled" class="java.lang.String"/>
+	<field name="billName" class="java.lang.String"/>
+	<field name="appNo" class="java.lang.String"/>
+	<field name="count" class="java.math.BigDecimal"/>
+	<field name="cancelledAmount" class="java.math.BigDecimal"/>
+	<field name="receivedAmount" class="java.math.BigDecimal"/>
+	<field name="title" class="java.lang.String"/>
+	<group name="1">
+		<groupExpression><![CDATA[1]]></groupExpression>
+		<groupFooter>
+			<band height="98">
+				<staticText>
+					<reportElement x="0" y="41" width="170" height="20" uuid="b613cfa6-9b90-4b98-a82e-d554a8e76d89"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Retrieved:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="71" width="160" height="20" uuid="70056441-1405-4f3a-babb-4eb9fe69320d"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Amount:]]></text>
+				</staticText>
+				<textField pattern="" isBlankWhenNull="false">
+					<reportElement x="170" y="41" width="100" height="20" uuid="4e4a93c2-2a68-4390-961a-260baac3d2af"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="170" y="71" width="100" height="20" uuid="8d0723d4-3a4e-42ef-b3fd-7ffcb81627d7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{receivedAmount}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="11" width="300" height="20" uuid="c26d9523-d2f8-4148-a2fa-3bd591ad9a8f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Summary of " + $F{title}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="82">
+				<printWhenExpression><![CDATA["eBS NON-AUTOPAY".equals($F{title})]]></printWhenExpression>
+				<staticText>
+					<reportElement x="0" y="60" width="160" height="20" uuid="fdeda275-3bc7-421d-acbf-cb8e280ba219"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Amount:]]></text>
+				</staticText>
+				<textField pattern="" isBlankWhenNull="false">
+					<reportElement x="170" y="30" width="100" height="20" uuid="aeb25ef3-60d1-4907-9753-e773c528cd27"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{demandNoteCase}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="300" height="20" uuid="0e8ba921-632e-495a-a80a-3186b11d8492"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Summary of Report"]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="170" y="60" width="100" height="20" uuid="83bef215-9409-4c15-ba95-eac3a3891970"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{demandNoteAmount}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="30" width="170" height="20" uuid="2869f501-b307-4226-bbfc-003fcb5a35da"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Retrieved:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="25" width="55" height="25" uuid="c9e8f7d4-2a06-4b7d-9abc-387d3bc4e6c7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DN Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="25" width="45" height="25" uuid="c9e8f7d4-2a06-4b7d-9abc-387d3bc4e6c7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[App      Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="25" width="45" height="25" uuid="c632061c-168d-47b1-bbd3-91310b3e5bc5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issue Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="25" width="45" height="25" uuid="d24417d7-fdfe-4ac8-8fcd-d102f2dfd5eb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Due Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="25" width="45" height="25" uuid="296e6178-ebbc-4c56-a1a8-af0b2f1a1686"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt   Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="245" y="25" width="55" height="25" uuid="296e6178-ebbc-4c56-a1a8-af0b2f1a1686"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment   Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="25" width="50" height="25" uuid="6e41077b-aaa2-4e7a-ac9e-4cc41bfb784d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="570" y="25" width="50" height="25" uuid="8a43d302-aa02-4ff8-929e-2c154c5502fb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Refund Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="760" y="25" width="40" height="25" uuid="bd797efc-3878-4337-a9ec-d024b95f92e1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Revenue Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="25" width="55" height="25" uuid="a40c78ce-93e6-43f2-9684-4b349e4c68c4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DN Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="25" width="65" height="25" uuid="57cbdd43-186e-43c7-97bf-0b029be74875"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Company Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="25" width="55" height="25" uuid="df245e5d-d7c2-4ac9-982c-9064d4f4da24"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DN Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="515" y="25" width="55" height="25" uuid="848920f2-300f-4e43-92c4-477f238b31a6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="625" y="25" width="45" height="25" uuid="3ed5d93a-55c5-4ea5-85db-b790d21a9bdc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Refund   Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="25" width="50" height="25" uuid="3d7ea649-eee2-4a3d-8fe2-a19d113467f0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Payment Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="25" width="40" height="25" uuid="4ac72796-6f74-42d8-b861-3fe33dab3bdd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Receipt Cancelled]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="5" width="300" height="20" uuid="26803c55-2dd0-4410-9b3b-b5ee16b0d063"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="55" height="20" uuid="524c77b4-3d34-4f8b-9e82-e2944d456d85"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{demandNoteNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="0" width="45" height="20" uuid="9835d7c5-1791-4e61-b9a5-b5764840f267"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{appNo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="145" y="0" width="45" height="20" uuid="bdc7a485-ab26-4479-b3c4-236112db0129"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="245" y="0" width="55" height="20" uuid="c35a5cd1-ae34-4617-8d96-4b90e2234f71"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiptStatus}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="0" width="45" height="20" uuid="4a6f69c1-b004-4f5a-8002-17b4be832bd7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{issueDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="0" width="45" height="20" uuid="8dd8c8af-6507-48a3-bdf6-7ddb0de49b26"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiptDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="345" y="0" width="50" height="20" uuid="82316c14-10d6-489e-bc6b-7700999433d2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiptNo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="570" y="0" width="50" height="20" uuid="9ffb0b9b-60ca-4f06-bb7b-7b5636a1af4c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{refundAmount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="760" y="0" width="40" height="20" uuid="88d60cde-3658-442f-ba1c-83d6a0947793"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{feeCode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="190" y="0" width="55" height="20" uuid="3013040f-14df-42ab-ba1b-4e330d992370"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{demandNoteStatus}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="395" y="0" width="65" height="20" uuid="455bb103-4b16-40e4-b74a-b51f8db73d52"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="625" y="0" width="45" height="20" uuid="46eb8a48-ec58-4bef-bcd3-40e84a92da74"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{refundDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="670" y="0" width="50" height="20" uuid="732ee945-aede-4aaf-ac8f-a3eced971d02"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentType}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="515" y="0" width="55" height="20" uuid="59a43439-43ef-4a6d-8e09-e39f63229b9c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{receiptAmount}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="460" y="0" width="55" height="20" uuid="bea4ee90-f156-489b-b259-7f7f9a72827a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="720" y="0" width="40" height="20" uuid="7d6cfc40-0eff-49c6-b5ba-bafd67fbe77c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{isReceiptCancelled}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

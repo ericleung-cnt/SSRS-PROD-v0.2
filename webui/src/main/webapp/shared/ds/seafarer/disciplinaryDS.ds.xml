@@ -1,0 +1,12 @@
+<DataSource ID="disciplinaryDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="disciplinaryDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID" 	primaryKey="true"	required="true" />
+		<field name="seqNo" 		type="integer" 	title="Record No" 		primaryKey="true"					/>
+		<field name="recordDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Record Date"/>
+
+		<field name="caseRefNo" 	type="text" 	title="Case Reference No"	length="40"/>
+		<field name="offenceDesc" 	type="text" 	title="Offence Description"	length="60"/>
+		<field name="penalty" 		type="text" 	title="Penalty"				length="40"/>
+	</fields>
+</DataSource>

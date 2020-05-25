@@ -1,0 +1,111 @@
+input:focus,
+textarea:focus {
+	background: gold none;
+}
+
+.selectItemTextFocused {
+	border: medium solid gold !important;
+}
+
+.textBoxOnlyShowTitle	{
+	visibility:hidden;
+	border: 0px;
+}
+
+.textBoxOnlyShowTitleDisabled	{
+	visibility:hidden;
+	border: 0px;
+}
+
+.titleRequiredStyle	{
+	color:red;
+	font-family:Arial,sans-serif;
+	font-size:11px;
+	font-weight: bold;
+}
+
+.redTextStyle	{
+	color:red;
+	font-family:Arial,sans-serif;
+	font-size:11px;
+}
+
+.brownTextStyle,
+.brownTextStyleDisabled	{
+	color:brown;
+	font-family:Arial,sans-serif;
+	font-size:11px;
+}
+
+.headerBoxes {
+	background: #c0c0c0;
+}
+
+.currentBoxes {
+	background: #fff888;
+}
+
+.hyperLinkStyle	{
+	font-family:secsEUDC,Arial,sans-serif,MingLiu_HKSCS;
+	color:blue;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.examSessionListGridHeaderTitle {
+	color: #eeeeee;
+	//font-size: 25px;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 1px;
+}
+
+.examSessionListGridBody td {
+	color: MidnightBlue;
+	font-size: 28px;
+	font-weight: bold;
+	padding: 10px 5px 10px 5px;
+}
+
+.examSessionChiTitle span {
+	color: white;
+		font-size: 30px;
+	background-color: DodgerBlue;
+}
+
+.examSessionEngTitle span {
+		font-size: 30px;
+}
+
+.endorsementPlaceholder {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.interactFormHover {
+	font-family:Verdana,Bitstream Vera Sans,sans-serif;
+    font-size:11px;
+    border:1px solid #ffffff;
+    padding:5px;
+	background-color:#000000;
+    color:#ffffff;
+}
+
+.holds-the-iframe {
+  background:url(../images/loading.png) center center no-repeat;
+}
+
+a {
+  text-decoration: none
+}
+
+soapText {
+	color:#000000;
+}
+
+.demiseCharterer	{
+	color:#808080;
+	font-family:Arial,sans-serif;
+	font-size:11px;
+}

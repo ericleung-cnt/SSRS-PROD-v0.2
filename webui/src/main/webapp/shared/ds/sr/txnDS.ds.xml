@@ -1,0 +1,23 @@
+<DataSource ID="txnDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="transactionDMI" />
+	<fields>
+		<field name="id" primaryKey="true" required="true"/>
+		<field name="applNo" required="true" length="9" />
+		<field name="transactionTime" type="datetime" displayFormat="dd/MM/yyyy HH:mm:ss" required="true" />
+		<field name="code" length="2" required="true" />
+		<field name="userId" length="8" />
+		<field name="dateChange" type="date" displayFormat="dd/MM/yyyy"  />
+		<field name="hourChange" length="15" required="true"/>
+		<field name="details" length="720" title="Nature Details"/>
+		<field name="handledBy" length="10" title="Handled By">
+			<valueMap>
+				<value ID=""></value>
+				<value ID="OWNER">OWNER</value>
+				<value ID="RP">RP</value>
+				<value ID="AGENT">AGENT</value>
+			</valueMap>
+		</field>
+		<field name="handlingAgent" length="80" title="Handling Agent"/>
+		<field name="priorityCode" length="2" title="Mortgage Priority Code"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,9 @@
+<DataSource ID="funcEntitleDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="funcEntitleDMI" />
+	<fields>
+		<field name="roleId" 		type="integer" 	title="Role ID"				required="true"/>
+		<field name="funcId" 		type="integer" 	title="Func ID"  			required="true"/>
+		<field name="role" 			type="any"/>
+		<field name="systemFunc" 	type="any"/>
+	</fields>
+</DataSource>

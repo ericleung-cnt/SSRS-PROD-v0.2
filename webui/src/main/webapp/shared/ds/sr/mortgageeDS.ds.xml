@@ -1,0 +1,16 @@
+<DataSource ID="mortgageeDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="mortgageeDMI" />
+	<fields>
+		<field name="applNo" primaryKey="true"/>
+		<field name="priorityCode" primaryKey="true"/>
+		<field name="seq" primaryKey="true"/>
+		<field name="name" length="80" required="true"/>
+		<field name="address1" length="80" />
+		<field name="address2" length="80" />
+		<field name="address3" length="80" />
+		<field name="telNo" length="18" />
+		<field name="faxNo" length="18" />
+		<field name="email" length="50" />
+	</fields>
+</DataSource>

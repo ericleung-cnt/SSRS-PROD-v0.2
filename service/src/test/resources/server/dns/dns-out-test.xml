@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/xml
+    http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+    http://www.springframework.org/schema/integration/ws
+    http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+	
+	<int:gateway service-interface="org.mardep.ssrs.dns.test.DnsOutService" id="dnsServiceGateway" default-request-channel="headerEnricherIn"/>
+	
+	
+	<int:header-enricher input-channel="headerEnricherIn" output-channel="dnsOutRequestPojoOutChannel">
+		<int:header name="from" 		value="${ssrs.dns.ws.message.from}"/>
+		<int:header name="requestDate"  expression="T(org.apache.commons.lang.time.DateFormatUtils).ISO_DATETIME_FORMAT.format(new java.util.Date())"/>
+		<int:header name="controlId"    expression="payload.controlId"/>
+	</int:header-enricher>
+	
+
+
+<!-- 		reply-channel="dnsOutRequestPojoInChannel" -->
+<!-- 		mapped-request-headers="from, requestDate, controlId"  -->
+<!-- 		mapped-reply-headers="from, responseDate" -->
+	<int-ws:outbound-gateway id="dnsOutboundGateway" request-channel="dnsOutRequestPojoOutChannel" interceptor="outboundRequestResponseInterceptor" header-mapper="dnsSoapHeaderMapper" 
+		marshaller="dnsJaxb2MarshallerIn"  message-sender="wsOutMessageSender" fault-message-resolver="soapFaultMessageResolver" requires-reply="true" 
+		uri="${ssrs.dns.server.protocol}://${ssrs.dns.server.host}:${ssrs.dns.server.port}${ssrs.dns.server.context}">
+		<int-ws:request-handler-advice-chain>
+			<bean class="org.springframework.integration.handler.advice.RequestHandlerRetryAdvice">
+				<property name="retryTemplate">
+					<bean class="org.springframework.retry.support.RetryTemplate">
+						<property name="retryPolicy">
+							<ref bean="exceptionClassifierRetryPolicy"/>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</int-ws:request-handler-advice-chain>
+	</int-ws:outbound-gateway>
+	
+	<bean id="soapFaultMessageResolver" class="org.springframework.ws.soap.client.core.SoapFaultMessageResolver"/>
+
+	<bean id="exceptionClassifierRetryPolicy" class="org.springframework.retry.policy.ExceptionClassifierRetryPolicy">
+		<property name="policyMap">
+			<map>
+				<entry key="org.springframework.ws.client.WebServiceIOException">
+					<bean class="org.springframework.retry.policy.SimpleRetryPolicy">
+						<property name="maxAttempts" value="${ssrs.dns.ws.out.retry.count:3}"></property>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="abstractRequestResponseInterceptor"  class="org.mardep.ssrs.dns.processor.AbstractInterceptor" abstract="true">
+	</bean>
+	<bean id="inboundRequestResponseInterceptor"  class="org.mardep.ssrs.dns.processor.inbound.InboundRequestResponseInterceptor" parent="abstractRequestResponseInterceptor">
+	</bean>
+	<bean id="outboundRequestResponseInterceptor" class="org.mardep.ssrs.dns.processor.outbound.OutboundRequestResponseInterceptor" parent="abstractRequestResponseInterceptor">
+	</bean>
+	
+	<bean id="wsOutMessageSender" class="org.springframework.ws.transport.http.HttpComponentsMessageSender">
+    	<property name="connectionTimeout" value="${ssrs.dns.ws.sender.out.timeout.connection:5000}"/>
+    	<property name="readTimeout" value="${ssrs.dns.ws.sender.out.timeout.read:5000}"/>
+    	<property name="credentials">
+    		<bean class="org.apache.http.auth.UsernamePasswordCredentials">
+                    <constructor-arg value="${ssrs.dns.credentials.username:SSRS}:${ssrs.dns.credentials.password:!bcd1234}"/>
+            </bean>
+    	</property>
+    	<property name="httpClient" ref="dnsHttpClient"/>
+    </bean>
+
+	<bean id="dnsHttpClient" class="org.apache.http.impl.client.DefaultHttpClient">
+		<constructor-arg>
+			<bean class="org.apache.http.impl.conn.PoolingClientConnectionManager">
+				<constructor-arg ref="dnsHttpsSchemaRegistry" />
+			</bean>
+		</constructor-arg>
+	</bean>
+	<bean id="dnsHttpsSchemaRegistry" class="org.apache.http.conn.scheme.SchemeRegistry">
+		<property name="items">
+			<map>
+				<entry key="https">
+					<bean class="org.apache.http.conn.scheme.Scheme">
+						<constructor-arg value="https" />
+						<constructor-arg value="8443" />
+						<constructor-arg>
+							<bean id="dnsSSLSocketFactory" class="org.apache.http.conn.ssl.SSLSocketFactory">
+								<constructor-arg name="trustStrategy">
+									<bean class="org.apache.http.conn.ssl.TrustSelfSignedStrategy" />
+								</constructor-arg>
+								<constructor-arg name="hostnameVerifier">
+									<bean class="org.apache.http.conn.ssl.AllowAllHostnameVerifier" />
+								</constructor-arg>
+							</bean>
+						</constructor-arg>
+					</bean>
+				</entry>
+				<entry key="http">
+					<bean class="org.apache.http.conn.scheme.Scheme">
+						<constructor-arg value="http" />
+						<constructor-arg value="80" />
+						<constructor-arg>
+							<bean class="org.apache.http.conn.scheme.PlainSocketFactory"/>
+						</constructor-arg>
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<int:service-activator input-channel="dnsOutExceptionErrorChannel" 		ref="outboundRequestResponseInterceptor" 	method="handleMessagingException"></int:service-activator>
+
+	<bean id="removeDnsSoapHeadersInterceptor" class="org.springframework.ws.transport.http.HttpComponentsMessageSender.RemoveSoapHeadersInterceptor"/>
+	
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+      <property name="targetObject">
+        <ref bean="dnsHttpClient"/>
+      </property>
+      <property name="targetMethod">
+        <value>addRequestInterceptor</value>
+      </property>
+      <property name="arguments">
+         <list>
+           <ref bean="removeDnsSoapHeadersInterceptor"/>
+           <value>0</value>
+         </list>
+      </property>
+   </bean>
+	
+	
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:server/dns/dns-out-test.properties</value>
+			</list>
+		</property>
+	</bean>
+	 
+	<import resource="classpath:/server/dns/soap-common.xml"/>
+<!-- 	<bean id="soapMessageService" class="org.mardep.ssrs.dns.test.SoapMessageServiceMockImpl"/> -->
+	<bean id="soapMessageOutJpaDao" class="org.mardep.ssrs.dns.test.SoapMessageOutMockDaoImpl"/>
+	<bean id="soapMessageInJpaDao" class="org.mardep.ssrs.dns.test.SoapMessageInMockDaoImpl"/>
+	<bean id="controlDataJpaDao" class="org.mardep.ssrs.dns.test.ControlDataMockDaoImpl"/>
+</beans>        

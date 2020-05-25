@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Average_Monthly_Wages_by_Rank_or_Rating_by_Nationality_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c92843b4-d48a-4f56-a23d-572e803b5310">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="266" y="5" width="270" height="22" uuid="b954cc5f-2a10-45d9-9381-b3ccc9649496"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="30" width="281" height="23" uuid="43fae04b-f667-48cb-8701-8e1b21512916"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Average Monthly Wages by Rank / Rating by Nationality ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="5" width="62" height="35" uuid="b518d4ac-9ada-405b-9d1d-328b50d10bf7"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[SRS1130 
+SRIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="6" width="92" height="20" uuid="98b0cb1a-b6cb-4052-bcfd-29892be4d9f1"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[10-DEC-2018 09:42 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="30" width="92" height="20" uuid="67800064-883e-426b-a08f-5ae9507de433"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Page 1 of 3
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="57" width="281" height="23" uuid="312922d5-aefa-4ae3-ac24-072008438dce"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[FROM 01-JAN-2018 TO 10-DEC-2018]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="225" splitType="Stretch">
+			<staticText>
+				<reportElement x="261" y="10" width="281" height="20" uuid="efd23368-b604-4660-bf7b-e671f2cb902f"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[AVERAGE MONTHLY WAGES OF CHINESE OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="50" width="80" height="20" uuid="9e7b854f-2f1d-459b-9e89-1f13e8fcdb2e"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[MASTER ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="80" width="77" height="20" uuid="3c66cb16-2653-485d-b9a0-7e43042ccb50"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[CHIEF OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="50" width="80" height="20" uuid="7a232368-28a6-4389-ac68-8126ef87852a"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[CGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="50" width="80" height="20" uuid="72d65e31-42ad-42da-8897-d644b15a7bc3"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Average]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="80" width="80" height="20" uuid="8fee8b46-f059-4b6b-bdca-40c823cd0b3b"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ $22,561]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="80" width="80" height="20" uuid="5f04d954-c2e1-4ebf-b8e6-559151c10d93"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ $22,561]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="100" width="80" height="20" uuid="4e32a487-12e4-49af-acc8-909674464975"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ $14,982]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="105" width="80" height="20" uuid="f27e68fc-2686-4070-ae05-f58b6989de6b"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ $14,982]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="353" y="10" width="114" height="30" uuid="340a5bf4-8cad-4de7-b5ea-a23b5731e57c"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[*** End of Report ***]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

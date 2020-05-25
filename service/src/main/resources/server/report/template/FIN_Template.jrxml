@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FIN_Template" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="5" uuid="20d021eb-715c-401d-9718-09cf6f72461c">
+	<property name="ireport.zoom" value="1.1000000000000028"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="reportSubTitle" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="reportId" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_1" class="java.util.List"/>
+	<parameter name="SUBREPORT_2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_2" class="java.util.List"/>
+	<parameter name="SUBREPORT_3" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_3" class="java.util.List"/>
+	<parameter name="SUBREPORT_4" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_4" class="java.util.List"/>
+	<parameter name="SUBREPORT_5" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_5" class="java.util.List"/>
+	<parameter name="SUBREPORT_6" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_6" class="java.util.List"/>
+	<parameter name="SUBREPORT_7" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_7" class="java.util.List"/>
+	<parameter name="noOfRecords" class="java.lang.Integer"/>
+	<parameter name="demandNoteRetrieved" class="java.lang.Integer"/>
+	<parameter name="refundedCase" class="java.lang.Integer"/>
+	<parameter name="demandNoteAmount" class="java.math.BigDecimal"/>
+	<parameter name="refundAmount" class="java.math.BigDecimal"/>
+	<parameter name="receivedAmount" class="java.math.BigDecimal"/>
+	<parameter name="cancelledAmount" class="java.math.BigDecimal"/>
+	<parameter name="demandNoteCase" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="802" height="22" uuid="7adcb022-64ea-4b47-949f-4509b124e366"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="35" width="802" height="22" uuid="f724d6be-11e9-40fa-a174-18118e51aac3"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="64" width="802" height="22" uuid="8c721db7-429d-4173-936d-4316dbe693c8"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportSubTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="704" y="9" width="98" height="24" uuid="4223bf6b-f698-48a9-af45-a09f73c7c794"/>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="771" y="32" width="31" height="20" uuid="c638dc35-bb7c-4aa9-8f34-a8618d83dde4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="671" y="32" width="100" height="20" uuid="10667f76-8a2a-44c5-a6cf-5f591075604b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="9" width="100" height="20" uuid="823c6c92-de6c-4c4b-92ec-59b29daa74db"/>
+				<textFieldExpression><![CDATA[$P{reportId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="32" width="100" height="20" uuid="80942099-3cd3-4fd0-83a4-6dff1b0c2cf9"/>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" backcolor="#666666" uuid="6207b5eb-00b2-4de1-b256-642183d8f8d6"/>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_1})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" uuid="5f749904-e07a-487f-bc3c-2009a974adf4">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_7})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_7}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" backcolor="#666666" uuid="35a06d12-bd5d-436d-bb0b-3b33b97308b7"/>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_2})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" backcolor="#666666" uuid="2fc0ae17-3000-4ad9-b9ff-ac8c4ed83a16"/>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_3})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_3}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" backcolor="#666666" uuid="2fc0ae17-3000-4ad9-b9ff-ac8c4ed83a16"/>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_5})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_5}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" backcolor="#666666" uuid="2fc0ae17-3000-4ad9-b9ff-ac8c4ed83a16"/>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_6})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_6}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="802" height="50" uuid="6207b5eb-00b2-4de1-b256-642183d8f8d6"/>
+				<subreportParameter name="demandNoteAmount">
+					<subreportParameterExpression><![CDATA[$P{demandNoteAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportTitle">
+					<subreportParameterExpression><![CDATA[$P{reportTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORTDS_1">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORTDS_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="cancelledAmount">
+					<subreportParameterExpression><![CDATA[$P{cancelledAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORTDS_2">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORTDS_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORTDS_3">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORTDS_3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="noOfRecords">
+					<subreportParameterExpression><![CDATA[$P{noOfRecords}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORTDS_4">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORTDS_4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportId">
+					<subreportParameterExpression><![CDATA[$P{reportId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportSubTitle">
+					<subreportParameterExpression><![CDATA[$P{reportSubTitle}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundAmount">
+					<subreportParameterExpression><![CDATA[$P{refundAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_3">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_4">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="userId">
+					<subreportParameterExpression><![CDATA[$P{userId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteRetrieved">
+					<subreportParameterExpression><![CDATA[$P{demandNoteRetrieved}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_1">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportDate">
+					<subreportParameterExpression><![CDATA[$P{reportDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="SUBREPORT_2">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="demandNoteCase">
+					<subreportParameterExpression><![CDATA[$P{demandNoteCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="receivedAmount">
+					<subreportParameterExpression><![CDATA[$P{receivedAmount}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="refundedCase">
+					<subreportParameterExpression><![CDATA[$P{refundedCase}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{SUBREPORTDS_4})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_4}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="32" width="802" height="28" uuid="565c6695-2617-4431-a624-2cbd26ff5a83"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---- End Of Report ----]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

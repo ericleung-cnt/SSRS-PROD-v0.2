@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Summary_of_Registration_of_Hong_Kong_Seafarer_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="5" uuid="50f60914-87ec-4f13-b118-0307bc8fd25b">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="0.7513148009015835"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="reportId" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="part" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="department" class="java.lang.String"/>
+	<field name="rank" class="java.lang.String"/>
+	<field name="age20" class="java.lang.Long"/>
+	<field name="age2125" class="java.lang.Long"/>
+	<field name="age2630" class="java.lang.Long"/>
+	<field name="age3135" class="java.lang.Long"/>
+	<field name="age3640" class="java.lang.Long"/>
+	<field name="age4145" class="java.lang.Long"/>
+	<field name="age4650" class="java.lang.Long"/>
+	<field name="age5155" class="java.lang.Long"/>
+	<field name="age5660" class="java.lang.Long"/>
+	<field name="age61" class="java.lang.Long"/>
+	<field name="rankTotal" class="java.lang.Long"/>
+	<variable name="age20sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age20}]]></variableExpression>
+	</variable>
+	<variable name="age2125sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age2125}]]></variableExpression>
+	</variable>
+	<variable name="age2630sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age2630}]]></variableExpression>
+	</variable>
+	<variable name="age3135sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age3135}]]></variableExpression>
+	</variable>
+	<variable name="age3640sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age3640}]]></variableExpression>
+	</variable>
+	<variable name="age4145sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age4145}]]></variableExpression>
+	</variable>
+	<variable name="age4650sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age4650}]]></variableExpression>
+	</variable>
+	<variable name="age5155sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age5155}]]></variableExpression>
+	</variable>
+	<variable name="age5660sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age5660}]]></variableExpression>
+	</variable>
+	<variable name="age61sub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{age61}]]></variableExpression>
+	</variable>
+	<variable name="rankSub" class="java.lang.Long" resetType="Group" resetGroup="GP_SUBTOTAL" calculation="Sum">
+		<variableExpression><![CDATA[$F{rankTotal}]]></variableExpression>
+	</variable>
+	<variable name="age20total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age20}]]></variableExpression>
+	</variable>
+	<variable name="age2125total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age2125}]]></variableExpression>
+	</variable>
+	<variable name="age2630total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age2630}]]></variableExpression>
+	</variable>
+	<variable name="age3135total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age3135}]]></variableExpression>
+	</variable>
+	<variable name="age3640total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age3640}]]></variableExpression>
+	</variable>
+	<variable name="age4145total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age4145}]]></variableExpression>
+	</variable>
+	<variable name="age4650total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age4650}]]></variableExpression>
+	</variable>
+	<variable name="age5155total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age5155}]]></variableExpression>
+	</variable>
+	<variable name="age5660total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age5660}]]></variableExpression>
+	</variable>
+	<variable name="age61total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{age61}]]></variableExpression>
+	</variable>
+	<variable name="total" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{rankTotal}]]></variableExpression>
+	</variable>
+	<group name="GP_SUBTOTAL">
+		<groupExpression><![CDATA[$F{department}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<staticText>
+					<reportElement x="340" y="0" width="54" height="20" uuid="ade62c55-ab40-4105-921f-dbb2638cfe17"/>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Sub-total]]></text>
+				</staticText>
+				<line>
+					<reportElement x="2" y="20" width="796" height="1" uuid="3454d0b2-b075-48dc-ac51-4fc0f8c6c769"/>
+				</line>
+				<line>
+					<reportElement x="401" y="0" width="1" height="21" uuid="0b6d5a57-b615-4961-b1cc-e99c986a0f81"/>
+				</line>
+				<line>
+					<reportElement x="441" y="0" width="1" height="21" uuid="4fd572e0-4986-4452-bcff-5e682782d0e0"/>
+				</line>
+				<line>
+					<reportElement x="477" y="0" width="1" height="21" uuid="6de55cc2-84cf-4da8-83d4-696a43fba6a5"/>
+				</line>
+				<line>
+					<reportElement x="513" y="0" width="1" height="21" uuid="2c018f0c-ba10-479c-9b8f-77b26ae7210a"/>
+				</line>
+				<line>
+					<reportElement x="545" y="0" width="1" height="21" uuid="bb3c3674-8a18-4b34-8b61-6156b6f93859"/>
+				</line>
+				<line>
+					<reportElement x="580" y="0" width="1" height="21" uuid="12a52daa-8aa8-4dfa-9ab0-4d5cf66c6d39"/>
+				</line>
+				<line>
+					<reportElement x="612" y="0" width="1" height="21" uuid="481eb188-c0ea-4a0b-95f0-df9095bfa585"/>
+				</line>
+				<line>
+					<reportElement x="644" y="0" width="1" height="21" uuid="3c885770-8e07-4256-9f90-401f5bb96138"/>
+				</line>
+				<line>
+					<reportElement x="675" y="0" width="1" height="21" uuid="9f934650-43d3-464e-a31a-0c4cfb7411ee"/>
+				</line>
+				<line>
+					<reportElement x="709" y="0" width="1" height="21" uuid="4f974dc7-8b76-40cc-a2e8-97d89e5e3afc"/>
+				</line>
+				<line>
+					<reportElement x="747" y="0" width="1" height="21" uuid="be9d26be-7b2f-44cb-8209-0e6c50fd7f9f"/>
+				</line>
+				<line>
+					<reportElement x="797" y="0" width="1" height="21" uuid="7a0ac3d2-2cf8-4628-b072-d8ac12fbdedc"/>
+				</line>
+				<line>
+					<reportElement x="2" y="0" width="1" height="21" uuid="7efac6fc-17d4-4f5c-9bc7-30fb9f97049e"/>
+				</line>
+				<line>
+					<reportElement x="180" y="0" width="1" height="21" uuid="6614a7d5-3bcd-47b3-9d43-c8c9374d8d7c"/>
+				</line>
+				<textField>
+					<reportElement x="401" y="0" width="40" height="20" uuid="08dc2cfb-5f5c-42f4-884b-237df54989d7"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age20sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="441" y="0" width="36" height="20" uuid="76141469-2709-4f25-aa94-e08b74690d8f"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age2125sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="477" y="0" width="36" height="20" uuid="ed26a451-2e83-48cc-8f44-dae602649f35"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age2630sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="513" y="0" width="32" height="20" uuid="5fc43196-ef9b-4639-ae16-58743b359ba8"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age3135sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="545" y="0" width="35" height="20" uuid="a6ec4497-dda6-490b-92e3-8156c51528e2"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age3640sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="580" y="0" width="32" height="20" uuid="d88f2364-c09e-45d5-8191-5356a23b54f3"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age4145sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="612" y="0" width="32" height="20" uuid="9d807e0e-f1d4-4e6f-ab50-b98943d09a62"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age4650sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="644" y="0" width="31" height="20" uuid="4783ae7a-81ca-4621-881c-3a609225e50d"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age5155sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="675" y="0" width="34" height="20" uuid="6d5ee24b-972d-41d8-b3e8-83a9192107fd"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age5660sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="709" y="0" width="38" height="20" uuid="41858a1f-042e-4bb7-9eea-e51433b46833"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{age61sub}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="747" y="0" width="50" height="20" uuid="1a846366-6636-4c15-9f20-16c9d5cf4cec"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$V{rankSub}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="802" height="22" uuid="d48e7950-051c-4aca-8123-568223da65be"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="35" width="802" height="22" uuid="ebba2e59-656e-45c1-be48-109add332d69"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Summary of Registration of HK Registered Seafarer - Data as at "+$P{reportDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="64" width="802" height="22" uuid="507c193a-8013-4e0c-9b38-7b84f95bb0ef"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Breakdown of Registration of Seafarer (Part "+$P{part}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="704" y="9" width="98" height="24" uuid="2ddaf53a-06af-41d4-8716-9ae42cf295d8"/>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="671" y="32" width="100" height="20" uuid="aa2c13ad-93c9-49f6-ab2b-25667ee74882"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="771" y="32" width="31" height="20" uuid="4492b059-3281-4b01-b0d1-c2a7f9c279a0"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="32" width="100" height="20" uuid="0a12c3de-52eb-4bf0-b314-1d4dbf75951f"/>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="9" width="100" height="20" uuid="055a3650-8361-48cd-9257-4da57d26ecfb"/>
+				<textFieldExpression><![CDATA[$P{reportId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="36" width="77" height="18" uuid="d7624f9c-4c06-45e1-ab60-806fddc41c9f"/>
+				<text><![CDATA[Department]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="37" width="77" height="18" uuid="51d7455b-6f8e-4580-9880-1820cfbd9247"/>
+				<text><![CDATA[Rank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="409" y="27" width="30" height="31" uuid="bc99cb1e-e83f-4c2d-b448-8ea1e6903bf2"/>
+				<text><![CDATA[20 & below]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="451" y="27" width="23" height="31" uuid="2546215d-02d0-4ee5-9853-108c2d195e0c"/>
+				<text><![CDATA[21 - 25]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="518" y="27" width="24" height="31" uuid="61a71e95-fb8c-4144-944a-2b71ee3952af"/>
+				<text><![CDATA[31 - 35]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="583" y="27" width="28" height="31" uuid="847ee1b3-10f6-4c13-97c2-6d0d6851a0db"/>
+				<text><![CDATA[41 - 45]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="647" y="27" width="25" height="31" uuid="41028125-221d-487b-8646-24febf8c6d00"/>
+				<text><![CDATA[51 - 55]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="713" y="27" width="32" height="31" uuid="da4f9751-1bf1-4ce0-8eff-c1f203d98ffa"/>
+				<text><![CDATA[61 & above]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="756" y="27" width="40" height="31" uuid="ac1a9775-f5e8-4079-9c42-d461c5ddc52d"/>
+				<text><![CDATA[Rank Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="541" y="3" width="120" height="18" uuid="b49c137c-ccdd-4755-88b4-b6593e179770"/>
+				<text><![CDATA[No. of Seafarers by Age]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="486" y="27" width="23" height="31" uuid="23e5edf7-4c41-4c96-b555-6faaebb8aada"/>
+				<text><![CDATA[26 - 30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="551" y="27" width="24" height="31" uuid="393bcfb7-3285-4329-9f0f-33b7649facad"/>
+				<text><![CDATA[36 - 40]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="618" y="27" width="22" height="31" uuid="7d5d9b15-bf1f-4f95-a4fc-56884bea2d7c"/>
+				<text><![CDATA[46 - 50]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="679" y="27" width="28" height="31" uuid="75159274-808a-457f-b8ae-9761c964c731"/>
+				<text><![CDATA[56 - 60]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="3" width="796" height="1" uuid="186b4b3d-c57c-464f-8b00-9dd8072fc458"/>
+			</line>
+			<line>
+				<reportElement x="2" y="60" width="796" height="1" uuid="ef6a3163-75f2-40ff-bca9-60171d286b13"/>
+			</line>
+			<line>
+				<reportElement x="797" y="4" width="1" height="56" uuid="0d7860d4-ff8f-418c-95d5-e17d8f4b489e"/>
+			</line>
+			<line>
+				<reportElement x="2" y="4" width="1" height="56" uuid="fb876e88-6f9b-425b-b4a5-71127f2d2877"/>
+			</line>
+			<line>
+				<reportElement x="180" y="4" width="1" height="56" uuid="96fac444-73ca-49be-aeff-48ae4157f15a"/>
+			</line>
+			<line>
+				<reportElement x="401" y="4" width="1" height="56" uuid="cc5da86b-baef-405b-9c96-eb8163569bc4"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<line>
+				<reportElement x="180" y="0" width="1" height="21" uuid="1decb62d-b12c-4904-9ef3-fb940d8df1e6"/>
+			</line>
+			<line>
+				<reportElement x="2" y="0" width="1" height="21" uuid="66ec68c5-0a40-4756-9c12-97afbf30cd96"/>
+			</line>
+			<line>
+				<reportElement x="797" y="0" width="1" height="21" uuid="6f22e927-14c6-472a-b6dc-58856c43cdf2"/>
+			</line>
+			<line>
+				<reportElement x="180" y="20" width="618" height="1" uuid="9ad32242-16b4-4ce6-a9e2-be0c6682e999"/>
+			</line>
+			<textField>
+				<reportElement x="190" y="0" width="210" height="20" uuid="a36a4f37-b0be-4aad-ae5b-3e2222c93785"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{rank}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="401" y="0" width="1" height="21" uuid="3b756ff7-fac1-4f32-b4a5-6d84ab7c39dd"/>
+			</line>
+			<line>
+				<reportElement x="441" y="0" width="1" height="21" uuid="60c4288d-59dc-4277-a6a0-6f3a47deb1c5"/>
+			</line>
+			<line>
+				<reportElement x="477" y="0" width="1" height="21" uuid="06612aa9-e04d-40a5-a03e-2191f3dd6a05"/>
+			</line>
+			<line>
+				<reportElement x="513" y="0" width="1" height="21" uuid="0d61c128-d1e1-4ab9-9617-ace8cd02cfbe"/>
+			</line>
+			<line>
+				<reportElement x="545" y="0" width="1" height="21" uuid="2fe5aa1d-396a-4f4b-bd12-bc1c5480da7a"/>
+			</line>
+			<line>
+				<reportElement x="580" y="0" width="1" height="21" uuid="aec1ff7c-8ca6-4066-8c0d-0791aaea48a7"/>
+			</line>
+			<line>
+				<reportElement x="612" y="0" width="1" height="21" uuid="d01ddfd2-a465-4bba-aacf-c843ee63b551"/>
+			</line>
+			<line>
+				<reportElement x="644" y="0" width="1" height="21" uuid="893a63de-d0a2-4529-9546-cc004c5e7a4f"/>
+			</line>
+			<line>
+				<reportElement x="675" y="0" width="1" height="21" uuid="b50f07cb-cfef-4bc9-94e5-29ac93c286e3"/>
+			</line>
+			<line>
+				<reportElement x="709" y="0" width="1" height="21" uuid="7284d11d-0c02-4f87-9b22-3744fb6ef6f3"/>
+			</line>
+			<line>
+				<reportElement x="747" y="0" width="1" height="21" uuid="607dcea4-2df7-4287-a491-ef55d24b1094"/>
+			</line>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="10" y="0" width="170" height="20" uuid="85600e82-7385-4c11-9de0-57ac5e10f41c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="40" height="20" uuid="f4984d3b-92f5-4f5b-81dd-bd9aff8f26a3"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age20}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="36" height="20" uuid="e661c462-3e5e-4046-a9d6-f3e83f135679"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age2125}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="36" height="20" uuid="f7fefe0f-a561-4e4e-b17c-b7037cc905d5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age2630}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="32" height="20" uuid="8dfea52b-cb30-417a-aa02-3cfb66f29f7d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age3135}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="545" y="0" width="35" height="20" uuid="dfc22bbc-a4c3-443f-9d19-95dbd39dedae"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age3640}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="0" width="32" height="20" uuid="5cfc64bb-abc6-4c65-bda7-22f8f84754ec"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age4145}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="612" y="0" width="32" height="20" uuid="4fc35c69-b77b-42cd-934d-8165bce77cf4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age4650}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="31" height="20" uuid="006b7409-2590-411b-9244-ea73a98d2a32"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age5155}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="675" y="0" width="34" height="20" uuid="1e07c944-4124-4808-be80-fce18675f2fe"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age5660}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="709" y="0" width="38" height="20" uuid="d5acd8e6-95c9-4ade-98dc-9993803d92cc"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{age61}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="747" y="0" width="50" height="20" uuid="19ea7e50-87c0-449b-be8d-b62c320fd1a8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{rankTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="67" splitType="Stretch">
+			<line>
+				<reportElement x="797" y="0" width="1" height="21" uuid="34c62425-8409-4516-95bd-a7bda0265c13"/>
+			</line>
+			<line>
+				<reportElement x="747" y="0" width="1" height="21" uuid="a703af30-4c8a-4047-8ff0-9b2fbd8d28f1"/>
+			</line>
+			<line>
+				<reportElement x="709" y="0" width="1" height="21" uuid="ad27b382-3b94-44e9-b857-ee98e0180938"/>
+			</line>
+			<line>
+				<reportElement x="675" y="0" width="1" height="21" uuid="3445c19b-d010-43bd-8f29-66b184f96e4e"/>
+			</line>
+			<line>
+				<reportElement x="644" y="0" width="1" height="21" uuid="c1ad6f5a-bfe5-4803-a9d4-453404f41813"/>
+			</line>
+			<line>
+				<reportElement x="612" y="0" width="1" height="21" uuid="58c79ae2-f0df-45ad-a4dd-e9e55ec12dd2"/>
+			</line>
+			<line>
+				<reportElement x="580" y="0" width="1" height="21" uuid="666926a2-89ac-41c2-aead-8b5b3f0911b5"/>
+			</line>
+			<line>
+				<reportElement x="545" y="0" width="1" height="21" uuid="5d0f7fe5-20a0-4c8a-b23a-eaa04e397c8e"/>
+			</line>
+			<line>
+				<reportElement x="513" y="0" width="1" height="21" uuid="de44b7c0-165d-42f1-b6ab-6d06c1f62739"/>
+			</line>
+			<line>
+				<reportElement x="477" y="0" width="1" height="21" uuid="597ef8b2-6d78-4bc2-bd58-2ffb42175799"/>
+			</line>
+			<line>
+				<reportElement x="441" y="0" width="1" height="21" uuid="5810e6d1-8e01-4163-91d6-c42170be556a"/>
+			</line>
+			<line>
+				<reportElement x="2" y="0" width="1" height="21" uuid="c0112fa2-b4d0-4b09-b3bd-81a71ba2de48"/>
+			</line>
+			<staticText>
+				<reportElement x="340" y="0" width="54" height="20" uuid="24717331-a1e3-4c30-9fed-0334073be299"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="401" y="0" width="1" height="21" uuid="9dfae3c5-83f6-4211-88d5-e7d628d92a55"/>
+			</line>
+			<line>
+				<reportElement x="2" y="20" width="796" height="1" uuid="7db61028-9c10-4bf4-a469-49bc4840b9a6"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="33" width="802" height="30" uuid="341af82c-09f4-4046-b549-972abc46b4a2"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---- End Of Report ----]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="401" y="0" width="40" height="20" uuid="7c37ea3d-cfc5-4fd7-a3ae-07ac44db39c5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age20total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="441" y="0" width="36" height="20" uuid="b139e368-9fe5-4b24-a1a4-067f3075217d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age2125total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="0" width="36" height="20" uuid="eb69f5e6-482e-41bc-9506-3a0af4f779b5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age2630total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="32" height="20" uuid="181985b9-9893-479c-a32b-bc273bcb3307"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age3135total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="545" y="0" width="35" height="20" uuid="292e3302-6f04-4a39-ae45-eadcd6b92635"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age3640total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="0" width="32" height="20" uuid="59ba15db-5f58-4e04-8fa9-0fe5565c730d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age4145total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="612" y="0" width="32" height="20" uuid="580f6b39-fb6f-485c-83df-e99162214a7b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age4650total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="644" y="0" width="31" height="20" uuid="a1f224c2-7933-48e4-8e51-fff2aee7661f"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age5155total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="675" y="0" width="34" height="20" uuid="f6a39537-ab87-402e-9374-16e1b3c35a18"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age5660total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="709" y="0" width="38" height="20" uuid="278a98a1-ad5d-4ebc-b337-2451d6f2d197"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{age61total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="747" y="0" width="50" height="20" uuid="f7dd4140-0dea-4906-b707-4fd8fd74f44c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

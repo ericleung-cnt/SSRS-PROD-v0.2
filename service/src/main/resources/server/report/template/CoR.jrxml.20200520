@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPT-SR-011" pageWidth="595" pageHeight="842" columnWidth="525" leftMargin="35" rightMargin="35" topMargin="20" bottomMargin="20" uuid="d065ac9f-8666-4053-a7d9-1d51d7dbb9fd">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="issueTime" class="java.lang.String"/>
+	<parameter name="issueTimeChi" class="java.lang.String"/>
+	<parameter name="registrar" class="java.lang.String"/>
+	<parameter name="printMortgage" class="java.lang.Boolean">
+		<defaultValueExpression><![CDATA[false]]></defaultValueExpression>
+	</parameter>
+	<parameter name="pInterestHeldEng" class="java.lang.String"/>
+	<parameter name="pInterestHeldChi" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="shipName" class="java.lang.String"/>
+	<field name="imoNo" class="java.lang.String"/>
+	<field name="portOfReg" class="java.lang.String"/>
+	<field name="portOfRegChi" class="java.lang.String"/>
+	<field name="callSign" class="java.lang.String"/>
+	<field name="officialNo" class="java.lang.String"/>
+	<field name="materialOfHull" class="java.lang.String"/>
+	<field name="dateKeelLaid" class="java.lang.String"/>
+	<field name="builder" class="org.mardep.ssrs.domain.sr.BuilderMaker"/>
+	<field name="grossTonnage" class="java.lang.String"/>
+	<field name="netTonnage" class="java.lang.String"/>
+	<field name="mainEngineType" class="java.lang.String"/>
+	<field name="noOfSetsEngine" class="java.lang.String"/>
+	<field name="totalEnginePower" class="java.lang.String"/>
+	<field name="howPropelled" class="java.lang.String"/>
+	<field name="totalInterest" class="java.lang.String"/>
+	<field name="repName" class="java.lang.String"/>
+	<field name="repAddress" class="java.lang.String"/>
+	<field name="owners" class="java.util.List"/>
+	<field name="mortgages" class="java.util.List"/>
+	<field name="regMaster" class="org.mardep.ssrs.domain.sr.RegMaster"/>
+	<field name="demiseEDate" class="java.util.Date"/>
+	<field name="demiseDetails" class="java.lang.String"/>
+	<field name="demiseSDate" class="java.util.Date"/>
+	<field name="demisePlace" class="java.lang.String"/>
+	<field name="intTot" class="java.lang.String"/>
+	<field name="engineMakeAndModel" class="java.lang.String"/>
+	<field name="certIssueDate" class="java.lang.String"/>
+	<field name="applNoSuf" class="java.lang.String"/>
+	<variable name="dmy" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("dd-MMM-yyyy", java.util.Locale.ENGLISH)]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="ddMMyyyy" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.ENGLISH)]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="cYMD" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new  java.text.SimpleDateFormat("yyyy 年 M 月 d 日")]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="dMMMMy" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("d MMMM, y", java.util.Locale.ENGLISH)]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<variable name="dd-MMM-yyyy" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("dd-MMM-yyyy", java.util.Locale.ENGLISH)]]></variableExpression>
+	</variable>
+	<variable name="formatReportDate" class="java.lang.String">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("dd MMMM, yyyy", java.util.Locale.ENGLISH).format($V{ddMMyyyy}.parse($F{certIssueDate}))]]></variableExpression>
+	</variable>
+	<variable name="EnglishDate" class="java.text.DateFormat">
+		<variableExpression><![CDATA[new
+org.mardep.ssrs.report.EnglishReportDateFormat()]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<detail>
+		<band height="737" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="144" width="100" height="16" uuid="3825e11a-c7e3-4856-a5ae-19df37c3a3da"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name of Ship]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="155" width="100" height="16" uuid="b61c3775-78d7-476f-b696-7578d2d682f0"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[船  名]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="144" width="149" height="16" uuid="142190c1-95aa-433d-bc2e-0ed81ba0d962"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="155" width="100" height="16" uuid="fecc5d2f-6941-44d6-8a59-289094f6f727"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[國際海事組織編號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="144" width="100" height="16" uuid="450e8e35-53d4-48d3-a195-b3d7fb5ec86b"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[IMO Number]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="144" width="137" height="31" uuid="8741bc1c-6306-4632-9c23-c373382fc5e8"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{imoNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="177" width="100" height="16" uuid="88037a51-0eda-4746-9585-be800e83f183"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Call Sign]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="188" width="100" height="16" uuid="b2a35d22-3dab-448d-81c3-db5093a172d9"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[註  冊  港]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="177" width="100" height="16" uuid="df4cfa6d-f97b-4776-a6f4-a7a78c7f765a"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Port of Registry]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="188" width="100" height="16" uuid="4d62182a-b571-41e7-92a1-dc321fb98773"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[呼  號]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="177" width="137" height="31" uuid="e2c3d6c0-1426-414a-b641-bee985daabd6"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{callSign}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="219" width="100" height="16" uuid="2059eaf6-5887-4e65-b05a-abe8a61e8ade"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[註冊編號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="219" width="100" height="16" uuid="305811b0-a17b-4c9c-b224-ecb8433cc8d3"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[註冊日期]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="208" width="149" height="31" uuid="def0c30a-62b7-4fb3-bb40-1c6f393f338b"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officialNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="208" width="100" height="16" uuid="38925a4a-b33b-455a-bf56-4b755cdeab10"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Official Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="208" width="100" height="16" uuid="79f28b04-4516-40f1-a217-edbcbaab1abb"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date of Registry]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="385" width="137" height="31" uuid="1bd3d360-7bad-42e0-adf4-6f81135b0bd7"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{materialOfHull}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="385" width="100" height="16" uuid="af11edb3-8ca5-4b72-bac1-106d422784e4"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Material of Hull]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="252" width="100" height="16" uuid="b31e98d6-89e5-4418-afa6-b40fa3a876be"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[船舶類型]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="396" width="100" height="16" uuid="5c036a97-5171-4b49-8438-6f84022ceaf0"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[船體材料]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="241" width="149" height="31" uuid="d88c9d2d-0374-4961-b39b-2eec8a7a6246"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getSurveyShipType() == null ?
+"-" : $F{regMaster}.getSurveyShipType()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="241" width="100" height="16" uuid="ba56285a-cf8d-4c08-9c8e-1e8a3f02da29"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Type of Ship]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="287" width="100" height="16" uuid="6cb829f8-0cbb-4580-9e2b-41bee0232024"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[龍骨安放日期]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="276" width="100" height="16" uuid="53ff82af-e879-4e0f-a0ce-e0eb14c08d2a"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date Keel Laid]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="276" width="149" height="31" uuid="82a1f6fa-4a46-4905-b1f0-6bcb0f7cec44"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateKeelLaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="316" width="172" height="16" uuid="b387204a-aaf2-44eb-b6ee-30b0a9020f5e"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name and Address of Builder]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="327" width="135" height="16" uuid="f3f52dad-40e1-4e00-80b5-16b4a8f32a8a"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[造船廠名稱､ 地址]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="161" y="327" width="339" height="30" uuid="2cd1597b-56fc-405f-98f2-3260f6041f28"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{builder} == null ? "-" :
+				(($F{builder}.getAddress1() != null ? $F{builder}.getAddress1() :"") +
+				($F{builder}.getAddress2() != null ? " " + $F{builder}.getAddress2() : "") +
+				($F{builder}.getAddress3() != null ? " " + $F{builder}.getAddress3() : "")
+				 )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="161" y="316" width="339" height="16" uuid="de8b4d3f-0eb1-4c9b-9dce-b61bd1b7e3a7"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{builder} == null || $F{builder}.getName() == null ? "-" : $F{builder}.getName())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="354" width="100" height="16" uuid="9f2a2b10-fbc6-45a1-8a02-6cdab0c47cde"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Breadth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="365" width="100" height="16" uuid="50f46434-41db-4f1b-bf4a-c8954bb6dfeb"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[寬  度]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="365" width="100" height="16" uuid="cd20b863-8520-4a39-a2c8-b7013219288d"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[長  度]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="354" width="100" height="16" uuid="957a4b76-289d-4758-ae77-8fdd375be6b6"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Length]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="354" width="149" height="31" uuid="b3bab8f6-6b28-4fe2-94f6-e8800d5b46bb"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getLength() == null ?
+"-" :
+(
+new java.text.DecimalFormat("#,###.000").format(
+$F{regMaster}.getLength()) +
+(
+$F{regMaster}.getDimUnit() == null ? "":
+$F{regMaster}.getDimUnit().equals("F") ? " feet":
+$F{regMaster}.getDimUnit().equals("M") ? " metres":
+$F{regMaster}.getDimUnit().equals("B") ? " metres": ""
+)
+)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="354" width="137" height="31" uuid="7f97817b-811c-4750-b7c6-df3b8e0532ad"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getBreadth() == null ?
+"-" :
+(
+new java.text.DecimalFormat("#,###.000").format(
+$F{regMaster}.getBreadth()) +
+(
+$F{regMaster}.getDimUnit() == null ? "":
+$F{regMaster}.getDimUnit().equals("F") ? " feet":
+$F{regMaster}.getDimUnit().equals("M") ? " metres":
+$F{regMaster}.getDimUnit().equals("B") ? " metres": ""
+)
+)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="396" width="100" height="16" uuid="83508dd4-48b6-428f-86de-380d1d2d99f9"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[型  深]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="385" width="100" height="16" uuid="b8b5815f-bba1-4222-aa34-f5b5a4046b26"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Moulded Depth]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="385" width="149" height="31" uuid="04e45a9e-b4eb-445e-b24b-8b81c64f85d8"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getDepth() == null ?
+"-" :
+(
+new java.text.DecimalFormat("#,###.000").format(
+$F{regMaster}.getDepth()) +
+(
+$F{regMaster}.getDimUnit() == null ? "":
+$F{regMaster}.getDimUnit().equals("F") ? " feet":
+$F{regMaster}.getDimUnit().equals("M") ? " metres":
+$F{regMaster}.getDimUnit().equals("B") ? " metres": ""
+)
+)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="428" width="100" height="16" uuid="1626b9bf-1e5e-4730-80e0-e0cc292a0db6"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[總噸位]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="417" width="137" height="31" uuid="baccb4bb-5a31-4cdc-83f2-05f719cbd31c"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netTonnage}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="428" width="100" height="16" uuid="29a9aa51-43ec-415c-ab49-7f32f531a081"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[淨噸位]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="417" width="100" height="16" uuid="479ab4b0-af38-486b-b243-e551a9082b45"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gross Tonnage]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="417" width="149" height="31" uuid="9bd12070-02d5-4e5b-ac08-76567a1f7fb0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grossTonnage}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="417" width="100" height="16" uuid="0d5896cf-ea1a-4065-be37-2fbe8a6c9974"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Net Tonnage]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="463" width="100" height="16" uuid="2c35fd71-aad9-42ad-a71a-7659a239abb6"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[主機種類]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="452" width="149" height="31" uuid="28a43f18-ca3e-42b1-a324-96afc34bc1d9"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mainEngineType}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="452" width="150" height="47" uuid="42b59a4b-a5f1-403f-83a4-853e5efc6bee"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{engineMakeAndModel}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="452" width="100" height="16" uuid="465dd9b7-49de-4031-9f45-e104168e7177"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Main Engine Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="452" width="126" height="16" uuid="8b4e3b17-2c24-4b13-8709-059d2b5e90fb"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Engine Make and Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="463" width="126" height="16" uuid="3c849cb7-cb7e-4d66-933f-608317937859"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[主機名稱､ 型號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="499" width="100" height="16" uuid="cbf14e81-9ee7-45bc-a222-7de6cc531266"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[主機台數]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="488" width="149" height="31" uuid="cba23de3-4dad-4ea4-bd23-4547cb027c72"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noOfSetsEngine} != null ? $F{noOfSetsEngine} : "-"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="488" width="137" height="31" uuid="f1a6bee1-48a9-4fb6-b9bb-c7db2d65db3f"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalEnginePower}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="488" width="100" height="16" uuid="c383ed95-cad7-454e-bc47-5477550df1e4"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No. of Sets of Engine]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="488" width="100" height="16" uuid="18a7a168-6787-443c-9985-d545bff0f956"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Engine Power]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="499" width="100" height="16" uuid="fc29d679-2d47-4e42-9006-0475eb22ec76"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[主機總功率]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="526" width="100" height="16" uuid="a4dcdf98-fc4e-43c2-8224-49c1336feb57"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[How Propelled]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="537" width="100" height="16" uuid="edcb8758-0896-4995-b9e5-9f74120702e2"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[推進裝置]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="526" width="100" height="16" uuid="aa3bbe45-b8d3-42dc-8625-7c070c4f8576"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[No. of Shafts]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="526" width="137" height="27" uuid="7e6559a6-f255-453e-a76d-6b711cb0a6e0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getNoOfShafts() != null ?
+String.valueOf($F{regMaster}.getNoOfShafts()) :
+"0"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="526" width="149" height="27" uuid="12224d35-3c63-4fb5-8ded-06f059a1885a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{howPropelled}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="537" width="100" height="16" uuid="43aaaf89-34e3-4067-bc11-f4f1ea716939"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[軸　 數]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-1" y="551" width="525" height="1" uuid="9dfed56f-ab61-4935-baee-2451c22c7ae8"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<break>
+				<reportElement x="0" y="735" width="289" height="1" uuid="1c9c3adf-f861-473a-8150-b17838676c33"/>
+			</break>
+			<staticText>
+				<reportElement x="5" y="119" width="135" height="18" uuid="b62a1253-7fc8-42c4-a375-ad2c895b233a"/>
+				<textElement verticalAlignment="Top">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[PARTICULARS OF SHIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="120" width="125" height="18" uuid="f2792cde-2d42-452e-9a38-c80284bc8e2c"/>
+				<textElement verticalAlignment="Top">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[船  舶  資  料]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="135" width="525" height="1" uuid="5b943d1f-1309-4e3c-a6bd-f959e5ac5ca4"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="241" width="137" height="31" uuid="15e54c19-d7ca-4495-bc37-c9f18e76f04f"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(!"P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvRegDate() != null &&
+$F{regMaster}.getRegDate() != null )
+?
+$V{dmy}.format($F{regMaster}.getProvRegDate()).toUpperCase() : ($F{regMaster}.getRegDate() == null ? "-" : $V{dmy}.format($F{regMaster}.getRegDate()).toUpperCase())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="552" width="519" height="16" uuid="c4711079-4d5c-44f7-ad09-81edf9abf95e"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["This Certificate was issued on " +
+$V{formatReportDate}  +
+" under the provisions of the Merchant Shipping (Registration) Ordinance."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="563" width="519" height="16" uuid="f3a350f1-66a1-45da-8e34-44ef0ffe5e85"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["本證明書在 "+$V{cYMD}.format($V{ddMMyyyy}.parse($F{certIssueDate})) + " 按商船(註冊)條例簽發。"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="695" width="274" height="20" uuid="9045604b-085c-4342-9612-b8eb171a8faa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{registrar} == null ? "": $P{registrar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="251" y="715" width="274" height="20" uuid="cfe885b2-25ef-42f3-942e-3297d493d3f5"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Registrar of Ships　船舶註冊官]]></text>
+			</staticText>
+			<line>
+				<reportElement x="251" y="714" width="274" height="1" uuid="3d182040-2858-4f33-9d9b-21baa5b1b1de"/>
+			</line>
+			<textField>
+				<reportElement x="5" y="574" width="519" height="16" uuid="fbe230e8-b025-45db-a894-d7f43f894ab9"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvExpDate() != null ?
+"This Certificate expires on " +
+new java.text.SimpleDateFormat("dd MMMM, yyyy", java.util.Locale.ENGLISH).format($F{regMaster}.getProvExpDate()) +
+", or on the ship's full registration, whichever happens first." :
+$F{demiseEDate} != null ?
+"This Certificate expires on the termination of the Demise Charterparty on " +
+new java.text.SimpleDateFormat("dd MMMM, yyyy", java.util.Locale.ENGLISH).format($F{demiseEDate}) +
+".":
+""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="585" width="519" height="16" uuid="cb4f8928-423a-4c70-b6a1-4c9aa8531052"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvExpDate() != null ?
+"本證明書的有效期至" +
+$V{cYMD}.format($F{regMaster}.getProvExpDate()) +
+",或直至本船正式註冊為止,視乎何者較早而定。" :
+$F{demiseEDate} != null ?
+"本證明書的有效期以轉管租約屆滿日期為限，即 " +
+$V{cYMD}.format($F{demiseEDate}) +
+"。":
+""]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="108" y="155" width="149" height="16" uuid="1c99b954-d6e4-427f-a40b-3a471d962052"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getRegChiName() != null ?
+$F{regMaster}.getRegChiName() :
+""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="108" y="177" width="68" height="16" uuid="65bfb001-65aa-4173-8019-c32096521c34"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[HONG KONG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="188" width="50" height="16" uuid="6cc64d07-e3f6-4ad2-b49b-74d3afba5534"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[香 港]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="276" width="100" height="16" uuid="98379917-21b6-4ada-82f9-4c91175d4209">
+					<printWhenExpression><![CDATA[!"P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvRegDate() != null &&
+$F{regMaster}.getRegDate() != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Registration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="287" width="100" height="16" uuid="dda501c6-4308-4deb-94f6-364c96e54f86">
+					<printWhenExpression><![CDATA[!"P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvRegDate() != null &&
+$F{regMaster}.getRegDate() != null]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[註冊]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="388" y="276" width="137" height="31" uuid="78f8b103-2e88-4bcf-9ae7-e7ceb569b811">
+					<printWhenExpression><![CDATA[!"P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvRegDate() != null &&
+$F{regMaster}.getRegDate() != null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regMaster}.getRegDate() == null ? "-" : $V{dmy}.format(
+$F{regMaster}.getRegDate()
+).toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="241" width="100" height="16" uuid="f00f39f6-e5dc-4247-abf9-1a998f80353d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(!"P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvRegDate() != null &&
+$F{regMaster}.getRegDate() != null ) || ("P".equals($F{regMaster}.getApplNoSuf()))
+? "Provisional Registration":"Registration"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="252" width="100" height="16" uuid="f1e2a844-766c-4cb2-9525-a44316df9c55"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[(!"P".equals($F{regMaster}.getApplNoSuf()) &&
+$F{regMaster}.getProvRegDate() != null &&
+$F{regMaster}.getRegDate() != null ) || ("P".equals($F{regMaster}.getApplNoSuf()))
+? "臨時註冊":"註冊"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="212">
+			<staticText>
+				<reportElement x="321" y="67" width="200" height="20" uuid="d4d642bf-722c-4098-a9ad-353c6a0001d9"/>
+				<textElement verticalAlignment="Top">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[船東 / 代表人資料]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="65" width="318" height="25" uuid="50d1a1ba-6eb8-48be-bf43-2ce7f1478c8f"/>
+				<textElement verticalAlignment="Top">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PARTICULARS OF OWNER(S) / REPRESENTATIVE PERSON]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="86" width="525" height="1" uuid="ca43ac31-0fa8-47b3-affe-15618551675c"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="5" y="90" width="170" height="20" uuid="0295d884-20e8-4ff1-8ed6-9ca755984178"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Interest in the Ship]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="149" y="91" width="78" height="15" uuid="edf6ea34-ef9d-4389-bbc0-fd04e8e8652d"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[船舶權益總額 :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="377" y="92" width="85" height="15" uuid="5577dd28-c9c3-488c-a116-e84873039ee6"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{regMaster}.getIntTot() != null ? $F{regMaster}.getIntTot() : "0") +
+("S".equals($F{regMaster}.getIntUnit()) ? " Shares" :
+"%".equals($F{regMaster}.getIntUnit()) ? " Percentage" :
+"P".equals($F{regMaster}.getIntUnit()) ? " Parts" :
+"R".equals($F{regMaster}.getIntUnit()) ? " Fraction" :
+"")]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="107" width="525" height="1" uuid="ad3959c7-7f9e-4c35-b987-385ffe2f1e77"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="111" width="525" height="20" uuid="605b3529-3e2a-493b-8f0c-b31313defed8"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name of Representative Person and Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="123" width="525" height="20" uuid="5e180050-f134-4f94-a4d9-f0b90f9421c0"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[代表人姓名 / 名稱及地址]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="142" width="525" height="1" uuid="03595264-b598-46fd-840b-0ec972ecf274"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="146" width="481" height="18" uuid="12c2947d-fb00-440c-91d1-99764f376b24"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{repName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="160" width="481" height="45" uuid="906bb212-5468-4bf9-8f13-eebad6ce0b88"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{repAddress}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="208" width="525" height="1" uuid="d041ed58-36e9-4465-9bdd-d34448f053e3"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-1" y="59" width="525" height="1" uuid="d307302a-54fe-4842-b706-9eea1ed7f75f"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="396a3162-52b3-47d1-9a40-57e8ea4ac032"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="222" y="90" width="100" height="16" uuid="5ca0df66-27d4-486b-8d6c-5e5f2f7ab0d0"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{intTot}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="525" height="39" uuid="2e2a912b-4da4-4ab9-a776-2cc5de14cab9"/>
+				<subreportParameter name="pInterestHeldEng">
+					<subreportParameterExpression><![CDATA[$P{pInterestHeldEng}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="pInterestHeldChi">
+					<subreportParameterExpression><![CDATA[$P{pInterestHeldChi}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRMapCollectionDataSource($F{owners})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement positionType="Float" x="0" y="42" width="525" height="1" uuid="054a49f5-500e-452f-89bc-c06a10ae9a14">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="4">
+			<printWhenExpression><![CDATA[false]]></printWhenExpression>
+			<subreport>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="525" height="4" uuid="ca34582d-6d28-41b1-b3dd-e9e7d8b4c722"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRMapCollectionDataSource($F{mortgages})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="120">
+			<printWhenExpression><![CDATA[$F{demiseDetails} != null && !$F{demiseDetails}.trim().isEmpty()]]></printWhenExpression>
+			<line>
+				<reportElement x="0" y="33" width="525" height="1" uuid="03dffad8-0ef5-4d0c-bfe6-63223e3e5d2a"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="34" width="457" height="66" uuid="25bd9e92-5fe3-482d-b7f9-44dda056e258"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{demiseDetails}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="283" y="90" width="100" height="16" uuid="de4f25e7-c119-4915-afb7-7155d62c0fc9"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{demisePlace}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="102" width="338" height="16" uuid="4fd3c4e7-f0e1-4124-858e-3bdf5114aac4"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{demiseSDate} != null ? $V{dd-MMM-yyyy}.format($F{demiseSDate}) : "-") +
+" to " +
+($F{demiseEDate} != null ? $V{dd-MMM-yyyy}.format($F{demiseEDate}) : "-")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="2" width="525" height="20" uuid="eb46bd54-4726-4b6f-9adc-b68ae42730b3"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name, Address, and Description of Demise Charterer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="16" width="525" height="20" uuid="846c6bfa-d283-4845-a0af-d47d22fd17f2"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[轉管租約承租人姓名／名稱、地址等資料]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="90" width="191" height="16" uuid="4e9f54a2-d573-45f7-9120-e34c4e3ffdf5"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Place of Incorporation/Registration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="102" width="86" height="16" uuid="df6408cd-3fb6-4868-91b7-097631ce2b5a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Charter Period]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="85" y="102" width="65" height="16" uuid="6946f1ac-effc-4fb1-9562-adcd235eb4cd"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[租用期：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="90" width="135" height="16" uuid="8536bd98-5c66-44b7-9c3d-093932df539d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[公司成立 / 註冊地點：]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="117" width="525" height="1" uuid="6210cbac-96f5-4d4a-b996-6bd0226a82e2"/>
+			</line>
+		</band>
+		<band height="18">
+			<line>
+				<reportElement x="0" y="9" width="525" height="1" uuid="2fddd327-dc38-446a-b9c0-be354b2848ca"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="-4" width="526" height="14" uuid="11c252d1-2207-4663-af5b-e52ffdebb6bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[END]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="48" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="45" y="0" width="15" height="16" uuid="939e1c78-808f-4965-b6aa-cc024bdc89be"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="29" y="0" width="9" height="16" uuid="d0c3d28b-c761-402e-b402-2513e665a11b"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="29" height="16" uuid="c3b2272a-2e57-4af9-a680-718d5323eadb"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[PAGE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="0" width="7" height="16" uuid="f5290fd8-e293-486a-b336-ea1a1cd8789a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="15" height="16" uuid="61c598bf-efe9-47a5-b341-4a9e513e4740"/>
+				<textElement verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[第]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="0" width="7" height="16" uuid="43c7ed72-d6e6-45b8-99c3-181485161168"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="91" y="0" width="14" height="16" uuid="f0ca9e61-a62a-43cc-a9b7-c984255406b4"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="0" width="9" height="16" uuid="3f95ce77-0265-432b-b474-f01a0f1fa812"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="105" y="0" width="15" height="16" uuid="12284e11-a012-4049-842b-afb51f3b718b"/>
+				<textElement verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[頁]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="16" width="120" height="16" uuid="101a1717-18a9-477e-8742-1a76d3028c65"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Official Number "+$F{officialNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="32" width="269" height="16" uuid="f355dca6-dc56-43f6-a6d7-add4b639f648"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Track Code: " + ($F{regMaster}.getTrackCode() != null ? $F{regMaster}.getTrackCode() : "-")]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

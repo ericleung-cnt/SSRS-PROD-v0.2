@@ -1,0 +1,7 @@
+<DataSource ID="chiOffensiveWordDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="chiOffensiveWordDMI" />
+	<fields>
+		<field name="id" 		type="text" title="Code" 	primaryKey="true" length="30"/>
+		<field name="remark" 	type="text" title="Remark" 	length="30"/>
+	</fields>
+</DataSource>

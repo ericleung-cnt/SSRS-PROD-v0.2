@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_of_Employment_Situation_of_Hong_Kong_Registered_Seatarer_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="832" leftMargin="5" rightMargin="5" topMargin="10" bottomMargin="20" uuid="bc701297-d69a-4ab2-9ad0-b4bd71b76423">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.1000000000000045"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String" />
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="gtFrom" class="java.lang.String"/>
+	<field name="gtTo" class="java.lang.String"/>
+	<field name="noOfShips" class="java.lang.Integer"/>
+	<variable name="totalNoOfShips" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{noOfShips}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="91" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="25" width="100" height="24" uuid="e5269d3c-a488-4c2d-9122-eff2bd02975d"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="54" width="832" height="22" uuid="af82dfed-bc63-4262-a3dc-f3f14053107f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["AS AT " + $P{reportDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="683" y="0" width="149" height="24" uuid="ff732885-e8cd-4d67-adc0-873d0a946ef8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="683" y="23" width="118" height="20" uuid="4c81fc80-09e7-4875-9c41-ae54c7634708"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="801" y="23" width="31" height="20" uuid="a365c6b3-912f-4e70-8b70-0e8f0b8d962a"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="23" width="832" height="20" uuid="a90a7817-6f78-47d6-a29a-e0661e286302"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[香 港 註 冊 船 舶]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="37" width="832" height="16" uuid="18082472-55ef-4f35-aa4f-e94a92394b54"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS REGISTERED AT HONG KONG]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="-4" y="0" width="648" height="18" uuid="d13c51d4-7a93-400e-bc00-4a1ccf755e10"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Gross tonnage distribution 總 噸 位 分 配]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="652" y="0" width="158" height="18" uuid="b04ee5dd-f586-4a6b-ad03-aa8c88afe10e"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[No. of Ships  船 數]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="652" y="0" width="158" height="16" uuid="99b83d2a-1dd4-4f69-927e-7b67041f6c6b"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noOfShips}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="-4" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ Over ]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="50" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gtFrom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="100" y="0" width="100" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ tons but under ]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="200" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gtTo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="250" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ tons ]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="300" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gtFrom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="350" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ 噸以上]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="400" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gtTo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="450" y="0" width="50" height="16" uuid="f8839d1b-32ae-4da1-a645-40ebef39f02d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ 噸以下]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="69" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="652" y="7" width="158" height="16" uuid="30223751-98d7-4530-af4e-243daf62c842"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalNoOfShips}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="598" y="7" width="54" height="26" uuid="f67cfddb-483c-40c7-929f-be1c00e804a1"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

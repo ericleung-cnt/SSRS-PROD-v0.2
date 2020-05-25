@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   		http://www.springframework.org/schema/beans/spring-beans.xsd
+   		http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:component-scan base-package="org.mardep.ssrs.dao" />    
+    <context:component-scan base-package="org.mardep.ssrs.service" />
+    
+    <import resource="classpath:/server/service.xml" />
+    
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" 	value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url" 				value="jdbc:sqlserver://DTW10\SQLDEVELOPER2016:1433;databaseName=SSRS" />
+		<property name="username" value="ssrs_user"/>
+		<property name="password" value="Q1w2e3r4t5"/>
+<!-- 		<property name="url" 				value="jdbc:sqlserver://10.23.192.101:1433;databaseName=SSRSDB_DEV" /> -->
+<!-- 		<property name="username" 			value="SSRSDB_DevApp" /> -->
+<!-- 		<property name="password" 			value="password" /> -->
+	</bean>
+	
+</beans>

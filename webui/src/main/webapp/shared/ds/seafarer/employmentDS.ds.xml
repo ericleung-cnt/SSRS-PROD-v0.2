@@ -1,0 +1,10 @@
+<DataSource ID="employmentDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="employmentDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID"  	primaryKey="true"/>
+		<field name="seqNo" 		type="integer" 	title="Record No" 		primaryKey="true"/>
+		<field name="companyName" 	type="text" 	title="Company Name"	length="50"/>
+		<field name="listingDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Listing Date"/>
+		<field name="cancelDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Cancel Date"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,10 @@
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   <SOAP-ENV:Body>
+       <m:retrieveVessel4TranscriptRequest xmlns:m="http://soapService.ebs.ssrs.mardep.org/">
+           <m:vesselName>DIS</m:vesselName>
+           <m:officialNo>HK-0001</m:officialNo>
+       </m:retrieveVessel4TranscriptRequest>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

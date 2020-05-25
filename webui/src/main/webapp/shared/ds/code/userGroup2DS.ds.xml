@@ -1,0 +1,11 @@
+<DataSource ID="userGroup2DS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="userGroup2DMI" />
+	<fields>
+		<field name="id" 		type="integer" 	title="ID" 				primaryKey="true"/>
+        <field name="userGroupCode" 	type="text" 	title="Group Code"  			length="30" 	required="true"/>
+		<field name="engDesc" 	type="text" 	title="English Description"  	length="100"	required="true"/>
+		<field name="chiDesc" 	type="text" 	title="Chinese Description"  	length="100"/>
+		<field name="officeCode" type="text" title="Office"/>
+<!-- 		<field name="userGroupIds" 	type="text" title="User Group ID" 	length="30"/> -->
+	</fields>
+</DataSource>

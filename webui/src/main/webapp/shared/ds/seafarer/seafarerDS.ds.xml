@@ -1,0 +1,66 @@
+<DataSource ID="seafarerDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="seafarerDMI" />
+	<fields>
+		<field name="id" 			type="text" title="Seafarer table ID" primaryKey="true" length="20" required="true"/>
+		<field name="idNo" type="text" title="Seafarer ID" lenght="20" required="true" />
+		<field name="partType" 		type="enum" title="Part Type" 	required="true">
+			<valueMap>
+			   	<value ID="1">Part I</value>
+			   	<value ID="2">Part II</value>
+	   		</valueMap>
+		</field>
+		<field name="surname" 		type="text" title="Surname" 	length="20"	required="true"/>
+		<field name="firstName" 	type="text" title="First Name" 	length="20"	required="true"/>
+		<field name="chiName" 		type="text" title="Chinese Name" 	length="24"/>
+		<field name="sex" 			type="enum" title="Sex" 		length="1">
+			<valueMap>
+			   	<value ID="M">Male</value>
+			   	<value ID="F">Female</value>
+	   		</valueMap>
+		</field>
+		<field name="nationalityId" 		type="integer" 	title="Nationality ID"/>
+		<field name="nationalityEngDesc" 	type="text" 	title="Nationality" valueXPath="nationality/engDesc"/>
+		<field name="ccc1" 			type="text" title="ccc1"	length="4"/>
+		<field name="ccc2" 			type="text" title="ccc2"	length="4"/>
+		<field name="ccc3" 			type="text" title="ccc3"	length="4"/>
+		<field name="ccc4" 			type="text" title="ccc4" 	length="4"/>
+		<field name="serbNo"		type="text" title="SERB NO." length="8"/>
+		<field name="serbDate"		type="date" displayFormat="dd/MM/yyyy" title="SERB Start Date" />
+		<field name="serialPrefix"	type="text" title="Serial Prefix"	length="1"/>
+		<field name="serialNo"		type="text" title="Serial NO" 		length="8"/>
+
+		<field name="address1"		type="text" title="Address 1" length="50"/>
+		<field name="address2"		type="text" title="Address 2" length="50"/>
+		<field name="address3"		type="text" title="Address 3" length="50"/>
+		<field name="mailAddress1"	type="text" title="Mail Address 1" length="50"/>
+		<field name="mailAddress2"	type="text" title="Mail Address 2" length="50"/>
+		<field name="mailAddress3"	type="text" title="Mail Address 3" length="50"/>
+		<field name="telephone"		type="text" title="Telephone" length="40"/>
+		<field name="mobile"		type="text" title="Mobile" length="40"/>
+
+		<field name="birthDate"		type="date" displayFormat="dd/MM/yyyy" title="Birth Date" />
+		<field name="birthPlace"	type="text" title="Birth Place" length="30"/>
+		<field name="province"		type="text" title="Province" 	length="30"/>
+		<field name="maritalStatus"	type="enum" title="Marital Status" length="10">
+			<valueMap>
+			   	<value ID="SINGLE">Single</value>
+			   	<value ID="MARRIED">Married</value>
+			   	<value ID="WIDOWED">Widowed</value>
+			   	<value ID="DIVORCED">Divorced</value>
+	   		</valueMap>
+		</field>
+		<field name="sibNo"			type="text" title="SIB NO" 		length="10"/>
+		<field name="passportNo"	type="text" title="Passport NO" length="30"/>
+		<field name="status"		type="enum" title="Status" 		length="1">
+			<valueMap>
+			   	<value ID="A">Active</value>
+			   	<value ID="I">Inactive</value>
+			   	<value ID="D">Deceased</value>
+	   		</valueMap>
+		</field>
+		<field name="remark"		type="text" 	title="Remark" 		length="2000"/>
+		<field name="seqNo"			type="integer" 	title="Seq No" 		length="5"/>
+		<field name="nationality"	type="any"/>
+	</fields>
+	<operationBinding operationType="singleFetch" serverMethod="fetch"/>
+</DataSource>

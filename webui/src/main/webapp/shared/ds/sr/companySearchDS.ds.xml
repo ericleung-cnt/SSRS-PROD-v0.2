@@ -1,0 +1,15 @@
+<DataSource ID="companySearchDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="companySearchDMI" />
+	<fields>
+		<field name="ocrCompanySearchId" type="integer" title="ID" primaryKey="true"/>
+		<field name="checkDate" type="date" title="Check Date" displayFormat="dd/MM/yyyy"/>
+		<field name="companyName" type="text" title="Company Name" length="100"/>
+		<field name="crNumber" type="text" title="CR No." length="100"/>
+		<field name="placeOfIncorporation" type="text" title="Place of Incorporation" length="100"/>
+		<field name="registeredOffice" type="text" title="Registered Office Address" length="255"/>
+		<field name="address1" type="text" title="Address" length="80"/>
+		<field name="address2" type="text" title="" length="80"/>
+		<field name="address3" type="text" title="" length="80"/>
+	</fields>
+</DataSource>	

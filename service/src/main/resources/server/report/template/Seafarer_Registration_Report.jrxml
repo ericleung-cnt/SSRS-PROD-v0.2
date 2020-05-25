@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Seafarer_Registration_Report_Example" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="5779c120-d0ac-430b-8568-950c8b0f2bdf">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="556"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\dev\\eclipse-workspace\\service\\src\\main\\resources\\server\\report\\template\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="seafarerId" class="java.lang.String"/>
+	<parameter name="SUBREPORT_2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_3" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_4" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_5" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_6" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_7" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORT_8" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="serbNo" class="java.lang.String"/>
+	<parameter name="serialNo" class="java.lang.String"/>
+	<parameter name="part" class="java.lang.String"/>
+	<parameter name="remark" class="java.lang.String"/>
+	<parameter name="SUBREPORT_9" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="seafarer" class="org.mardep.ssrs.domain.seafarer.Seafarer" isForPrompting="false"/>
+	<parameter name="previousSerb" class="java.lang.String"/>
+	<parameter name="nationality" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="front" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="side" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="left" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="right" class="java.io.InputStream" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT SERB_NO,SERIAL_NO,PART_TYPE,REMARK
+FROM SEAFARER
+WHERE SEAFARER_ID=$P{seafarerId}]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="555" height="25" uuid="afcfe642-5d52-43bf-a23e-c2453ecbfb6a"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[SEAFARER'S RECORD CARD
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="333" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="17" width="172" height="30" uuid="ad781c34-6640-40b9-8eda-bee30bb62f93"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S.E.R.B. No. .....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="51" width="172" height="22" uuid="ff06d24d-bc17-41b3-ac85-f2bb36740e1e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Serial No.  ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="80" width="172" height="26" uuid="6216c3d2-464b-4c2d-b5c2-409bb2e4d1ca"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Part ....................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="13" y="133" width="528" height="19" backcolor="#D3D3D3" uuid="bd3f1a14-ba29-423a-b133-878f679c3f13"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Particulars of Seafarer]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="79" y="15" width="68" height="20" uuid="f2026601-d91c-47fd-a399-82611afaf762"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serbNo}==null ? "" : $P{serbNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="66" y="49" width="68" height="20" uuid="6576c676-6a86-4fe4-870e-22bc64614f57"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serialNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="78" width="68" height="20" uuid="ba6c84fe-5a34-425e-95f4-31f1afc2c9e7"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{part}==null ? "" : $P{part}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="152" width="148" height="20" uuid="6894dc93-1e50-4910-aec3-16b5989438d3"/>
+				<textFieldExpression><![CDATA[($P{seafarer}.getSurname() == null ? "" :
+$P{seafarer}.getSurname())
++ " " +
+($P{seafarer}.getFirstName() == null ? "" :
+    $P{seafarer}.getFirstName())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="152" width="102" height="20" uuid="7ed35a23-f224-4c2a-8c78-bffc8fb3cfc4"/>
+				<text><![CDATA[Name (English)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="192" width="103" height="20" uuid="945d44ba-9d38-4d09-9ccb-fcefe40ba3d3"/>
+				<text><![CDATA[HKID No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="212" width="102" height="20" uuid="35c10195-9fec-4c16-baab-838d4bfe3aa5"/>
+				<text><![CDATA[Date / Place of birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="252" width="103" height="20" uuid="8e6bc1fe-c019-447d-aed7-7d336f0ec3a4"/>
+				<text><![CDATA[Previous SSRS/SERB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="272" width="103" height="20" uuid="be958992-ac5e-43ad-85f9-e13a527bbeff"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="292" width="103" height="20" uuid="44210471-1928-470d-aa3c-5b9f7d081941"/>
+				<text><![CDATA[Tel No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="152" width="100" height="20" uuid="cfa7f9c9-a3fe-42a1-b6db-10bcefc3c54f"/>
+				<text><![CDATA[(Chinese)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="172" width="100" height="20" uuid="3e44f694-8273-4b2b-8850-73f2a5b2750e"/>
+				<text><![CDATA[(c.c.c)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="192" width="100" height="20" uuid="de85f5bd-6c38-4c69-8c26-099780e5c5a6"/>
+				<text><![CDATA[Nationality]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="212" width="100" height="20" uuid="5a6321e8-b64f-43f7-826a-bdb256b23858"/>
+				<text><![CDATA[Marital Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="232" width="100" height="20" uuid="9da32ace-6c98-4113-b67e-d77d7716e497"/>
+				<text><![CDATA[Passport / SIB No.:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="381" y="152" width="148" height="20" uuid="f722d844-fc0b-408a-9acf-b32849b0b2d0"/>
+				<textFieldExpression><![CDATA[$P{seafarer}.getChiName()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="172" width="148" height="20" uuid="049f037b-ea90-4043-8ab3-71626700a7e1"/>
+				<textFieldExpression><![CDATA[($P{seafarer}.getCcc1() == null ? "" :
+$P{seafarer}.getCcc1())
++ " "
++ ($P{seafarer}.getCcc2() == null ? "" :
+$P{seafarer}.getCcc2())
++ " "
++ ($P{seafarer}.getCcc3() == null ? "" :
+$P{seafarer}.getCcc3())
++ " "
++ ($P{seafarer}.getCcc4() == null ? "" :
+$P{seafarer}.getCcc4())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="192" width="148" height="20" uuid="7b403b81-ac9a-4aa4-826b-5595ec8948e0"/>
+				<textFieldExpression><![CDATA[$P{seafarer}.getIdNo()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="192" width="148" height="20" uuid="f1cb1c79-82b4-423c-bb6e-8bdf9880b2f2"/>
+				<textFieldExpression><![CDATA[$P{nationality}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="212" width="148" height="20" uuid="d6755428-18e1-4ac3-9806-fd45599a94e6"/>
+				<textFieldExpression><![CDATA[($P{seafarer}.getBirthDate() != null ?
+new java.text.SimpleDateFormat("dd/MM/yyyy").format(
+    $P{seafarer}.getBirthDate()) : "-") + " / " +
+($P{seafarer}.getBirthPlace() != null ?
+    $P{seafarer}.getBirthPlace() : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="212" width="148" height="20" uuid="fc0febe3-6c79-4677-b617-beed8f2c61a3"/>
+				<textFieldExpression><![CDATA[$P{seafarer}.getMaritalStatus() != null ?
+$P{seafarer}.getMaritalStatus().getName() : "-"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="122" y="252" width="148" height="20" uuid="a30b459a-5716-479a-86d1-64a8acddff88"/>
+				<textFieldExpression><![CDATA[$P{previousSerb}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="232" width="148" height="20" uuid="7a67b689-0865-4ba3-8593-df5181811b2c"/>
+				<textFieldExpression><![CDATA[($P{seafarer}.getPassportNo() != null ? $P{seafarer}.getPassportNo() : "-")
++ "/" +
+($P{seafarer}.getSibNo() != null ? $P{seafarer}.getSibNo() : "-")]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="272" width="407" height="20" uuid="1e872887-0d40-41a4-a667-bb5189d1db72"/>
+				<textFieldExpression><![CDATA[($P{seafarer}.getAddress1() != null ?
+$P{seafarer}.getAddress1() : "") +
+($P{seafarer}.getAddress2() != null ?
+(" " + $P{seafarer}.getAddress2()) : "") +
+($P{seafarer}.getAddress3() != null ?
+(" " + $P{seafarer}.getAddress3()) : "")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="122" y="292" width="148" height="20" uuid="bd1b222b-4c71-4b4c-b2ba-002cb9ceb80f"/>
+				<textFieldExpression><![CDATA[$P{seafarer}.getTelephone()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="12" y="152" width="1" height="160" uuid="109ba092-a854-447f-abee-c332ca397efc"/>
+			</line>
+			<line>
+				<reportElement x="541" y="152" width="1" height="160" uuid="f4de5cf9-05df-4c13-8230-aeff3b7b392e"/>
+			</line>
+			<line>
+				<reportElement x="13" y="312" width="529" height="1" uuid="e67f73f0-5fe8-4237-9008-bce3e483bcc8"/>
+			</line>
+			<image onErrorType="Blank">
+				<reportElement x="191" y="18" width="75" height="100" uuid="bdefd4b2-62a9-4310-99e7-dd57dd6b41ed"/>
+				<imageExpression><![CDATA[$P{front}]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="266" y="18" width="75" height="100" uuid="d47796c8-37be-4715-ba43-9bc12caab10d"/>
+				<imageExpression><![CDATA[$P{side}]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="341" y="18" width="100" height="100" uuid="f8157065-e9b4-4ba5-9d6f-b517b75a073d"/>
+				<imageExpression><![CDATA[$P{left}]]></imageExpression>
+			</image>
+			<image onErrorType="Blank">
+				<reportElement x="441" y="18" width="100" height="100" uuid="f11e8d56-03fc-4979-a278-d084587576fb"/>
+				<imageExpression><![CDATA[$P{right}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="280" y="292" width="100" height="20" uuid="63664f2b-8079-4875-aabf-3270cd4e4988">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[Mobile]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="292" width="150" height="20" uuid="14f5a627-1919-46f3-ac71-5a1bdc73d144">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{seafarer}.getMobile()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="69">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="533" height="57" uuid="ef73291e-daf5-4932-ae5e-5b7cf93dde28"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_9}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="57">
+			<break>
+				<reportElement x="0" y="56" width="100" height="1" uuid="9784d939-8395-4073-be46-4699ce51b775"/>
+			</break>
+			<staticText>
+				<reportElement x="11" y="19" width="533" height="19" uuid="895921b1-f2fe-43ef-be73-da7bade36122"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[     NO RECORD FOUND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="11" y="0" width="533" height="19" backcolor="#D3D3D3" uuid="69f61b58-2734-4719-bda1-915bc00a8a92"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Change of Particulars]]></text>
+			</staticText>
+		</band>
+		<band height="113">
+			<staticText>
+				<reportElement x="19" y="19" width="172" height="18" uuid="95b1cf29-0f88-4bbc-9b47-642d16b39851"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Serial No.  ....................]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="16" width="68" height="20" uuid="eb501f16-ddaa-4bf5-8382-7998cc659264"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serialNo}]]></textFieldExpression>
+			</textField>
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="44" width="533" height="57" uuid="48c368e0-f153-4697-b7cf-4cc34402070b"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="69">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="284" y="0" width="261" height="57" uuid="e0138d97-215c-4684-b35b-ec892beb0007"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_3}]]></subreportExpression>
+			</subreport>
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="270" height="57" uuid="f1325e16-e857-4235-a14a-899d0e217dbf"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_2}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="57">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="533" height="57" uuid="9ec0bc8d-1eab-4343-b0e9-958266afef10"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_4}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="32">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="533" height="19" uuid="5cfb0d28-0300-4f24-a845-1caf4a9df166"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_5}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="64">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="533" height="57" uuid="461d6102-d6c9-4dcb-a38d-0d4593f09b3e"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_6}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="81">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="533" height="68" uuid="85dc0150-392f-4583-8b9f-e89f1c85838f"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_7}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="83">
+			<subreport isUsingCache="false">
+				<reportElement stretchType="RelativeToBandHeight" x="11" y="0" width="533" height="68" uuid="174653d4-37f6-4d0f-bddc-51a7bccfd552"/>
+				<subreportParameter name="seafarerId">
+					<subreportParameterExpression><![CDATA[$P{seafarerId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_8}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="50">
+			<staticText>
+				<reportElement stretchType="RelativeToTallestObject" x="12" y="0" width="530" height="39" uuid="0a574ae0-e009-46e5-800a-3e63a87a8e89"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ Remarks:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="31" y="19" width="511" height="20" uuid="dbb88bfc-29b1-43f2-9bbc-f3e840fd5f3f"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{remark}==null ? "NO RECORD FOUND" : $P{remark}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="8" width="555" height="30" uuid="7bbf3d39-024b-4308-9a0c-6603df0bb1c0"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---- End Of Report ----]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

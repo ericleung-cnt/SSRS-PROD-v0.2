@@ -1,0 +1,17 @@
+<DataSource ID="csrOwnerDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="csrOwnerDMI" />
+	<fields>
+		<field name="id" type="integer" primaryKey="true" required="true"/>
+		<field name="imoNo" type="text" length="9" title="IMO No."/>
+		<field name="formSeq" type="integer" title="Form Seq"/>
+		<field name="ownerName" type="text" length="80"/>
+		<field name="ownerType" type="text" length="1"/>
+		<field name="address1" type="text" length="80" />
+		<field name="address2" type="text" length="80" />
+		<field name="address3" type="text" length="80" />
+		<field name="companyId" type="text" length="20" />
+		<field name="email" type="text" length="50" />
+		<field name="recordNo" type="integer"  />
+		<field name="regOwnerId" type="text" length="20" />
+	</fields>
+</DataSource>

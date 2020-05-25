@@ -1,0 +1,26 @@
+<DataSource ID="seaServiceDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="seaServiceDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID"  	primaryKey="true"	required="true" />
+		<field name="seqNo" 		type="integer" 	title="Record No" 		primaryKey="true"/>
+		<field name="vesselName" 	type="text" 	title="Vessel Name"		length="40" required="true"/>
+		<field name="voyageType" 	type="text" 	title="Voyage Type"		length="2">
+			<valueMap>
+			   	<value ID="1">Sea-Going</value>
+			   	<value ID="2">River-Trade</value>
+	   		</valueMap>
+		</field>
+
+		<field name="flag" 			type="text" 	title="Flag"			length="20"/>
+		<field name="shipTypeCode" 	type="text" 	title="Ship Type Code"	length="50"/>
+		<field name="capacity"		type="text" 	title="Capacity"		length="30"/>
+		<field name="employmentDate" type="date" displayFormat="dd/MM/yyyy" 	title="Employment Date" required="true"/>
+		<field name="empoymentPlace" type="text" 	title="Empoyment Place"	length="30"/>
+		<field name="dischargeDate"  type="date" displayFormat="dd/MM/yyyy" 	title="Discharge Date"	/>
+		<field name="dischargePlace" type="text" 	title="Discharge Place"	length="30"/>
+		<field name="reportDate"  	 type="date" displayFormat="dd/MM/yyyy" 	title="Report Date"	/>
+		<field name="dchpend"  	 	 	type="text" title="Report Discharge"	/>
+		<field name="reportDischarge"   type="boolean" title="Report Discharge"	/>
+		<field name="diDate"  	 type="date" displayFormat="dd/MM/yyyy" 	title="DI Date"	/>
+	</fields>
+</DataSource>

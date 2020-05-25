@@ -1,0 +1,10 @@
+<DataSource ID="vesselDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="vesselDMI" />
+	<fields>
+		<field name="id" 		type="text" title="ID" 		primaryKey="true" length="2"/>
+		<field name="name" 		type="text" title="Name"  	length="40"/>
+		<field name="chiName" 	type="text" title="Chinese Name"  	length="60"/>
+		<field name="vesselType" 	type="text" title="Type"  		length="3"/>
+		<field name="status" 		type="text" title="Status"  	length="1"/>
+	</fields>
+</DataSource>

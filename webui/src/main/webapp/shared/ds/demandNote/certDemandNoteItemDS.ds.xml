@@ -1,0 +1,12 @@
+<DataSource ID="certDemandNoteItemDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="certDemandNoteItemDMI" />
+	<fields>
+		<field name="itemId" 			type="integer" 	title="Item ID"	primaryKey="true"/>
+		<field name="certApplicationId"	type="Integer"	title=""/>
+		<field name="certApplicationNo" type="text" 	title="Appl No" 	length="9"/>
+		<field name="certType"			type="text"		title="Cert Type"/>
+		<field name="demandNoteNo" 		type="text" 	title="Demand Note NO."	/>
+		<field name="amount" 			type="float" 	title="Amount"  	/>
+		<field name="fcFeeCode" 		type="text" 	title="FC Fee Code"  length="50" required="true"/>
+	</fields>
+</DataSource>

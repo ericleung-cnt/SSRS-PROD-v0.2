@@ -1,0 +1,87 @@
+<DataSource ID="regMasterDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="regMasterDMI" />
+	<fields>
+		<field name="applNo" 		type="text" title="Appl No" 		length="9" 	primaryKey="true" />
+		<field name="applNoSuf" 	type="text" title="Appl No Suf" 	length="1"/>
+		<field name="corCollect" 	type="text" title="CoR Collected at" 	length="2"/>
+		<field name="engMaker" 		type="text" title="Eng Maker" 		length="1"/>
+		<field name="regStatus" 	type="text" title="Status" 			length="1">
+			<valueMap>
+			   	<value ID="E">Expired</value>
+			   	<value ID="F">Rejected</value>
+			   	<value ID="C">Withdrawn</value>
+			   	<value ID="A">Under Appl.</value>
+			   	<value ID="D">De-registered</value>
+			   	<value ID="R">Registered</value>
+
+	   		</valueMap>
+
+		</field>
+		<field name="regRegnType" 	type="text" title="Reg Regn Type" 	length="1">
+			<valueMap>
+			   	<value ID="A">A</value>
+			   	<value ID="X">X</value>
+	   		</valueMap>
+
+		</field>
+		<field name="regDate" 		type="datetime" displayFormat="dd/MM/yyyy" 	title="Reg Date"/>
+		<field name="csResvDate" type="date" title="Call Sign Reserved Date" format="dd/MM/yyyy HH:mm"/>
+		<field name="offResvDate" type="date" title="Official No. Reserved Date" format="dd/MM/yyyy HH:mm"/>
+		<field name="provExpDate"	type="date" displayFormat="dd/MM/yyyy" 	title="Prov Exp Date"/>
+		<field name="deRegTime"		type="datetime" displayFormat="dd/MM/yyyy" 	title="De Reg Time"/>
+		<field name="atfDueDate"	type="date" displayFormat="dd/MM/yyyy" 	title="ATF Due Date"/>
+		<field name="buildDate" 	type="text" 	title="Build Date" 		length="35"/>
+		<field name="buildYear" 	type="integer" 	title="Build Year"/>
+		<field name="offNo" 		type="text" 	title="Official No." 		length="9"/>
+		<field name="callSign" 		type="text" 	title="Call Sign" 		length="7"/>
+		<field name="csReleaseDate"	type="date" displayFormat="dd/MM/yyyy" title="CS Release Date"/>
+		<field name="firstRegDate"	type="datetime" displayFormat="dd/MM/yyyy" title="First Reg Date"/>
+		<field name="regName" 		type="text" 	title="Reg Name" 		length="40"/>
+		<field name="regChiName" 	type="text" 	title="Reg Chinese Name" 		length="30"/>
+		<field name="intTot" 		type="integer" 	title="Int Tot"/>
+		<field name="surveyShipType" 	type="text" title="Survey ShipType" length="60"/>
+		<field name="intUnit" 		type="text" 	title="Int Unit" 		length="1"/>
+		<field name="material" 		type="text" 	title="Material" 		length="35"/>
+		<field name="noOfShafts" 	type="integer" 	title="NO Of Shafts"/>
+		<field name="howProp" 		type="text" 	title="How Prop" 		length="45"/>
+		<field name="estSpeed" 		type="text" 	title="EST Speed" 		length="15"/>
+		<field name="grossTon" 		type="float" 	title="Gross Ton"/>
+		<field name="regNetTon" 	type="float" 	title="Reg Net Ton"/>
+		<field name="transitInd" 	type="text" 	title="Transit Ind"		length="1"/>
+		<field name="imoNo" 		type="text" 	title="IMO NO."			length="9"/>
+		<field name="length" 		type="float" 	title="Length"/>
+		<field name="breadth" 		type="float" 	title="Breadth"/>
+		<field name="depth" 		type="float" 	title="Depth"/>
+		<field name="dimUnit" 		type="text" 	title="DIM Unit"		length="1"/>
+		<field name="engDesc1" 		type="text" 	title="Main Engine Type"		length="40"/>
+		<field name="engDesc2" 		type="text" 	title="Eng Description 2"		length="40"/>
+		<field name="engModel1" 	type="text" 	title="Eng Make"		length="40"/>
+		<field name="engModel2" 	type="text" 	title="and Model"		length="40"/>
+		<field name="engPower" 		type="text" 	title="English Power 2"	length="40"/>
+		<field name="engSetNum" 	type="integer" 	title="No. of Main Engines"/>
+		<field name="genAtfInvoice"	type="text" 	title="Gen ATF Invoice"	length="1"/>
+		<field name="remark"		type="text" 	title="Remark"		length="80"/>
+		<field name="agtAgentCode"	type="text" 	title="Group Owner"		length="3"/>
+		<field name="agentCountryCode"	type="text" 	title="Agent Country Code"		length="3"/>
+		<field name="ccCountryCode"	type="text" 	title="Country Code"	length="3"/>
+		<field name="operationTypeCode"	type="text" title="Operation TypeCode"		length="3"/>
+		<field name="rcReasonCode"	type="text" 	title="Reason Code"		length="2"/>
+		<field name="rcReasonType"	type="text" 	title="Reason Type"		length="1"/>
+		<field name="shipTypeCode"	type="text" 	title="Ship Type Code"		length="50"/>
+		<field name="shipSubtypeCode"	type="text" title="Ship SubType Code"		length="50"/>
+		<field name="licenseNo"		type="text" 	title="License NO."		length="20"/>
+		<field name="representativeName" type="text" title="Representative" />
+		<field name="detainStatus"		type="text" 	title="Detain Status"		length="1"/>
+		<field name="detainDesc"		type="text" 	title="Detain Desc"		length="160"/>
+		<field name="imoOwnerId"		type="text" 	title="IMO Owner ID"		length="20"/>
+		<field name="deratedEnginePower"		type="text" 	title="Derated Engine Power"		length="40"/>
+		<field name="trackCode"		type="text" 	title="Track Code"		length="20"/>
+		<field name="certIssueDate"	type="datetime" displayFormat="dd/MM/yyyy" title="Cert Issue Date"/>
+		<field name="detainDate"	type="datetime" displayFormat="dd/MM/yyyy" title="Detain Date"/>
+		<field name="protocolDate"	type="datetime" displayFormat="dd/MM/yyyy" title="Protocol Date"/>
+		<field name="atfYearCount" 		type="float" 	title="ATF year count"/>
+		<field name="registrar" 		type="integer" 	title="Registrar"/>
+		<field name="provRegDate"	type="datetime" displayFormat="dd/MM/yyyy" title="Prov Reg Date"/>
+
+	</fields>
+</DataSource>

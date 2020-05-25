@@ -1,0 +1,16 @@
+<DataSource ID="financeCompanyDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="financeCompanyDMI" />
+	<fields>
+		<field name="id" 	type="integer" title="ID" 	primaryKey="true" length="10"/>
+		<field name="name" 	type="text" title="Name" 	length="80"/>
+
+		<field name="addr1" 	type="text" title="Address 1" 	length="100"/>
+		<field name="addr2" 	type="text" title="Address 2" 	length="100"/>
+		<field name="addr3" 	type="text" title="Address 3" 	length="100"/>
+		<field name="telNo" 	type="text" title="Tel No" 	length="50"/>
+		<field name="faxNo" 	type="text" title="Fax No" 	length="50"/>
+		<field name="telix" 	type="text" title="Telix" 	length="50"/>
+		<field name="email" 	type="text" title="Email" 	length="50"/>
+		<field name="companyType" 	type="text" title="Type" 	length="1"/>
+	</fields>
+</DataSource>

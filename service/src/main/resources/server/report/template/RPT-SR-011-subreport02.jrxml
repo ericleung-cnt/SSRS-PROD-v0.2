@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPT-SR-011-subreport01" pageWidth="525" pageHeight="842" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d60de621-3664-406b-9265-6f9a12b8ddd8">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MortgagorSubReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="MortgageeSubReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="mortgagorList" class="java.util.List"/>
+	<parameter name="mortgageeList" class="java.util.List"/>
+	<parameter name="bTransferLine" class="java.lang.Boolean"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="mortgageCode" class="java.lang.String"/>
+	<field name="priorityCode" class="java.lang.String"/>
+	<field name="propertyOfShip" class="java.lang.String"/>
+	<field name="mortgagorName" class="java.lang.String"/>
+	<field name="placeOfIncorp" class="java.lang.String"/>
+	<field name="mortgageeName" class="java.lang.String"/>
+	<field name="mortgageeAddress" class="java.lang.String"/>
+	<field name="telNo" class="java.lang.String"/>
+	<field name="faxNo" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="regDate" class="java.lang.String"/>
+	<field name="nature" class="java.lang.String"/>
+	<field name="mortgageeNameList" class="java.lang.String"/>
+	<field name="mortgageeTelList" class="java.lang.String"/>
+	<field name="mortgageeTelDataList" class="java.lang.String"/>
+	<field name="transferRegDate" class="java.lang.String"/>
+	<field name="transferDetail" class="java.lang.String"/>
+	<group name="1" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[1]]></groupExpression>
+		<groupHeader>
+			<band height="35" splitType="Stretch">
+				<line>
+					<reportElement x="0" y="33" width="525" height="1" uuid="8f638505-f6a0-45a3-a6ec-7836f0a8ff07"/>
+				</line>
+				<staticText>
+					<reportElement x="5" y="13" width="216" height="20" uuid="cc18ae4e-fd87-4a6a-abeb-c0ed60d12a0a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[DETAILS OF MORTGAGE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="140" y="13" width="88" height="20" uuid="60a199db-6933-41e3-8f92-dbdd47c48a8a"/>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[抵 押 資 料]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="85">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="127" y="7" width="22" height="17" uuid="31cc7b07-4be5-434e-9b36-490d537a690a"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mortgageCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="7" width="81" height="17" uuid="5b3180eb-3685-4159-94db-b432c6c6db86"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Mortgage Code]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="318" y="63" width="201" height="20" uuid="9d8b845a-442b-4e17-967d-0b7964df8062">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placeOfIncorp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="83" y="7" width="44" height="17" uuid="50947c05-c9e4-44aa-a672-56c8f5b00729"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[抵押編碼:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="153" y="7" width="239" height="17" uuid="1b6fbb73-8f7d-4b51-afb0-6f5fd71d6313"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{priorityCode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="20" width="122" height="17" uuid="bb743d56-1541-4df8-86e5-79d0847144e3"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Property of Ship Affected]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="20" width="101" height="17" uuid="4fd376ff-4922-4b52-8f27-d24e54fcffaa"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[所涉及船舶財產權]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="222" y="20" width="201" height="17" uuid="e5c48be9-cf8d-4238-b498-4ec94df7e5b9"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{propertyOfShip}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="34" width="122" height="17" uuid="0f41ba65-17a5-43c4-be18-c1b6ccc0cfe4"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Name of Mortgagor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="46" width="122" height="17" uuid="41fa8623-a58b-4387-95c2-c305bbd89dc1"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[抵押人姓名/名稱]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="46" width="101" height="17" uuid="d9ef4874-5c56-4eca-8013-fc02ee37883d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[公司成立/註冊地點]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="34" width="207" height="17" uuid="6ad63869-c74a-4f62-a9a5-9b1b6e055157"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Place of Incorporation/Registration]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="5" y="63" width="284" height="20" uuid="b03237a0-6557-46c9-b511-c17ace8f7844"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mortgagorName}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50" splitType="Prevent">
+			<staticText>
+				<reportElement x="5" y="2" width="201" height="17" uuid="e4e11334-f340-4762-95ea-a0a1f1e93d7a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Name and Address of Mortgagee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="12" width="201" height="18" uuid="1b0de4c5-5e8c-4d7d-98a8-a5547133e949"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[抵押權人姓名 / 名稱､ 地址]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="5" y="29" width="284" height="20" uuid="73047c46-24ae-4b48-aa12-ee6e149337d1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{mortgageeNameList}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="309" y="28" width="90" height="20" uuid="c3ebbaf1-8349-4373-8940-cd4cb71e4721">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{mortgageeTelList}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="399" y="27" width="116" height="20" uuid="5ffa1c53-9427-4903-9108-4de182312408">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{mortgageeTelDataList}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="80">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="5" y="0" width="178" height="15" uuid="590155f2-949b-4325-9d61-ec6824ee7188"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Date & Hour of Registry]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="31" width="201" height="20" uuid="8f605845-d45a-44f1-ab4e-ee481045790c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="15" width="83" height="17" uuid="45a900bd-4b71-4042-956b-048f1d6f1630"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[註冊日期, 時間]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="0" width="137" height="15" uuid="0e51f408-f79e-4cfa-a7c2-37684670e8d6"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Nature of Transaction]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="15" width="83" height="17" uuid="5cb650ee-2b59-4870-96aa-8a4fdb5fe7cc"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[抵押細節]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight" isBlankWhenNull="true">
+				<reportElement x="206" y="31" width="300" height="20" uuid="7e923db4-2a2f-48f8-864d-967f4765727d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nature}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="5" y="57" width="201" height="20" isRemoveLineWhenBlank="true" uuid="72d44763-31ee-4b9c-8e38-2f2c891b0a49">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{transferRegDate}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" x="206" y="57" width="313" height="20" isRemoveLineWhenBlank="true" uuid="ceb8b401-7266-40ec-a75e-97bebe38b8a0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{transferDetail}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" mode="Transparent" x="5" y="53" width="400" height="1" forecolor="rgba(255, 255, 255, 0.0)" uuid="167a1f5d-d8ac-425c-82b5-5bf7827c46c5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<printWhenExpression><![CDATA[$P{bTransferLine}==true]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="5" splitType="Prevent">
+			<line>
+				<reportElement positionType="Float" x="0" y="0" width="525" height="1" uuid="6f6b7881-8e90-44ab-a80b-8e3731ce87b9"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+</jasperReport>

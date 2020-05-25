@@ -1,0 +1,19 @@
+<DataSource ID="licenseDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="licenseDMI" />
+	<fields>
+		<field name="seafarerId" 		type="text" 	title="Seafarer ID"  		primaryKey="true" required="true"/>
+		<field name="seqNo" 			type="integer" 	title="Seq NO."				primaryKey="true"/>
+		<field name="courseDesc" 		type="text" 	title="Course Description" 	length="400"/>
+		
+<!-- 		below fields are transient -->
+		<field name="courseDescTemp" 	type="text" 	title="Course Description" 	length="400"/>
+		<field name="dateType" 			type="select">
+			<valueMap>
+			   	<value ID="on">On</value>
+			   	<value ID="from">From</value>
+	   		</valueMap>
+		</field>
+		<field name="from"  	 		type="date" 	title="From" 		displayFormat="dd/MM/yyyy"/>
+		<field name="to"  	 			type="date" 	title="To"			displayFormat="dd/MM/yyyy"/>
+	</fields>
+</DataSource>

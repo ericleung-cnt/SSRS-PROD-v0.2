@@ -1,0 +1,7 @@
+<DataSource ID="mortgageRemarkDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="mortgageRemarkDMI" />
+	<fields>
+		<field name="id" 		type="integer" title="ID" primaryKey="true"  />
+		<field name="remark" 	type="text" title="Remark" length="500"/>
+	</fields>
+</DataSource>

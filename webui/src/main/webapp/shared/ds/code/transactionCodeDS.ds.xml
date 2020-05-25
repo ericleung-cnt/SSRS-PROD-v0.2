@@ -1,0 +1,7 @@
+<DataSource ID="transactionCodeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="transactionCodeDMI" />
+	<fields>
+		<field name="id" 		type="text" title="Transaction Code" primaryKey="true" length="2"/>
+		<field name="tcDesc" 	type="text" title="Description"  length="60"/>
+	</fields>
+</DataSource>

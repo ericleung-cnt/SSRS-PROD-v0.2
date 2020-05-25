@@ -1,0 +1,46 @@
+<DataSource ID="demandNoteHeaderDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="demandNoteHeaderDMI" />
+	<fields>
+		<field name="applNo" 		type="text" title="Appl No" 		length="9"/>
+		<field name="applNoSuf" 	type="text" title="Appl No Suf"		length="1"/>
+		<field name="demandNoteNo" 	type="text" title="Demand Note No" primaryKey="true"/>
+		<field name="generationTime" type="datetime" title="Generation Time"  displayFormat="dd/MM/yyyy"/>
+		<field name="billName" 	type="text" title="Bill Name"  	length="160" required="true"/>
+<!-- 		<field name="billName2" 	type="text" title="Bill Name 2"  	length="40"/> -->
+		<field name="coName" 		type="text" title="C/O Name"  	length="80"/>
+<!-- 		<field name="coName2" 		type="text" title="CO Name 2"  	length="40"/> -->
+		<field name="address1" 		type="text" title="Address 1"  	length="80"/>
+		<field name="address2" 		type="text" title="Address 2"  	length="80"/>
+		<field name="address3" 		type="text" title="Address 3"  	length="80"/>
+		<field name="tel"			type="text"	title="Tel" length="15" />
+		<field name="fax"			type="text" title="Fax" length="18" />
+		<field name="email"			type="text" title="Email"	length="50"/>
+		<field name="amount" 		type="float" title="Amount"  	format=",##0.00"/>
+		<field name="adjustReason" 	type="text" title="Adjust Reason"  	length="40"/>
+		<field name="adjustTime" 	type="datetime" displayFormat="dd/MM/yyyy" title="Adjust Time"  />
+		<field name="rcpAmount" 	type="float" title="RCP Amount"  	/>
+		<field name="acctAmount" 	type="float" title="ACCT Amount"  	/>
+		<field name="cwTime" 		type="datetime" displayFormat="dd/MM/yyyy" title="CW Time"  />
+		<field name="cwStatus" 		type="text" title="CW Status"  	length="1"/>
+		<field name="cwRemark" 		type="text" title="CW Remark"  	length="180"/>
+		<field name="cwBy" 			type="text" title="CW By"  	length="10"/>
+		<field name="amountPaid"	type="float" title="Amount Paid"  	format=",##0.00"/>
+		<field name="dueDate"	type="datetime" title="Due Date"  	dateFormat="dd/MM/yyyy"/>
+
+		<field name="demandNoteItems" 			type="any"/>
+		<field name="paymentStatus" type="text" title="Payment Status"  	length="50"/>
+		<field name="status" 		type="text" title="Status"  	length="50"/>
+		<field name="paymentStatus" 	type="text" title="Payment Status"  	length="50"/>
+
+		<field name="firstReminderFlag" 	type="text" title="First Reminder Flag"  	length="1"/>
+		<field name="firstReminderDate" 	type="datetime" title="First Reminder Flag"  	displayFormat="dd/MM/yyyy" />
+		<field name="secondReminderFlag" 	type="text" title="Second Reminder Flag"  	length="1"/>
+		<field name="secondReminderDate" 	type="datetime" title="Second Reminder Flag"  	displayFormat="dd/MM/yyyy" />
+		<field name="shipNameEng"	type="text"	title="Ship Name"	length="70"/>
+		<field name="issueDateStr" type="text" title="Issue Date"/>
+		<field name="dueDateStr" type="text" title="Due Date"/>
+		<field name="firstReminderDateStr" type="text" title="1st Reminder Date"/>
+		<field name="secondReminderDateStr" type="text" title="2nd Reminder Date"/>
+		<field name="ebsFlag" type="text" title="eBS"/>		 
+	</fields>
+</DataSource>

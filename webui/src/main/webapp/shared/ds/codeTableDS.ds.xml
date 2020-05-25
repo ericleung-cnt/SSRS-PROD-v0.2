@@ -1,0 +1,45 @@
+<!-- DataSource ID="codeTableDS" serverType="generic" inheritsFrom="abstractFreezablePersistentEntityDS" -->
+<DataSource ID="codeTableDS" serverType="generic"  >
+	<serverObject lookupStyle="spring" bean="codeTableDMI" />
+	<fields>
+	
+		<!-- Most of the fields are copied from AppChargeDS-->
+		
+		<!-- <field name="appId" type="long" title="App ID"/> -->
+		<field name="ship_type_code" type="string" title="Ship Type Code" primaryKey="true" />
+		<field name="desc" type="string" />
+		<!-- <field name="feeId" type="long" title="Fee ID"/>
+		
+		<field name="feeDesc" type="text" title="Fee Description" />
+		<field name="fee" type="float" title="Fee" />
+		<field name="amount" type="float" title="Amount" />
+		
+		<field name="demandNoteId" type="text" title="Demand Note ID" />
+		<field name="companyId" type="text" title="Company ID" />
+		<field name="seafarerId" type="text" title="Seafarer ID" length="20"/>
+		<field name="appTypeId" type="long" title="App Type ID" />
+		<field name="chargeIndicator" type="boolean" title="Charge Indicator" />
+		<field name="autoManual" type="boolean" title="Auto Manual" />
+		<field name="status" type="integer" title="Status" />
+		
+		<field name="appIssueDate" type="date" title="App Issue Date" />
+		<field name="startTime" type="date" title="Start Time" />
+		<field name="endTime" type="date" title="End Time" />
+		
+		<field name="hourUsed" type="integer" title="Unit" />
+		<field name="remarks" type="text" title="Remarks" />
+				
+		<field name="feeObjectDesc" type="text" title="Fee Description" valueXPath="feeObject/Description" />
+		<field name="feeObjectFee" type="float" title="Fee" valueXPath="feeObject/feeAmount" /> -->
+		
+		<!-- <field name="certTypeEngDesc" type="text" title="Fee" valueXPath="application/certType/engDesc" />
+		<field name="type" type="text" title="Fee" valueXPath="application/type" />
+		<field name="seafarerId" type="text" title="Seafarer Id" valueXPath="application/seafarerId" />
+		<field name="companyName" type="text" title="Company" valueXPath="application/company/engName" />
+ -->
+		<!-- Transient -->
+<!-- 		<field name="listOfAssignedFeeID" type="list" required="false" hidden="true" />
+		<field name="licenseId" type="text"/>
+		<field name="seafarerName" type="text"/> -->
+	</fields>
+</DataSource>

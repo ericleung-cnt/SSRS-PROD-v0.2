@@ -1,0 +1,11 @@
+<DataSource ID="ratingDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="ratingDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID" primaryKey="true"  required="true"/>
+		<field name="seqNo" 		type="integer" 	title="Record No" 	primaryKey="true"/>
+		<field name="rating" 		type="text" 	title="Rating" 			length="40"/>
+		<field name="salary" 		type="float" 	title="Salary"/>
+		<field name="ratingDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Rating Date"/>
+		<field name="capacityId" 	type="integer" 	title="Capacity ID" required="true"/>
+	</fields>
+</DataSource>

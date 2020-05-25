@@ -1,0 +1,26 @@
+<DataSource ID="rdTranscriptApplicationDS" serverType="generic"
+ 	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="rdTranscriptApplicationDMI" />
+	<fields>
+		<field name="id" type="integer" title="ID" primaryKey="true" />
+		<field name="applNo" type="text" title="Appl No" length="9"/>
+		<field name="imoNo" type="text" title="IMO" length="9"/>
+		<field name="shipNameEng" type="text" title="Ship Name (Eng)" length="70"/>
+		<field name="shipNameChi" type="text" title="Ship Name (Chi)" length="70"/>
+		<field name="officialNo" type="text" title="Official No" length="9"/>
+		<field name="reportDate" type="datetime" title="Report Date"/>
+		<field name="reportGenBy" type="text" title="Report generate by"/>
+		<field name="officeCode" type="text" title="Office Code"/>
+		<field name="officeId" type="integer" title="office id"/>
+		<field name="registrar" type="integer" title="Registrar"/>
+		<field name="certified" type="boolean" title="Certified"/>
+		<field name="paymentRequired" type="boolean" title="Payment Required"/>
+		<field name="noPaymentReason" type="text" title="Reason Of No Payment"/>
+		<field name="delayPaymentRequired" type="boolean" title="Delay Payment Required"/>
+		<field name="delayPaymentReason" type="text" title="Reason Of Delay Payment"/>
+		<field name="demandNoteNo" type="text" title="Demand Note No"/>
+		<field name="demandNotePaymentStatus" type="text" title="Payment Status"/>
+		<field name="issueDate" type="date" title="Issue Date"/>
+		<field name="issueOfficeId" type="integer" title="Issue Office"/>
+	</fields>	
+</DataSource>

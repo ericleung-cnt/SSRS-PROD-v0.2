@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FIN_Aging_01" pageWidth="800" pageHeight="595" orientation="Landscape" columnWidth="800" leftMargin="0" rightMargin="0" topMargin="5" bottomMargin="5" uuid="20d021eb-715c-401d-9718-09cf6f72461c">
+	<property name="ireport.zoom" value="0.6830134553650722"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="reportId" class="java.lang.String"/>
+	<parameter name="demandNoteRetrieved" class="java.lang.Integer"/>
+	<parameter name="demandNoteAmount" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="demandNoteNo" class="java.lang.String"/>
+	<field name="issueDate" class="java.lang.String"/>
+	<field name="dueDate" class="java.lang.String"/>
+	<field name="day21" class="java.math.BigDecimal"/>
+	<field name="day41" class="java.math.BigDecimal"/>
+	<field name="day90" class="java.math.BigDecimal"/>
+	<field name="dayOver90" class="java.math.BigDecimal"/>
+	<field name="firstRemDate" class="java.lang.String"/>
+	<field name="secondRemDate" class="java.lang.String"/>
+	<field name="count" class="java.math.BigDecimal"/>
+	<field name="cancelledAmount" class="java.math.BigDecimal"/>
+	<field name="receivedAmount" class="java.math.BigDecimal"/>
+	<field name="title" class="java.lang.String"/>
+	<variable name="day21" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{day21}]]></variableExpression>
+	</variable>
+	<variable name="day41" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{day41}]]></variableExpression>
+	</variable>
+	<variable name="day90" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{day90}]]></variableExpression>
+	</variable>
+	<variable name="dayOver90" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{dayOver90}]]></variableExpression>
+	</variable>
+	<variable name="totalDemandNoteAmount" class="java.math.BigDecimal">
+		<variableExpression><![CDATA[$V{day21}.add($V{day41}).add($V{day90}).add($V{dayOver90})]]></variableExpression>
+	</variable>
+	<group name="dummy group">
+		<groupExpression><![CDATA[1]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="138">
+				<staticText>
+					<reportElement x="180" y="0" width="70" height="20" uuid="adc305e4-1de7-4318-ade7-0ae7ca516d57"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grand Total]]></text>
+				</staticText>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="260" y="0" width="85" height="20" uuid="cdd09f11-ad43-462a-9430-5046f3a3b6bb"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{day21}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="350" y="0" width="85" height="20" uuid="6b36b703-c0ad-4879-a32b-c94325761613"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{day41}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="440" y="0" width="85" height="20" uuid="367d0219-51dc-4722-be46-69b4f13e1572"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{day90}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="530" y="0" width="85" height="20" uuid="35857d49-f08a-460c-b036-78eb8ce66f76"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dayOver90}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="70" width="170" height="20" uuid="b613cfa6-9b90-4b98-a82e-d554a8e76d89"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Retrieved:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="100" width="160" height="20" uuid="70056441-1405-4f3a-babb-4eb9fe69320d"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Amount:]]></text>
+				</staticText>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement x="170" y="70" width="100" height="20" uuid="4e4a93c2-2a68-4390-961a-260baac3d2af"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{count}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="170" y="100" width="100" height="20" uuid="8d0723d4-3a4e-42ef-b3fd-7ffcb81627d7"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{receivedAmount}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="39" width="224" height="20" uuid="a8f88e68-13e4-4da1-af6e-a0c7b330ff81"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Summary of " + $F{title}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="81">
+				<printWhenExpression><![CDATA["eBS NON-AUTOPAY".equals($F{title})]]></printWhenExpression>
+				<textField pattern="" isBlankWhenNull="true">
+					<reportElement x="170" y="31" width="100" height="20" uuid="2fbf8b0b-934c-4a50-a534-d8278c0ae025"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{demandNoteRetrieved}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="31" width="170" height="20" uuid="4400b23b-14d0-4cab-bbf2-b1406c8b6d79"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Retrieved:]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="224" height="20" uuid="42030917-fb0a-4fd4-9364-cba0c4579963"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Summary of Report"]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+					<reportElement x="170" y="61" width="100" height="20" uuid="99837f7e-8723-48b1-aee4-e0a23cd50468"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{demandNoteAmount}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="61" width="160" height="20" uuid="c29965c8-6d9f-4252-842e-6964a89a1eef"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Demand Note Amount:]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="25" width="96" height="25" uuid="c9e8f7d4-2a06-4b7d-9abc-387d3bc4e6c7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DN Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="25" width="80" height="25" uuid="c9e8f7d4-2a06-4b7d-9abc-387d3bc4e6c7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Issue Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="25" width="70" height="25" uuid="c632061c-168d-47b1-bbd3-91310b3e5bc5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Due Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="25" width="85" height="25" uuid="d24417d7-fdfe-4ac8-8fcd-d102f2dfd5eb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(0-30) Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="25" width="85" height="25" uuid="296e6178-ebbc-4c56-a1a8-af0b2f1a1686"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Over 90 Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="25" width="85" height="25" uuid="296e6178-ebbc-4c56-a1a8-af0b2f1a1686"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(61-90) Days]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="630" y="25" width="80" height="25" uuid="6e41077b-aaa2-4e7a-ac9e-4cc41bfb784d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1st Rem Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="25" width="80" height="25" uuid="8a43d302-aa02-4ff8-929e-2c154c5502fb"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2nd Rem Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="25" width="85" height="25" uuid="a40c78ce-93e6-43f2-9684-4b349e4c68c4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(31-60) Days]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="5" width="224" height="20" uuid="64f66853-fef5-417e-938a-84b8491ee307"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="0" width="96" height="14" uuid="524c77b4-3d34-4f8b-9e82-e2944d456d85"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{demandNoteNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="0" width="80" height="14" uuid="9835d7c5-1791-4e61-b9a5-b5764840f267"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{issueDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="260" y="0" width="85" height="14" uuid="bdc7a485-ab26-4479-b3c4-236112db0129"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{day21}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="440" y="0" width="85" height="14" uuid="c35a5cd1-ae34-4617-8d96-4b90e2234f71"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{day90}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="180" y="0" width="70" height="14" uuid="4a6f69c1-b004-4f5a-8002-17b4be832bd7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="530" y="0" width="85" height="14" uuid="8dd8c8af-6507-48a3-bdf6-7ddb0de49b26"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dayOver90}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="630" y="0" width="80" height="14" uuid="82316c14-10d6-489e-bc6b-7700999433d2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firstRemDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="720" y="0" width="80" height="14" uuid="9ffb0b9b-60ca-4f06-bb7b-7b5636a1af4c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{secondRemDate}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement x="350" y="0" width="85" height="14" uuid="3013040f-14df-42ab-ba1b-4e330d992370"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{day41}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,48 @@
+<DataSource ID="certDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="certDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID"  	primaryKey="true" 	required="true"/>
+		<field name="seqNo" 		type="integer" 	title="Seq NO." 		primaryKey="true"/>
+		<field name="certType" 		type="text" 	title="Cert Type"		length="120">
+<!-- 			<valueMap> -->
+<!-- 			SELECT CERT_TYPE, COUNT(*) FROM SEAFARER_CERT GROUP BY CERT_TYPE ORDER BY 2 DESC -->
+<!-- 			   	<value ID="Higher Diploma in Maritime Studies">Higher Diploma in Maritime Studies</value> -->
+<!-- 			   	<value ID="CERTIFICATE OF ATTAINMENT">CERTIFICATE OF ATTAINMENT</value> -->
+<!-- 			   	<value ID="EWR/WO">EWR/WO</value> -->
+<!-- 			   	<value ID="REG. UNDER SECT. 139">REG. UNDER SECT. 139</value> -->
+<!-- 			   	<value ID="TRAINING CA">TRAINING CA</value> -->
+<!-- 			   	<value ID="NWR/WO">NWR/WO</value> -->
+<!-- 			   	<value ID="On job training for CA with Shun Tak-CTS">On job training for CA with Shun Tak-CTS</value> -->
+<!-- 			   	<value ID="On job training for CA">On job training for CA</value> -->
+<!-- 			   	<value ID="Registered under Section 9, Sub-section">Registered under Section 9, Sub-section</value> -->
+<!-- 			   	<value ID="ON JOB TRAINING FOR C.A.">ON JOB TRAINING FOR C.A.</value> -->
+<!-- 			   	<value ID="UNREG SECT 139">UNREG SECT 139</value> -->
+<!-- 			   	<value ID="NWR/W">NWR/W</value> -->
+<!-- 			   	<value ID="Higher Diploma in Mechanical Engineering">Higher Diploma in Mechanical Engineering</value> -->
+<!-- 			   	<value ID="On job training for CA with New World">On job training for CA with New World</value> -->
+<!-- 			   	<value ID="2 year full time Diploma in Maritime">2 year full time Diploma in Maritime</value> -->
+<!-- 			   	<value ID="REG. UNDER SECT 139">REG. UNDER SECT 139</value> -->
+<!-- 			   	<value ID="LIFEBOATMAN">LIFEBOATMAN</value> -->
+<!-- 			   	<value ID="On job training for CA with Cotai">On job training for CA with Cotai</value> -->
+<!-- 			   	<value ID="COC (Deck Officer) Class 3">COC (Deck Officer) Class 3</value> -->
+<!-- 			   	<value ID="HD in Mechanical Engineering">HD in Mechanical Engineering</value> -->
+<!-- 			   	<value ID="NWR/W (A&amp;B)">NWR/W (A&amp;B)</value> -->
+<!-- 			   	<value ID="UNDER SECT 8">UNDER SECT 8</value> -->
+<!-- 			   	<value ID="On job training for CA with Shun Tak">On job training for CA with Shun Tak</value> -->
+<!-- 			   	<value ID="COC (MEO) Class 3">COC (MEO) Class 3</value> -->
+<!-- 			   	<value ID="REG SECT 8">REG SECT 8</value> -->
+<!-- 			   	<value ID="NWR">NWR</value> -->
+<!-- 			   	<value ID="ON JOB TRAINING FOR S.A.">ON JOB TRAINING FOR S.A.</value> -->
+<!-- 			   	<value ID="Reg. under Section 8, Sub-section 5 of">Reg. under Section 8, Sub-section 5 of</value> -->
+<!-- 			   	<value ID="TRAINING CA IN FAR EAST">TRAINING CA IN FAR EAST</value> -->
+<!-- 			   	<value ID="E.D.H.">E.D.H.</value> -->
+<!-- 			   	<value ID="CA TRAINING COURSE">CA TRAINING COURSE</value> -->
+<!-- 			   	<value ID="HD in Maritime Studies">HD in Maritime Studies</value> -->
+<!-- 			   	<value ID="NWR/W(a&amp;b)">NWR/W(a&amp;b)</value> -->
+<!-- 	   		</valueMap> -->
+		</field>
+		<field name="issueDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Issue Date"/>
+		<field name="issueAuthority"	type="text" title="Issue Authority"		length="40"/>
+		<field name="certNo" 		type="text" 	title="Cert NO."			length="30"/>
+	</fields>
+</DataSource>

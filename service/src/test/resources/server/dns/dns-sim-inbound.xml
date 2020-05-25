@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/xml
+    http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+    http://www.springframework.org/schema/integration/ws
+    http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+	
+	<int-ws:inbound-gateway id="dnsInboundGateway" request-channel="dnsInRequestPojoChannel" marshaller="dnsJaxb2MarshallerOut" unmarshaller="dnsJaxb2MarshallerOut" mapped-request-headers="from, requestDate" mapped-reply-headers="from, requestDate" reply-channel="dnsInResponsePojoChannel"/>
+
+	<int:payload-type-router input-channel="dnsInRequestPojoChannel">
+		<int:mapping type="org.mardep.ssrs.dns.pojo.outbound.createDemandNote.DemandNoteRequest" 		channel="demandNoteRequest" />
+<!-- 		<int:mapping type="org.mardep.ssrs.dns.pojo.outbound.createReceipt.ReceiptRequest" 				channel="receiptRequest" /> -->
+<!-- 		<int:mapping type="org.mardep.ssrs.dns.pojo.outbound.refund.RefundRequest" 						channel="refundRequest" /> -->
+<!-- 		<int:mapping type="org.mardep.ssrs.dns.pojo.outbound.retrieveDnSettlement.SettlementRequest" 	channel="settlementRequest" /> -->
+	</int:payload-type-router>
+
+	<int:service-activator input-channel="demandNoteRequest" 	ref="inboundDemandNoteService" 	method="process" output-channel="headerEnricherIn"></int:service-activator>
+<!-- 	<int:service-activator input-channel="receiptRequest" 		ref="inboundReceiptService" 	method="process" output-channel="headerEnricherIn"></int:service-activator> -->
+<!-- 	<int:service-activator input-channel="refundRequest" 		ref="inboundRefundService" 		method="process" output-channel="headerEnricherIn"></int:service-activator> -->
+<!-- 	<int:service-activator input-channel="settlementRequest" 	ref="inboundSettlementService" 	method="process" output-channel="headerEnricherIn"></int:service-activator> -->
+
+	<!-- 1. remove from -->
+<!-- 2. add from  -->
+<!-- 3. add responseDate -->
+	<int:chain input-channel="headerEnricherIn" output-channel="dnsInResponsePojoChannel">
+		<int:header-filter header-names="from"/> 
+		
+		<int:header-enricher >
+			<int:header name="from" 		value="${ssrs.dns.ws.message.from}"/>
+			<int:header name="responseDate" expression="T(org.apache.commons.lang.time.DateFormatUtils).ISO_DATETIME_FORMAT.format(new java.util.Date())"/>
+		</int:header-enricher>
+	</int:chain>
+
+	<bean id="inboundDemandNoteService" class="org.mardep.ssrs.dns.inbound.test.DemandNoteService"></bean>
+<!-- 	<bean id="inboundReceiptService" 	class="org.mardep.ssrs.dns.service.inbound.test.ReceiptService"></bean> -->
+<!-- 	<bean id="inboundRefundService" 	class="org.mardep.ssrs.dns.service.inbound.test.RefundService"></bean> -->
+<!-- 	<bean id="inboundSettlementService" class="org.mardep.ssrs.dns.service.inbound.test.SettlementService"></bean> -->
+	
+	<int:channel id="dnsInRequestPojoChannel"/>
+	<int:channel id="dnsInResponsePojoChannel"/>
+	<int:channel id="demandNoteRequest"/>
+<!-- 	<int:channel id="receiptRequest"/> -->
+<!-- 	<int:channel id="refundRequest"/> -->
+<!-- 	<int:channel id="settlementRequest"/> -->
+
+<!-- 	<bean id="soapFaultAnnotationExceptionResolver" class="org.springframework.ws.soap.server.endpoint.SoapFaultAnnotationExceptionResolver"></bean> -->
+<!-- 	<bean id="soapFaultMappingExceptionResolver" class="org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver"> -->
+<!-- 	</bean> -->
+	<bean id="detailSoapFaultDefinitionExceptionResolver" class="org.mardep.ssrs.dns.endpoint.DetailSoapFaultDefinitionExceptionResolver" parent="abstractDnsSoapFaultDefinitionExceptionResolver">
+		<property name="mappedEndpoints">
+			<set>
+				<ref bean="dnsInboundGateway"/>
+			</set>
+		</property>
+	</bean>
+	
+</beans>        

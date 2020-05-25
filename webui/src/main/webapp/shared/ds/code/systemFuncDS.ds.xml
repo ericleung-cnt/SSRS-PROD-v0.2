@@ -1,0 +1,8 @@
+<DataSource ID="systemFuncDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="systemFuncDMI" />
+	<fields>
+		<field name="id" 	type="integer" 	title="ID" 				primaryKey="true" required="true"/>
+		<field name="key" 	type="text" 	title="Key"  			length="50" 	required="true"/>
+		<field name="desc" 	type="text" 	title="Description"  	length="255"/>
+	</fields>
+</DataSource>

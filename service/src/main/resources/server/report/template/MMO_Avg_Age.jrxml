@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Average_Monthly_Wages_by_Rank_or_Rating_by_Nationality_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c92843b4-d48a-4f56-a23d-572e803b5310">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="14"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.util.Date" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="rating" class="java.lang.String"/>
+	<field name="rank1" class="java.lang.String"/>
+	<field name="age1" class="java.lang.Integer"/>
+	<field name="rank2" class="java.lang.String"/>
+	<field name="age2" class="java.lang.Integer"/>
+	<field name="rank3" class="java.lang.String"/>
+	<field name="age3" class="java.lang.Integer"/>
+	<field name="rank4" class="java.lang.String"/>
+	<field name="age4" class="java.lang.Integer"/>
+	<field name="rank5" class="java.lang.String"/>
+	<field name="age5" class="java.lang.Integer"/>
+	<field name="rank6" class="java.lang.String"/>
+	<field name="age6" class="java.lang.Integer"/>
+	<field name="rank7" class="java.lang.String"/>
+	<field name="age7" class="java.lang.Integer"/>
+	<field name="nationality" class="java.lang.String"/>
+	<group name="Rating">
+		<groupExpression><![CDATA[$F{rating}]]></groupExpression>
+		<groupHeader>
+			<band height="25">
+				<textField>
+					<reportElement x="0" y="0" width="804" height="20" uuid="2e9d4c7b-6139-447a-b8f3-b1e6053156c9"/>
+					<textElement textAlignment="Center">
+						<font fontName="Courier New"/>
+					</textElement>
+					<textFieldExpression><![CDATA["AVERAGE AGE OF " + $F{nationality} + ("O".equals($F{rating}) ? " OFFICER" : " RATING")]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="248" y="5" width="326" height="22" uuid="b954cc5f-2a10-45d9-9381-b3ccc9649496"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="30" width="326" height="23" uuid="43fae04b-f667-48cb-8701-8e1b21512916"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11"/>
+				</textElement>
+				<text><![CDATA[Average Age of Crew by Rank by Nationality ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="5" width="62" height="35" uuid="b518d4ac-9ada-405b-9d1d-328b50d10bf7"/>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[SRS1160
+SRIS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="574" y="5" width="228" height="20" uuid="5885f989-9312-40ad-ada2-e98dc2f20a7c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd-MMM-yyyy HH:mm", java.util.Locale.ENGLISH).
+format($P{reportDate})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="684" y="30" width="80" height="20" uuid="58834986-28b8-480a-9b5b-30c9c1b4e10c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="764" y="30" width="40" height="20" uuid="15b0ef31-8e0c-42d5-a0aa-813b61e117c4"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="114" height="20" uuid="4d51a7e4-885d-4f86-9223-c43835f920c8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="20" width="114" height="20" uuid="779e74ca-c9a5-45d0-9ec2-6ccc36c5895a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="0" width="114" height="20" uuid="59b6486c-d68f-4cbe-b896-f9f9f99a2685"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="114" y="20" width="114" height="20" uuid="647a76e5-b453-46b0-a100-009639a1f94a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="228" y="0" width="114" height="20" uuid="d1be596e-477c-43f5-88a3-910dec0ea314"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="228" y="20" width="114" height="20" uuid="87de88fb-9491-410d-a284-5a3abc7b888e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="342" y="0" width="114" height="20" uuid="c170213c-b9b0-4513-b8b0-b858e5d7baaa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="342" y="20" width="114" height="20" uuid="9f66f713-be98-4d83-b059-ddb8ef6f2b24"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="456" y="0" width="114" height="20" uuid="c129ec29-b0e0-4a9b-b77b-eb3569423d9b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="456" y="20" width="114" height="20" uuid="c756e270-b256-42fe-86b8-0b7e9bcf53dc"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="570" y="0" width="114" height="20" uuid="7017605c-f499-4e7d-8c86-eca5bff99053"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="570" y="20" width="114" height="20" uuid="e5ad4b37-db58-451f-b843-c10db38caeac"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age6}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="684" y="0" width="118" height="20" uuid="4b3cd258-2e85-4b38-99ca-83da3936b797"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rank7}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="684" y="20" width="118" height="20" uuid="a69f0c5e-2a97-4dfa-8cf6-44f98344e6a8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{age7}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="228" y="10" width="342" height="30" uuid="340a5bf4-8cad-4de7-b5ea-a23b5731e57c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[*** End of Report ***]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

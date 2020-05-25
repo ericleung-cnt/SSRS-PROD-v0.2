@@ -1,0 +1,17 @@
+<DataSource ID="ownerEnquiryDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="ownerEnquiryDMI" />
+	<fields>
+		<field name="id" title="ID" type="integer" length="19" required="true" primaryKey="true"/>
+		<field name="contactPerson" title="Contact Person" type="text" length="30" />
+		<field name="email" title="Email" type="text" length="20" />
+		<field name="fax" title="Fax No." type="text" length="18" />
+		<field name="ownerName" title="Owner Name" type="text" length="80" />
+		<field name="reply" title="Reply Text" type="text" length="500" />
+		<field name="replyDate" title="Reply Date" type="date" displayFormat="dd/MM/yyyy"/>
+		<field name="replyMedia" title="Reply Media" type="text" length="20" />
+		<field name="shipName" title="Ship Name" type="text" length="70" />
+		<field name="shipCname" title="Ship Chinese Name" type="text" length="80" />
+		<field name="tel" title="Phone No." type="text" length="18" />
+	</fields>
+</DataSource>

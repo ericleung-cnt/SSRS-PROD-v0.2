@@ -1,0 +1,26 @@
+<DataSource ID="preReserveNameDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="preReserveNameDMI" />
+	<fields>
+		<field name="id" 		type="integer" title="ID" 		length="20" 	primaryKey="true" required="true"/>
+		<field name="applName" type="text" title="Applicant Name" length="65" required="true"/>
+		<field name="address1" type="text" title="Address 1" length="80" />
+		<field name="address2" type="text" title="Address 2" length="80" />
+		<field name="address3" type="text" title="Address 3" length="80" />
+		<field name="telNo" type="text" title="Tel. No." length="18" />
+		<field name="faxNo" type="text" title="Fax No." length="18" />
+		<field name="email" type="text" title="Email" length="30" />
+		<field name="ownerName" type="text" title="Owner Name" length="65" required="true"/>
+
+		<field name="name" 	type="text" title="Name" 	length="30"/>
+		<field name="chiName" 	type="text" title="Chi Name" 	length="30"/>
+		<field name="expiryTime" 	type="date" displayFormat="dd/MM/yyyy" title="Expiry Date" 	/>
+
+		<field name="language" 	type="enum" title="Language" length="1">
+			<valueMap>
+			   	<value ID="ZH">Chinese</value>
+			   	<value ID="EN">English</value>
+	   		</valueMap>
+		</field>
+		<field name="releaseTime" 	type="date" displayFormat="dd/MM/yyyy" title="Release Date" 	/>
+	</fields>
+</DataSource>

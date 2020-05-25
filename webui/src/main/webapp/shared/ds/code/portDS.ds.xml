@@ -1,0 +1,7 @@
+<DataSource ID="portDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="portDMI" />
+	<fields>
+		<field name="code" 		type="text" title="Code" primaryKey="true" 	length="50" 	required="true"/>
+		<field name="country" 	type="text" title="Country" 				length="50"/>
+	</fields>
+</DataSource>

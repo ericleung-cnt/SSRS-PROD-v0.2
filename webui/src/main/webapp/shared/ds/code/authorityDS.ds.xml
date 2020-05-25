@@ -1,0 +1,9 @@
+<DataSource ID="authorityDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="authorityDMI" />
+	<fields>
+		<field name="id" 	type="text" title="Authority Code" primaryKey="true" length="50"/>
+		<field name="name" 	type="text" title="Name" length="50"/>
+		<field name="desc" 	type="text" title="Description" length="100"/>
+		<field name="seq" 	type="integer" title="Sequence"/>
+	</fields>
+</DataSource>

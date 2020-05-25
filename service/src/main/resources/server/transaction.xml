@@ -1,0 +1,48 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   		http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor">
+		<property name="defaultPersistenceUnitName" value="ssrsPU" />
+	</bean>
+
+	<bean id="jpaVendorAdapter"	class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+
+
+	<bean id="entityManagerFactoryBean"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+<!-- 		data source retrieved by bean or JNDI  -->
+		<property name="dataSource" ref="dataSource" /> 
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+		<property name="packagesToScan" value="org.mardep.ssrs.domain" />
+		<property name="persistenceUnitName" value="ssrsPU" />
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="hibernate.dialect" 							value="${ssrs.hibernate.dialect:org.hibernate.dialects.SQLServer2012Dialect}" />
+				<entry key="hibernate.hbm2ddl.auto" 					value="${ssrs.hibernate.hbm2ddl.auto:none}" />
+				<entry key="hibernate.format_sql" 						value="${ssrs.hibernate.format_sql:true}" />
+				<entry key="hibernate.show_sql" 						value="${ssrs.hibernate.showSql:false}" />
+				<entry key="hibernate.connection.useUnicode" 			value="true" />
+				<entry key="hibernate.connection.charSet" 				value="UTF8" />
+				<entry key="org.hibernate.integration.envers.enabled" 	value="false" />
+				<entry key="hibernate.envers.autoRegisterListeners" 	value="false" />
+				<entry key="org.hibernate.envers.autoRegisterListeners" value="false" />
+				<entry key="hibernate.connection.release_mode"			value="${ssrs.hibernate.connection.release_mode:on_close}" />
+				<entry key="org.hibernate.envers.do_not_audit_optimistic_locking_field" value="false" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactoryBean"/>
+    </bean>
+    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>

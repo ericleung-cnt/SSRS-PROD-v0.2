@@ -1,0 +1,15 @@
+<DataSource ID="builderDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="builderDMI" />
+	<fields>
+		<field name="builderMakerId" type="integer" primaryKey="true"/>
+		<field name="applNo" required="true" length="9" />
+		<field name="builderCode" required="true" length="1" />
+		<field name="name" required="true" length="80" />
+		<field name="address1" length="40" required="true"/>
+		<field name="address2" length="40"/>
+		<field name="address3" length="40"/>
+		<field name="email" length="50"/>
+		<field name="major" length="1"/>
+	</fields>
+</DataSource>

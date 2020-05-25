@@ -1,0 +1,11 @@
+<DataSource ID="shipSubTypeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="shipSubTypeDMI" />
+	<fields>
+		<field name="id" 				type="text" title="ID" primaryKey="true" hidden="true"/>
+		<field name="shipTypeCode" 		type="text" title="Ship Type Code" length="50"/>
+		<field name="shipSubTypeCode" 	type="text" title="Ship Sub Type Code" length="50"/>
+		<field name="ssDesc" 			type="text" title="Ship Sub Type Description" length="30"/>
+		
+		<field name="shipTypeEngDesc" 	type="text" valueXPath="shipType/stDesc" title="Ship Type Description" />
+	</fields>
+</DataSource>

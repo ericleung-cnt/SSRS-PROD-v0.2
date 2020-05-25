@@ -1,0 +1,10 @@
+<DataSource ID="dmsDataDS" serverType="generic">
+	<serverObject lookupStyle="spring" bean="dmsDataDMI" />
+	<fields>
+<!-- 	must declared to primary key if it need to pass to server -->
+		<field name="id" 		type="text" primaryKey="true"/>
+		<field name="type" 		type="text" primaryKey="true"/>
+		<field name="content" 	type="binary" imageWidth="300"/>
+	</fields>
+	<operationBinding operationType="viewFile" serverMethod="viewFile"/>
+</DataSource>

@@ -1,0 +1,17 @@
+<DataSource ID="soapMessageOutDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="soapMessageOutDMI" />
+	<fields>
+		<field name="id" 		type="integer" primaryKey="true" title="ID" />
+		<field name="controlId" type="integer" title="Control Id" />
+		<field name="request" 	type="text" 	title="Request" />
+		<field name="response" 	type="text" 	title="Response" />
+<!-- 		<field name="read" 		type="boolean" 	title="Read" /> -->
+<!-- 		<field name="readDate" 	type="datetime" title="Read Date" 			displayFormat="dd/MM/yyyy HH:mm:ss"/> -->
+		<field name="error" 	type="boolean" 	title="Error" />
+		<field name="errorDate" type="datetime" title="Error Date" 			displayFormat="dd/MM/yyyy HH:mm:ss"/>
+		<field name="processed" type="boolean" 	title="Processed" />
+		<field name="processedDate" type="datetime" title="Processed Date" 	displayFormat="dd/MM/yyyy HH:mm:ss"/>
+		<field name="timeout" 	type="datetime" title="Timeout" />
+		<field name="text" 		type="text" title="text" />
+	</fields>
+</DataSource>

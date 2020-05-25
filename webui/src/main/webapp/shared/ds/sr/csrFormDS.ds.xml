@@ -1,0 +1,50 @@
+<DataSource ID="csrFormDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="csrFormDMI" />
+	<fields>
+		<field name="imoNo" type="text" length="9" primaryKey="true" required="true" title="IMO No."/>
+		<field name="formSeq" type="integer" primaryKey="true" required="true" title="Form Seq"/>
+		<field name="applNo" type="text" length="10" required="true" title="Application No."/>
+		<field name="formApplyDate" type="date" required="true"  displayFormat="dd/MM/yyyy"/>
+		<field name="registrationDate" type="date" required="false"  displayFormat="dd/MM/yyyy"/>
+		<field name="deregDate" type="date" title="De-reg Date" displayFormat="dd/MM/yyyy"/>
+		<field name="shipName" type="text" length="40" required="true" />
+		<field name="classSocietyId" type="text" length="50" />
+		<field name="registrarName" type="text" length="40" />
+		<field name="shipManager" type="text" length="120" />
+		<field name="shipManagerAddress1" type="text" length="100" />
+		<field name="shipManagerAddress2" type="text" length="100" />
+		<field name="shipManagerAddress3" type="text" length="100" />
+		<field name="safetyActAddress1" type="text" length="100" />
+		<field name="safetyActAddress2" type="text" length="100" />
+		<field name="safetyActAddress3" type="text" length="100" />
+		<field name="docAuthority" type="text" length="3" title="DOC Authority"/>
+		<field name="docAudit" type="text" length="3" title="DOC Audit" />
+		<field name="smcAuthority" type="text" length="3" title="SMC Authority" />
+		<field name="smcAudit" type="text" length="3" title="SMC Audit" />
+		<field name="isscAuthority" type="text" length="3" title="ISSC Authority" />
+		<field name="isscAudit" type="text" length="3" title="ISSC Audit" />
+		<field name="csrIssueDate" type="date" title="CSR Issue Date" displayFormat="dd/MM/yyyy"/>
+		<field name="remark" type="text" length="2000" />
+		<field name="classSociety2" type="text" length="40"/>
+		<field name="csrRemarks" type="text" length="100" />
+		<field name="owners" />
+		<field name="formAccepted" title="Form Accepted On" displayFormat="dd/MM/yyyy" type="date" />
+		<field name="fsqcConfirmed" title="Cert/FSQC confirmed on" displayFormat="dd/MM/yyyy" type="date" />
+		<field name="portfolioReceived" title="Portfolio received on" displayFormat="dd/MM/yyyy" type="date" />
+		<field name="srApproved" title="Approved on" displayFormat="dd/MM/yyyy" type="date" />
+		<field name="csrIssued" title="Issued on" displayFormat="dd/MM/yyyy" type="date" />
+		<field name="repInformed" title="Representative Informed On" displayFormat="dd/MM/yyyy" type="date"/>
+		<field name="csrCollected" title="Collected on" displayFormat="dd/MM/yyyy" type="date" />
+		<field name="inputDate" title="Issue Date" displayFormat="dd/MM/yyyy"/>
+		<field name="sqaUpdateRequired" title="SQA Update Required"/>
+		<field name="companyCopyReceived" title="Company Copy Recevied"/>
+		<field name="formerFlagRequested" title="Former Flag Requested"/>
+		<field name="formerFlagReminded" title="Former Flag Reminded"/>
+		<field name="revisedRequired" title="Revised Required"/>
+		<field name="imoOwnerId" title="IMO Owner ID" length="20"/>
+		<field name="imoCompanyId" title="IMO Company ID" length="20"/>
+		<field name="applicantName" title="Applicant Name" length="80"/>
+		<field name="applicantEmail" title="Applicant Email" length="80"/>
+	</fields>
+</DataSource>

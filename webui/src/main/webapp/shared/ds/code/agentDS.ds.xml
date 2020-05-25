@@ -1,0 +1,21 @@
+<DataSource ID="agentDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="agentDMI" />
+	<fields>
+		<field name="id" 	type="text" title="ID" 	primaryKey="true" length="3"/>
+
+		<field name="name" 	type="text" title="Name" 	length="40"/>
+		<field name="agentType" type="text" title="Type" 	length="1"/>
+		<field name="qualifiedRep" 	type="boolean" title="Qualified Rep" 	length="1"/>
+		<field name="prcInterest"  	type="boolean" title="Prc Interest" 	length="1"/>
+		<field name="active"  		type="boolean" title="Active" 			length="1"/>
+		<field name="incorpCert" 	type="text" title="Incorp Cert" 	length="15"/>
+		<field name="address1" 		type="text" title="Address 1" 		length="40"/>
+		<field name="address2" 		type="text" title="Address 2" 		length="40"/>
+		<field name="address3" 		type="text" title="Address 3" 		length="40"/>
+
+		<field name="telNo" 	type="text" title="Tel No" 		length="18"/>
+		<field name="faxNo" 	type="text" title="Fax No" 		length="18"/>
+		<field name="email" 	type="text" title="Email" 		length="50"/>
+		<field name="maMajorAgentCode" 	type="text" title="Major Agent Code" 	length="3"/>
+	</fields>
+</DataSource>

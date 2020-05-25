@@ -1,0 +1,7 @@
+<DataSource ID="callSignDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="callSignDMI" />
+	<fields>
+		<field name="csCallSign" 	type="text" title="Call Sign" primaryKey="true" length="7"/>
+		<field name="csAvailFlat" 	type="text" title="Avail Flat" primaryKey="true" length="1"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<bean id="ebsWebServiceMessageReceiverHandlerAdapter" class="org.springframework.ws.transport.http.WebServiceMessageReceiverHandlerAdapter">
+		<property name="messageFactory" ref="ebsMessageFactory" />
+	</bean>
+ 
+	<bean id="ebsSoapMessageDispatcher" class="org.springframework.ws.soap.server.SoapMessageDispatcher">
+		 <property name="endpointMappings">
+            <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
+                <property name="defaultEndpoint" ref="ebsInboundGateway"/>
+<!--                 <property name="interceptors"> -->
+<!--                 	<list> -->
+<!--                 		<ref bean="ebsInboundRequestResponseInterceptor"/> -->
+<!--                 	</list> -->
+<!--                 </property> -->
+            </bean>
+        </property>
+	</bean>
+	<bean id="ebsWebService" class="org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition">
+	    <constructor-arg value="/wsdl/ebsWebService.wsdl"/>
+	</bean>
+</beans>

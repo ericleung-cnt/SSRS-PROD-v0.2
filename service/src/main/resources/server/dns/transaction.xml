@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<aop:config>
+		<aop:pointcut id="dnsOutboundRequestResponseInterceptorMethods" expression="execution(* org.springframework.ws.client.support.interceptor.ClientInterceptor.*(..))"/>
+		<aop:advisor pointcut-ref="dnsOutboundRequestResponseInterceptorMethods" advice-ref="dns-tx-advice" />
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="dnsInboundRequestResponseInterceptorMethods" expression="execution(* org.springframework.ws.server.EndpointInterceptor.*(..))"/>
+		<aop:advisor pointcut-ref="dnsInboundRequestResponseInterceptorMethods" advice-ref="dns-tx-advice" />
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="dnsMessageExceptionServiceMethods" expression="execution(* org.mardep.ssrs.dns.IMessagingExceptionService.*(..))"/>
+		<aop:advisor pointcut-ref="dnsMessageExceptionServiceMethods" advice-ref="dns-tx-advice" />
+	</aop:config>
+
+	<aop:config>
+		<aop:pointcut id="dnsProcessReceiptServiceMethod" expression="execution(* org.mardep.ssrs.dns.service.inbound.IReceiptService.*(..))"/>
+		<aop:advisor pointcut-ref="dnsProcessReceiptServiceMethod" advice-ref="dns-tx-advice" />
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="dnsProcessRefundServiceMethod" expression="execution(* org.mardep.ssrs.dns.service.inbound.IRefundService.*(..))"/>
+		<aop:advisor pointcut-ref="dnsProcessRefundServiceMethod" advice-ref="dns-tx-advice" />
+	</aop:config>
+	<aop:config>
+		<aop:pointcut id="dnsProcessDnServiceMethod" expression="execution(* org.mardep.ssrs.dns.service.inbound.IDnService.*(..))"/>
+		<aop:advisor pointcut-ref="dnsProcessDnServiceMethod" advice-ref="dns-tx-advice" />
+	</aop:config>
+	
+	<tx:advice id="dns-tx-advice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="processDnsRequest"					propagation="REQUIRES_NEW" read-only="false"/>
+			<tx:method name="handleRequest" 					propagation="REQUIRES_NEW" read-only="false"/>
+			<tx:method name="handleResponse" 					propagation="REQUIRES_NEW" read-only="false"/>
+			<tx:method name="handleMessagingException" 			propagation="REQUIRES_NEW" read-only="false"/>
+			<tx:method name="*" 				propagation="REQUIRED" read-only="false" rollback-for="ssrsServiceException"/>
+		</tx:attributes>
+	</tx:advice>
+		
+</beans>        

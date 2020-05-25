@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_of_Employment_Situation_of_Hong_Kong_Registered_Seatarer_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="832" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="20" uuid="bc701297-d69a-4ab2-9ad0-b4bd71b76423">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.1000000000000045"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="totalShip" class="java.lang.String"/>
+	<parameter name="totalGrossTonnage" class="java.lang.String"/>
+	<parameter name="shipInPipeline" class="java.lang.String"/>
+	<parameter name="rangeFrom" class="java.lang.String"/>
+	<parameter name="rangeTo" class="java.lang.String"/>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUBREPORTDS_1" class="java.util.List"/>
+	<parameter name="rowcount" class="java.lang.Integer"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="noOfShips" class="java.lang.Integer"/>
+	<field name="monthYear" class="java.lang.String"/>
+	<variable name="numRecords" class="java.lang.Integer" incrementType="Report">
+		<variableExpression><![CDATA[$V{REPORT_COUNT}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="24" uuid="d86032d6-01f8-4017-920e-445173d499fb"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<text><![CDATA[RM0120-1]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="43" width="832" height="22" uuid="af82dfed-bc63-4262-a3dc-f3f14053107f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["AS AT " + $P{reportDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="683" y="0" width="149" height="24" uuid="ff732885-e8cd-4d67-adc0-873d0a946ef8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="683" y="23" width="118" height="20" uuid="4c81fc80-09e7-4875-9c41-ae54c7634708"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="801" y="23" width="31" height="20" uuid="a365c6b3-912f-4e70-8b70-0e8f0b8d962a"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="26" width="832" height="16" uuid="18082472-55ef-4f35-aa4f-e94a92394b54"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUMMARY OF SHIPS IN THE PIPELINE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="25" width="182" height="24" uuid="832e4384-cad9-4b52-a0a0-1edd541bf960"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="104" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="0" width="404" height="18" uuid="db854591-a097-4f43-a4ee-9c3953fa538a"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total ships in the pipeline =  " + $P{totalShip} + " ships"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="18" width="404" height="18" uuid="38cf9eed-5d0a-49ad-a7be-170d977364a2"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total gross tons =  " + $P{totalGrossTonnage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="74" width="829" height="30" uuid="424231c4-a51e-4cab-b363-31418e5eaf6e"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. of Sea-going ships in pipeline =  " + $P{shipInPipeline} + "  ships ranging from  " + $P{rangeFrom} + " tons  to  " + $P{rangeTo} + " tons"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17" splitType="Stretch">
+			<textField>
+				<reportElement x="79" y="0" width="751" height="17" uuid="dc37d11d-5171-4b0f-9cd5-fbdcf859a286"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noOfShips} + " ships to be registered in " + $F{monthYear}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50" splitType="Stretch">
+			<subreport>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="832" height="50" uuid="6207b5eb-00b2-4de1-b256-642183d8f8d6">
+					<printWhenExpression><![CDATA[$P{rowcount} == $V{numRecords}]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="userId">
+					<subreportParameterExpression><![CDATA[$P{userId}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="reportDate">
+					<subreportParameterExpression><![CDATA[$P{reportDate}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRMapCollectionDataSource($P{SUBREPORTDS_1})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

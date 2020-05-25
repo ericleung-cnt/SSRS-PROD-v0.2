@@ -1,0 +1,13 @@
+<DataSource ID="excelShipRegInHKSRDS" serverType="generic"
+ 	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="excelShipRegInHksrDMI" />
+	<fields>
+		<field name="regName" type="text" title="Reg Name"/>
+		<field name="officialNo" type="text" title="Official No"/>
+		<field name="callSign" type="text" title="Call Sign"/>
+		<field name="imoNo" type="text" title="IMO" length="9"/>
+		<field name="surveyShipType" type="text" title="Survey Ship Type"/>
+		<field name="grossTon" type="float" title="Gross Ton"/>
+		<field name="netTon" type="float" title="Net Ton"/>
+	</fields>	
+</DataSource>

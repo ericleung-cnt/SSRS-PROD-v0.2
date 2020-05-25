@@ -1,0 +1,10 @@
+<DataSource ID="mortgagorDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="mortgagorDMI" />
+	<fields>
+		<field name="applNo" primaryKey="true"/>
+		<field name="priorityCode" primaryKey="true"/>
+		<field name="seq" primaryKey="true" />
+		<field name="owner" />
+	</fields>
+</DataSource>

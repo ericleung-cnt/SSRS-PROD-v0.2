@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontFamilies>
+
+   <fontFamily name="Source Han Sans Normal">
+       <normal><![CDATA[fonts/SourceHanSans-Normal.ttf]]></normal>
+       <pdfEncoding><![CDATA[Identity-H]]></pdfEncoding>
+       <pdfEmbedded><![CDATA[false]]></pdfEmbedded>
+   </fontFamily>
+
+
+</fontFamilies>

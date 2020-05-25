@@ -1,0 +1,13 @@
+<DataSource ID="adjustAtcAmtDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="adjustAtcAmtDMI" />
+	<fields>
+		<field name="itemId" 			type="integer" 	title="Item ID"	primaryKey="true"/>
+		<field name="applNo" 			type="text" 	title="Appl No" 	length="9"/>
+		<field name="amt100" 			type="float" 	title="Amount"  	/>
+		<field name="amt50" 			type="float" 	title="Amount"  	/>
+		<field name="currentAmt" 			type="float" 	title="Amount"  	/>
+		<field name="adjustAmt" 			type="float" 	title="Amount"  	/>
+		<field name="adhocText" 	type="text" title="Adhoc Demand Note Text"  length="2000"/>
+		<field name="adjustAmtReason" type="text" title="Adjust Amt Reason"/>
+	</fields>
+</DataSource>

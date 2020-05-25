@@ -1,0 +1,1 @@
+simpleSrReport("Registers Opened, Closed and Change Ownership","RPT_SR_018");

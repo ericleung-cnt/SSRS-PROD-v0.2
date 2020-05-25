@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="courierNew" class="net.sf.jasperreports.engine.fonts.SimpleFontFamily">
+		<property name="name" value="Courier New" />
+		<property name="bold" value="fonts/COURBD.TTF" />
+        <property name="italic" value="fonts/COURI.TTF" />
+        <property name="boldItalic" value="fonts/COURBI.TTF" />  
+		<property name="normalPdfFont" value="fonts/COURBD.TTF" />
+		<property name="pdfEncoding" value="Identity-H" />
+		<property name="pdfEmbedded" value="true" />
+	</bean>
+</beans>

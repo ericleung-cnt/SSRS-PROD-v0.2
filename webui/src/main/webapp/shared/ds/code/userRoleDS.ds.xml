@@ -1,0 +1,9 @@
+<DataSource ID="userRoleDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="userRoleDMI" />
+	<fields>
+		<field name="roleId" 		type="integer" 	title="Role ID"				required="true"/>
+		<field name="userId" 		type="integer" 	title="User ID"  			required="true"/>
+		<field name="role" 			type="any"/>
+		<field name="user" 	type="any"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,25 @@
+<DataSource ID="sdDataDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="sdDataDMI" />
+	<fields>
+
+		<field name="imoNo" type="text" length="9" primaryKey="true"
+			required="true" />
+		<field name="classText" type="text" length="3" />
+		<field name="shipManager" type="text" length="100" />
+		<field name="shipMgrAddr1" type="text" length="100" />
+		<field name="shipMgrAddr2" type="text" length="100" />
+		<field name="shipMgrAddr3" type="text" length="100" />
+		<field name="safetyActAddr1" type="text" length="100" />
+		<field name="safetyActAddr2" type="text" length="100" />
+		<field name="safetyActAddr3" type="text" length="100" />
+		<field name="docAuthority" type="text" length="3" />
+		<field name="docAudit" type="text" length="4" />
+		<field name="smcAuthority" type="text" length="3" />
+		<field name="smcAudit" type="text" length="3" />
+		<field name="isscAuthority" type="text" length="3" />
+		<field name="isscAudit" type="text" length="3" />
+		<field name="uploadTs" type="date" displayFormat="dd/MM/yyyy"/>
+		<field name="classText2" type="text" length="3" />
+	</fields>
+</DataSource>

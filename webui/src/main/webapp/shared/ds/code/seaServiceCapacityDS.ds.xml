@@ -1,0 +1,8 @@
+<DataSource ID="seaServiceCapacityDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="seaServiceCapacityDMI" />
+	<fields>
+		<field name="id" 	type="text" title="ID" primaryKey="true" length="50"/>
+		<field name="engDesc" 	type="text" title="English Description" length="50" required="true"/>
+		<field name="chiDesc" 	type="text" title="Chinese Description" length="40" />
+	</fields>
+</DataSource>

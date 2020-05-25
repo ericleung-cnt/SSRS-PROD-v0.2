@@ -1,0 +1,12 @@
+<DataSource ID="excelMonthlyShipDeRegDS" serverType="generic"
+ 	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="excelMonthlyShipDeRegDMI" />
+	<fields>
+		<field name="deRegTime" type="datetime" title="Dereg Time"/>
+		<field name="regName" type="text" title="Reg Name"/>
+		<field name="grossTon" type="float" title="Gross Ton"/>
+		<field name="ownerName" type="text" title="Owner Name"/>
+		<field name="rpName" type="text" title="RP Name"/>
+		<field name="otOperTypeCode" type="text" title="OT Oper Type Code"/>
+	</fields>	
+</DataSource>

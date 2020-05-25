@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://soapService.ebs.ssrs.mardep.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ebsInbound"
+	targetNamespace="http://soapService.ebs.ssrs.mardep.org/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://soapService.ebs.ssrs.mardep.org/">
+			<xsd:simpleType name="paymentMethod">
+				<xsd:restriction base="xsd:int">
+					<xsd:enumeration value="1"></xsd:enumeration>
+					<xsd:enumeration value="6"></xsd:enumeration>
+					<xsd:enumeration value="7"></xsd:enumeration>
+					<xsd:enumeration value="8"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:complexType name="download">
+				<xsd:sequence>
+					<xsd:element name="resultType" minOccurs="0" type="tns:resultType" />
+					<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+					<xsd:element name="docId" minOccurs="0" type="tns:docId"></xsd:element>
+					<xsd:element name="pdf" minOccurs="0" type="xsd:base64Binary"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="resultList">
+				<xsd:sequence>
+					<xsd:element name="result" minOccurs="0" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="resultCode">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:minLength value="1"></xsd:minLength>
+											<xsd:maxLength value="5"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="descriptionEn">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:minLength value="1"></xsd:minLength>
+											<xsd:maxLength value="1000"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="descriptionTC" minOccurs="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="1000"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="descriptionSC" minOccurs="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="1000"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="vesselList">
+				<xsd:sequence>
+					<xsd:element name="vessel" minOccurs="0" maxOccurs="unbounded">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="applNo" type="tns:applNo"></xsd:element>
+								<xsd:element name="vesselName" minOccurs="0" type="tns:vesselName"></xsd:element>
+								<xsd:element name="vesselChiName" minOccurs="0" type="tns:vesselChiName">
+								</xsd:element>
+								<xsd:element name="callSign" minOccurs="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="10"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="officialNo" type="tns:officialNo"></xsd:element>
+								<xsd:element name="imo" minOccurs="0" type="tns:imo"></xsd:element>
+								<xsd:element name="regStatus" minOccurs="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="35"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="regDate" minOccurs="0" type="xsd:dateTime" ></xsd:element>
+								<xsd:element name="vesselTypeDesc" minOccurs="0">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string">
+											<xsd:maxLength value="1000"></xsd:maxLength>
+										</xsd:restriction>
+									</xsd:simpleType>
+								</xsd:element>
+								<xsd:element name="nt" type="tns:ton" minOccurs="0"></xsd:element>
+								<xsd:element name="gt" type="tns:ton" minOccurs="0"></xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:simpleType name="amt">
+				<xsd:restriction base="xsd:decimal">
+					<xsd:fractionDigits value="2"></xsd:fractionDigits>
+					<xsd:minInclusive value="1"></xsd:minInclusive>
+					<xsd:maxInclusive value="99999999.99"></xsd:maxInclusive>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="itemNo">
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"></xsd:minInclusive>
+					<xsd:maxInclusive value="999999999"></xsd:maxInclusive>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="ton">
+				<xsd:restriction base="xsd:decimal">
+					<xsd:fractionDigits value="2"></xsd:fractionDigits>
+					<xsd:minInclusive value="0"></xsd:minInclusive>
+					<xsd:maxInclusive value="9999999.99"></xsd:maxInclusive>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="revenueType">
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"></xsd:minInclusive>
+					<xsd:maxInclusive value="99"></xsd:maxInclusive>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="vesselName">
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="70"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="vesselChiName">
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="20"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:complexType name="dnList">
+				<xsd:sequence>
+					<xsd:element name="dnNo" type="tns:dnNo" maxOccurs="unbounded"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:simpleType name="resultType">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="E"></xsd:enumeration>
+					<xsd:enumeration value="M"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="appStatus">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="A"></xsd:enumeration>
+					<xsd:enumeration value="R"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="dnStatus">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="P"></xsd:enumeration><!-- P: Demand Note is settled ( full paid, over paid) -->
+					<xsd:enumeration value="O"></xsd:enumeration><!-- O: Demand Note is not settled (partial paid, outstanding) -->
+					<xsd:enumeration value="C"></xsd:enumeration>
+					<xsd:enumeration value="W"></xsd:enumeration>
+					<xsd:enumeration value="F"></xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="docId">
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1"></xsd:minLength>
+					<xsd:maxLength value="38"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="imo">
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="9"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="officialNo">
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1"></xsd:minLength>
+					<xsd:maxLength value="9"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="applNo">
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1"></xsd:minLength>
+					<xsd:maxLength value="8"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="dnNo">
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1"></xsd:minLength>
+					<xsd:maxLength value="15"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="receiptNo">
+				<xsd:restriction base="xsd:string">
+					<xsd:minLength value="1"></xsd:minLength>
+					<xsd:maxLength value="10"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="address">
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="80"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name="count">
+				<xsd:restriction base="xsd:int">
+					<xsd:minInclusive value="0"></xsd:minInclusive>
+					<xsd:maxInclusive value="999999999"></xsd:maxInclusive>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:complexType name="vesselListResponse">
+				<xsd:sequence>
+					<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+					<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+					<xsd:element name="vesselList" type="tns:vesselList"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:element name="retrieveVessel4TranscriptRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vesselName" type="tns:vesselName"></xsd:element>
+						<xsd:element name="officialNo" type="tns:officialNo"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="retrieveVessel4TranscriptResponse" type="tns:vesselListResponse"></xsd:element>
+			<xsd:element name="searchVessel4TranscriptRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vesselName" type="tns:vesselName"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="searchVessel4TranscriptResponse" type="tns:vesselListResponse"></xsd:element>
+			<xsd:element name="retrieveVesselByIMORequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="imo" type="tns:imo"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="retrieveVesselByIMOResponse" type="tns:vesselListResponse"></xsd:element>
+			<xsd:element name="validateTranscriptRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="applNo" type="tns:applNo"></xsd:element>
+						<xsd:element name="inputDate" type="xsd:dateTime"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="validateTranscriptResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="status" type="tns:appStatus"></xsd:element>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="paymentItemList">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="paymentItem" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="feeEngDesc">
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:string">
+																<xsd:minLength value="1"></xsd:minLength>
+																<xsd:maxLength value="200"></xsd:maxLength>
+															</xsd:restriction>
+														</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="feeChiDesc">
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:string">
+																<xsd:minLength value="1"></xsd:minLength>
+																<xsd:maxLength value="100"></xsd:maxLength>
+															</xsd:restriction>
+														</xsd:simpleType>
+												</xsd:element>
+												<xsd:element name="revenueType" type="tns:revenueType"></xsd:element>
+												<xsd:element name="fee" type="tns:amt"></xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="submitTranscriptRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="applNo" type="tns:applNo"></xsd:element>
+						<xsd:element name="inputDate" type="xsd:dateTime"></xsd:element>
+						<xsd:element name="billingPerson">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:minLength value="1"></xsd:minLength>
+									<xsd:maxLength value="80"></xsd:maxLength>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="paymentMethod" type="tns:paymentMethod"></xsd:element>
+						<xsd:element name="ignoreLock" type="xsd:boolean"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="submitTranscriptResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="status" type="tns:appStatus"></xsd:element>
+						<xsd:element name="dnNo" minOccurs="0" type="tns:dnNo"></xsd:element>
+						<xsd:element name="txnCode" minOccurs="0" type="tns:dnNo"></xsd:element>
+						<xsd:element name="totalAmount" minOccurs="0" type="tns:amt"></xsd:element>
+						<xsd:element name="docId" minOccurs="0" type="tns:docId"></xsd:element>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="downloadTranscriptRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="docId" type="tns:docId"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="downloadTranscriptResponse" type="tns:download"></xsd:element>
+			<xsd:element name="downloadDnRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="dnNo" type="tns:dnNo" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="downloadDnResponse" type="tns:download"></xsd:element>
+			<xsd:element name="settleDnRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="dnNo" minOccurs="0" type="tns:dnNo" />
+						<xsd:element name="txnCode" minOccurs="0" type="tns:dnNo"></xsd:element>
+						<xsd:element name="paymentMethod" type="tns:paymentMethod"></xsd:element>
+						<xsd:element name="valueDate" type="xsd:dateTime" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="settleDnResponse" type="tns:download"></xsd:element>
+			<xsd:element name="rejectAutopayRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="rejectedBy">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:maxLength value="10"></xsd:maxLength>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="dnList" type="tns:dnList"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="rejectAutopayResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="demandNoteList" >
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="demandNote" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="dnNo" type="tns:dnNo" ></xsd:element>
+												<xsd:element name="pdf" type="xsd:base64Binary"></xsd:element>
+												<xsd:element name="receiptNo" type="tns:receiptNo" ></xsd:element>
+												<xsd:element name="receiptDate" type="xsd:dateTime" ></xsd:element>
+												<xsd:element name="receiptAmt" type="tns:amt"></xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="updateAtcRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="applNo" type="tns:applNo" />
+						<xsd:element name="epaymentIndicator" type="xsd:boolean" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="updateAtcResponse" type="tns:download"></xsd:element>
+			<xsd:element name="outstandingDnListRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="imoList">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element  name="imo" maxOccurs="unbounded" type="tns:imo"></xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="outstandingDnListResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="demandNoteList" >
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="demandNote" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="applNo" type="tns:applNo" ></xsd:element>
+												<xsd:element name="shipName" type="tns:vesselName" ></xsd:element>
+												<xsd:element name="shipCName" minOccurs="0" type="tns:vesselChiName" ></xsd:element>
+												<xsd:element name="genDate" type="xsd:dateTime"></xsd:element>
+												<xsd:element name="atcDueDate" type="xsd:dateTime"></xsd:element>
+												<xsd:element name="amount" type="tns:amt"></xsd:element>
+												<xsd:element name="itemNo" type="tns:itemNo"></xsd:element>
+												<xsd:element name="regNetTon" type="tns:ton"></xsd:element>
+												<xsd:element name="imoNo" type="tns:imo"></xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="outstandingAtcListRequest">
+				<xsd:complexType />
+			</xsd:element>
+			<xsd:element name="outstandingAtcListResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="dnList" >
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="demandNote" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="applNo" type="tns:applNo" ></xsd:element>
+												<xsd:element name="vesselName" type="tns:vesselName" ></xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="createDn4AtcRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="applNo" type="tns:applNo" ></xsd:element>
+						<xsd:element name="amount" type="tns:amt" ></xsd:element>
+						<xsd:element name="autopay" type="xsd:boolean" ></xsd:element>
+						<xsd:element name="address1" minOccurs="0" type="tns:address" ></xsd:element>
+						<xsd:element name="address2" minOccurs="0" type="tns:address" ></xsd:element>
+						<xsd:element name="address3" minOccurs="0" type="tns:address" ></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="createDn4AtcResponse" type="tns:download"></xsd:element>
+			<xsd:element name="isSettledRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="dnList" type="tns:dnList"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="isSettledResponse" >
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="dnList">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="dn" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="dnNo" type="tns:dnNo"></xsd:element>
+												<xsd:element name="status" type="tns:dnStatus"></xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:element name="receiptRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="dnNo" minOccurs="0" type="tns:dnNo"></xsd:element>
+						<xsd:element name="receiptNo" minOccurs="0" type="tns:receiptNo"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="receiptResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType"></xsd:element>
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="receiptList">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="receipt" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="dnNo" type="tns:dnNo"></xsd:element>
+												<xsd:element name="receiptDate" type="xsd:dateTime"></xsd:element>
+												<xsd:element name="receiptNo" type="tns:receiptNo"></xsd:element>
+												<xsd:element name="amount" type="tns:amt"></xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="shipRegRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vesselName" minOccurs="0" type="tns:vesselName"></xsd:element>
+						<xsd:element name="officialNo" minOccurs="0" type="tns:officialNo"></xsd:element>
+						<xsd:element name="imoNo" minOccurs="0" type="tns:imo"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="shipRegResponse" type="tns:vesselListResponse"></xsd:element>
+			<xsd:element name="getTakeUpRateStatRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fromDate" minOccurs="1" type="xsd:dateTime"></xsd:element>
+						<xsd:element name="toDate" minOccurs="1" type="xsd:dateTime"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getTakeUpRateStatResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="resultType" minOccurs="0" type="tns:resultType" />
+						<xsd:element name="resultList" type="tns:resultList"></xsd:element>
+						<xsd:element name="transcriptTotal" minOccurs="0" type="tns:count"></xsd:element>
+						<xsd:element name="hkRegShipTotal" minOccurs="0" type="tns:count"></xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="retrieveVessel4TranscriptRequest">
+		<wsdl:part element="tns:retrieveVessel4TranscriptRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="retrieveVessel4TranscriptResponse">
+		<wsdl:part element="tns:retrieveVessel4TranscriptResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="searchVessel4TranscriptRequest">
+		<wsdl:part element="tns:searchVessel4TranscriptRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="searchVessel4TranscriptResponse">
+		<wsdl:part element="tns:searchVessel4TranscriptResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="retrieveVesselByIMORequest">
+		<wsdl:part element="tns:retrieveVesselByIMORequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="retrieveVesselByIMOResponse">
+		<wsdl:part element="tns:retrieveVesselByIMOResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="validateTranscriptRequest">
+		<wsdl:part element="tns:validateTranscriptRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="validateTranscriptResponse">
+		<wsdl:part element="tns:validateTranscriptResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="submitTranscriptRequest">
+		<wsdl:part element="tns:submitTranscriptRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="submitTranscriptResponse">
+		<wsdl:part element="tns:submitTranscriptResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadTranscriptRequest">
+		<wsdl:part element="tns:downloadTranscriptRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadTranscriptResponse">
+		<wsdl:part element="tns:downloadTranscriptResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadDnRequest">
+		<wsdl:part element="tns:downloadDnRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="downloadDnResponse">
+		<wsdl:part element="tns:downloadDnResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="settleDnRequest">
+		<wsdl:part element="tns:settleDnRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="settleDnResponse">
+		<wsdl:part element="tns:settleDnResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="rejectAutopayRequest">
+		<wsdl:part element="tns:rejectAutopayRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="rejectAutopayResponse">
+		<wsdl:part element="tns:rejectAutopayResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="updateAtcRequest">
+		<wsdl:part element="tns:updateAtcRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="updateAtcResponse">
+		<wsdl:part element="tns:updateAtcResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="outstandingDnListRequest">
+		<wsdl:part element="tns:outstandingDnListRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="outstandingDnListResponse">
+		<wsdl:part element="tns:outstandingDnListResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="outstandingAtcListRequest">
+		<wsdl:part element="tns:outstandingAtcListRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="outstandingAtcListResponse">
+		<wsdl:part element="tns:outstandingAtcListResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="createDn4AtcRequest">
+		<wsdl:part element="tns:createDn4AtcRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="createDn4AtcResponse">
+		<wsdl:part element="tns:createDn4AtcResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="isSettledRequest">
+		<wsdl:part element="tns:isSettledRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="isSettledResponse">
+		<wsdl:part element="tns:isSettledResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="receiptRequest">
+		<wsdl:part element="tns:receiptRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="receiptResponse">
+		<wsdl:part element="tns:receiptResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="shipRegRequest">
+		<wsdl:part element="tns:shipRegRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="shipRegResponse">
+		<wsdl:part element="tns:shipRegResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="getTakeUpRateStatRequest">
+		<wsdl:part element="tns:getTakeUpRateStatRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="getTakeUpRateStatResponse">
+		<wsdl:part element="tns:getTakeUpRateStatResponse" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:portType name="ebsInbound">
+		<wsdl:operation name="searchVessel4Transcript">
+			<wsdl:input message="tns:searchVessel4TranscriptRequest" />
+			<wsdl:output message="tns:searchVessel4TranscriptResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="retrieveVesselByIMO">
+			<wsdl:input message="tns:retrieveVesselByIMORequest" />
+			<wsdl:output message="tns:retrieveVesselByIMOResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="retrieveVessel4Transcript">
+			<wsdl:input message="tns:retrieveVessel4TranscriptRequest" />
+			<wsdl:output message="tns:retrieveVessel4TranscriptResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="validateTranscript">
+			<wsdl:input message="tns:validateTranscriptRequest" />
+			<wsdl:output message="tns:validateTranscriptResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="submitTranscript">
+			<wsdl:input message="tns:submitTranscriptRequest" />
+			<wsdl:output message="tns:submitTranscriptResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="downloadTranscript">
+			<wsdl:input message="tns:downloadTranscriptRequest" />
+			<wsdl:output message="tns:downloadTranscriptResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="downloadDn">
+			<wsdl:input message="tns:downloadDnRequest" />
+			<wsdl:output message="tns:downloadDnResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="settleDn">
+			<wsdl:input message="tns:settleDnRequest" />
+			<wsdl:output message="tns:settleDnResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="rejectAutopay">
+			<wsdl:input message="tns:rejectAutopayRequest" />
+			<wsdl:output message="tns:rejectAutopayResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="updateAtc">
+			<wsdl:input message="tns:updateAtcRequest" />
+			<wsdl:output message="tns:updateAtcResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="outstandingDnList">
+			<wsdl:input message="tns:outstandingDnListRequest" />
+			<wsdl:output message="tns:outstandingDnListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="outstandingAtcList">
+			<wsdl:input message="tns:outstandingAtcListRequest" />
+			<wsdl:output message="tns:outstandingAtcListResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="createDn4Atc">
+			<wsdl:input message="tns:createDn4AtcRequest" />
+			<wsdl:output message="tns:createDn4AtcResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="isSettled">
+			<wsdl:input message="tns:isSettledRequest" />
+			<wsdl:output message="tns:isSettledResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="receipt">
+			<wsdl:input message="tns:receiptRequest" />
+			<wsdl:output message="tns:receiptResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="shipReg">
+			<wsdl:input message="tns:shipRegRequest" />
+			<wsdl:output message="tns:shipRegResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="getTakeUpRateStat">
+			<wsdl:input message="tns:getTakeUpRateStatRequest" />
+			<wsdl:output message="tns:getTakeUpRateStatResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ebsInboundSOAP" type="tns:ebsInbound">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="retrieveVessel4Transcript">
+			<soap:operation
+				soapAction="http://soapService.ebs.ssrs.mardep.org/retrieveVessel4Transcript" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="retrieveVesselByIMO">
+			<soap:operation
+				soapAction="http://soapService.ebs.ssrs.mardep.org/retrieveVesselByIMO" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="searchVessel4Transcript">
+			<soap:operation
+				soapAction="http://soapService.ebs.ssrs.mardep.org/searchVessel4Transcript" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="validateTranscript">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/validateTranscript" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="submitTranscript">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/submitTranscript" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="downloadTranscript">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/downloadTranscript" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="downloadDn">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/downloadDn" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="settleDn">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/settleDn" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="rejectAutopay">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/rejectAutopay" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateAtc">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/updateAtc" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="outstandingDnList">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/outstandingDnList" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="outstandingAtcList">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/outstandingAtcList" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="createDn4Atc">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/createDn4Atc" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="isSettled">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/isSettled" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="receipt">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/receipt" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="shipReg">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/shipReg" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getTakeUpRateStat">
+			<soap:operation soapAction="http://soapService.ebs.ssrs.mardep.org/getTakeUpRateStat" />
+			<wsdl:input><soap:body use="literal" /></wsdl:input>
+			<wsdl:output><soap:body use="literal" /></wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+	<wsdl:service name="ebsInbound">
+		<wsdl:port binding="tns:ebsInboundSOAP" name="ebsInboundSOAP">
+			<soap:address location="http://localhost:8080/ssrs/ebs-soap/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

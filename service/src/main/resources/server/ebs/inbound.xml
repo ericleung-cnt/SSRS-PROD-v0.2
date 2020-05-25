@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/xml
+    http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+    http://www.springframework.org/schema/integration/ws
+    http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+
+	<int-ws:inbound-gateway id="ebsInboundGateway" request-channel="ebsInRequestPojoChannel" marshaller="ebsJaxb2MarshallerIn" unmarshaller="ebsJaxb2MarshallerIn"
+		mapped-request-headers="from, requestDate" mapped-reply-headers="from, responseDate" reply-channel="ebsInResponsePojoChannel" />
+
+	<int:payload-type-router input-channel="ebsInRequestPojoChannel">
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.searchVessel4Transcript.SearchVessel4TranscriptRequest" 				channel="ebsSearchVessel4TranscriptChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.retrieveVesselByIMO.RetrieveVesselByIMORequest"		channel="ebsRetrieveVesselByIMOChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.retrieveVessel4Transcript.RetrieveVessel4TranscriptRequest" 			channel="ebsRetrieveVessel4TranscriptChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.transcriptApp.ValidateReq" channel="ebsValidateTranscriptReq" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.transcriptApp.SubmitReq" channel="ebsSubmitTranscriptReq" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.download.DownloadTranscriptRequest" 			channel="ebsDownloadTranscriptChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.download.DownloadDnRequest" 			channel="ebsDownloadDnChannel" />
+
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.createDn4Atc.CreateDn4AtcRequest" 			channel="ebsCreateDn4AtcRequestChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.isSettled.IsSettledRequest" 			channel="ebsIsSettledChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.outstandingAtcList.OutstandingAtcListRequest" 			channel="ebsOutstandingAtcListChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.outstandingDnList.OutstandingDnListRequest" 			channel="ebsOutstandingDnListChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.receipt.ReceiptRequest" 			channel="ebsReceiptChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.rejectAutopay.RejectAutopayRequest" 			channel="ebsRejectAutopayChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.settleDn.SettleDnRequest" 			channel="ebsSettleDnChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.shipReg.ShipRegRequest" 			channel="ebsShipRegChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.updateAtc.UpdateAtcRequest" 			channel="ebsUpdateAtcChannel" />
+		<int:mapping type="org.mardep.ssrs.ebs.pojo.inbound.getTakeUpRateStat.GetTakeUpRateStatRequest" 			channel="ebsGetTakeUpRateStatChannel" />
+	</int:payload-type-router>
+
+
+	<int:service-activator input-channel="ebsSearchVessel4TranscriptChannel" 		ref="ebsInboundService" 	method="searchVessel4Transcript" output-channel="ebsOutHeaderEnricherIn" />
+	<int:service-activator input-channel="ebsRetrieveVesselByIMOChannel" 	ref="ebsInboundService" 	method="retrieveVesselByIMO" output-channel="ebsOutHeaderEnricherIn"/>
+	<int:service-activator input-channel="ebsRetrieveVessel4TranscriptChannel" 		ref="ebsInboundService" 	method="retrieveVessel4Transcript" output-channel="ebsOutHeaderEnricherIn"/>
+	<int:service-activator input-channel="ebsValidateTranscriptReq" 		ref="ebsInboundService" 	method="validateTranscriptApp" output-channel="ebsOutHeaderEnricherIn"/>
+	<int:service-activator input-channel="ebsSubmitTranscriptReq" 		ref="ebsInboundService" 	method="submitTranscriptApp" output-channel="ebsOutHeaderEnricherIn"/>
+	<int:service-activator input-channel="ebsDownloadTranscriptChannel" 		ref="ebsInboundService" 	method="downloadTranscript" output-channel="ebsOutHeaderEnricherIn"/>
+	<int:service-activator input-channel="ebsDownloadDnChannel" 		ref="ebsInboundService" 	method="downloadDn" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsCreateDn4AtcRequestChannel" 		ref="ebsInboundService" 	method="createDn4Atc" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsIsSettledChannel" 		ref="ebsInboundService" 	method="isSettled" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsOutstandingAtcListChannel" 		ref="ebsInboundService" 	method="outstandingAtcList" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsOutstandingDnListChannel" 		ref="ebsInboundService" 	method="outstandingDnList" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsReceiptChannel" 		ref="ebsInboundService" 	method="receipt" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsRejectAutopayChannel" 		ref="ebsInboundService" 	method="rejectAutopay" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsSettleDnChannel" 		ref="ebsInboundService" 	method="settleDn" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsShipRegChannel" 		ref="ebsInboundService" 	method="shipReg" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsUpdateAtcChannel" 		ref="ebsInboundService" 	method="updateAtc" output-channel="ebsOutHeaderEnricherIn"/>
+		<int:service-activator input-channel="ebsGetTakeUpRateStatChannel" 		ref="ebsInboundService" 	method="getTakeUpRateStatRequest" output-channel="ebsOutHeaderEnricherIn"/>
+
+<!-- 1. remove from -->
+<!-- 2. add from  -->
+<!-- 3. add responseDate -->
+	<int:chain input-channel="ebsOutHeaderEnricherIn" output-channel="ebsInResponsePojoChannel">
+		<int:header-filter header-names="requestDate"/>
+
+		<int:header-enricher >
+			<int:header name="from" 		value="SSRS" overwrite="true"/>
+			<int:header name="responseDate" expression="T(org.apache.commons.lang.time.DateFormatUtils).ISO_DATETIME_FORMAT.format(new java.util.Date())"/>
+	        <int:header name="Content-Type" value="text/xml;charset=utf-8" />
+		</int:header-enricher>
+	</int:chain>
+
+	<bean id="ebsDetailSoapFaultDefinitionExceptionResolver" class="org.mardep.ssrs.ebs.endpoint.DetailSoapFaultDefinitionExceptionResolver" parent="abstractEbsSoapFaultDefinitionExceptionResolver">
+		<property name="mappedEndpoints">
+			<set>
+				<ref bean="ebsInboundGateway"/>
+			</set>
+		</property>
+	</bean>
+
+	<int:channel id="ebsInRequestPojoChannel"/>
+	<int:channel id="ebsInResponsePojoChannel"/>
+	<int:channel id="ebsRequest"/>
+<!-- 	<int:channel id="demandNoteRequest"/> -->
+<!-- 	<int:channel id="refundRequest"/> -->
+
+
+</beans>

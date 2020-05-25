@@ -1,0 +1,16 @@
+<DataSource ID="transcriptApplicantDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="transcriptApplicantDMI" />
+	<fields>
+		<field name="ocrTranscriptApplicantId" type="integer" title="ID" primaryKey="true"/>
+		<field name="applicantCompanyName"  type="text" title="Applicant Company Name" length="100" />
+		<field name="contactPerson"  type="text" title="Contact Person" length="100" />
+		<field name="address"  type="text" title="OCR Owner Address" length="100" />
+		<field name="email"  type="text" title="Email" length="100" />
+		<field name="fax"  type="text" title="Fax" length="100" />
+		<field name="tel"  type="text" title="Tel" length="100" />
+		<field name="address1"  type="text" title="Address" length="80" />
+		<field name="address2"  type="text" title="" length="80" />
+		<field name="address3"  type="text" title="" length="80" />
+	</fields>
+</DataSource>	

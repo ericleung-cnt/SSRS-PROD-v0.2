@@ -1,0 +1,7 @@
+<DataSource ID="operationTypeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="operationTypeDMI" />
+	<fields>
+		<field name="id" 		type="text" title="Operation Type Code" primaryKey="true" />
+		<field name="otDesc" 	type="text" title="Description"/>
+	</fields>
+</DataSource>

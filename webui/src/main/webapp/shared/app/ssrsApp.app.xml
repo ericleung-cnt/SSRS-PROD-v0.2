@@ -1,0 +1,27 @@
+<Application>
+    <rpcBindings>
+        <ServerObject ID="securityDMI" lookupStyle="spring" bean="securityDMI">
+            <visibleMethods>
+                <method name="checkLogin"/>
+                <method name="getPIA"/>
+                <method name="login"/>
+                <method name="logout"/>
+            </visibleMethods>
+        </ServerObject>
+        <ServerObject ID="reportDMI" lookupStyle="spring" bean="reportDMI">
+            <visibleMethods>
+                <method name="generate"/>
+            </visibleMethods>
+        </ServerObject>
+        <ServerObject ID="demandNoteRefundDMI" lookupStyle="spring" bean="demandNoteRefundDMI">
+        	<visibleMethods>
+        		<method name="getRefundAvailability"/>
+        	</visibleMethods>
+        </ServerObject>
+        <ServerObject ID="heartbeatDMI" lookupStyle="spring" bean="heartbeatDMI">
+        	<visibleMethods>
+        		<method name="getHeartbeat"/>
+        	</visibleMethods>
+        </ServerObject>        
+    </rpcBindings>
+</Application>

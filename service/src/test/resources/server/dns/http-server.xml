@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/xml
+    http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+    http://www.springframework.org/schema/integration/ws
+    http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+    
+    <!-- 	set http server start -->
+	<bean id="httpServer" class="org.springframework.remoting.support.SimpleHttpServerFactoryBean">
+		<property name="contexts">
+			<map>
+				<entry value-ref="soapHandler">
+					<key><value>${ssrs.dns.server.context}</value></key>
+				</entry>
+			</map>
+		</property>
+		<property name="port" value="${ssrs.dns.server.port}"></property>
+	</bean>
+
+	<bean id="soapHandler"	class="org.springframework.ws.transport.http.WebServiceMessageReceiverHttpHandler">
+		<property name="messageFactory" ref="dnsMessageFactory" />
+		<property name="messageReceiver" ref="messageReceiver" />
+	</bean>
+	<bean id="messageReceiver" class="org.springframework.ws.soap.server.SoapMessageDispatcher">
+		 <property name="endpointMappings">
+            <bean class="org.springframework.ws.server.endpoint.mapping.PayloadRootAnnotationMethodEndpointMapping">
+                <property name="defaultEndpoint" ref="dnsInboundGateway"/>
+                <property name="interceptors">
+                	<list>
+                		<ref bean="inboundRequestResponseInterceptor"/>
+<!--                 		<ref bean="soapEnvelopeLoggingInterceptor"/> -->
+                	</list>
+                </property>
+            </bean>
+        </property>
+	</bean>
+    <!-- 	set http server end -->
+
+</beans>

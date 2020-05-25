@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Summary_of_Average_Wages_of_Hong_Kong_Registered_Seafarer_on_Board_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="5" uuid="20d021eb-715c-401d-9718-09cf6f72461c">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<group name="GP_SUBTOTAL">
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="23">
+				<staticText>
+					<reportElement x="361" y="-1" width="54" height="17" uuid="60f9126f-69f1-4c03-a6f0-cc56bbd9e227"/>
+					<text><![CDATA[Sub-total]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="420" y="-1" width="211" height="17" uuid="0b40a476-7547-42d4-96fe-156f852a1b0b"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[91]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="631" y="-1" width="164" height="17" uuid="9b59821c-e7e1-40ad-a2ec-2b33e323825a"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[$0]]></text>
+				</staticText>
+				<line>
+					<reportElement x="419" y="-7" width="1" height="26" uuid="f00d575c-fe41-4a8b-a3bc-53db6ff80b9e"/>
+				</line>
+				<line>
+					<reportElement x="1" y="19" width="796" height="1" uuid="f858fd82-96a3-481b-b009-9889d62e24ff"/>
+				</line>
+				<line>
+					<reportElement x="1" y="0" width="1" height="19" uuid="084e7a8d-1830-4cee-a272-6fc060e63baa"/>
+				</line>
+				<line>
+					<reportElement x="180" y="-4" width="1" height="24" uuid="8b500213-31a0-46b9-98fc-bd4414433c3e"/>
+				</line>
+				<line>
+					<reportElement x="631" y="-5" width="1" height="25" uuid="0e4097df-6c56-4fd2-a03a-854534e3806c"/>
+				</line>
+				<line>
+					<reportElement x="796" y="-5" width="1" height="25" uuid="e0235627-3b98-4736-acb4-6d959d65d153"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="280" y="11" width="222" height="22" uuid="7adcb022-64ea-4b47-949f-4509b124e366"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="35" width="420" height="22" uuid="a84a0a06-5581-4f98-ba0f-cb2552e26693"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Summary of Average Wages of HK Registered Seafarer - Data as at 08/06/2018]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="701" y="9" width="93" height="24" uuid="a214ef50-5836-4cc6-b59a-80a1a2fec8ad"/>
+				<text><![CDATA[08-JUN-2018 10:22]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="722" y="39" width="71" height="18" uuid="8c5f92c5-d961-475e-aa6c-cd78ca9f39f6"/>
+				<text><![CDATA[Page 1 of 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-7" y="6" width="77" height="24" uuid="793239a5-c946-47c0-9f09-b2f78852cd3b"/>
+				<text><![CDATA[SRS2080]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-6" y="30" width="77" height="24" uuid="6f3c7a4c-2dd8-454a-a70c-c382aadd80ca"/>
+				<text><![CDATA[WHHO1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="64" width="68" height="22" uuid="913d8c8f-2f61-4448-8f3f-bc1755a05c2a"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Part 1 & 2)]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="17" width="77" height="18" uuid="c9e8f7d4-2a06-4b7d-9abc-387d3bc4e6c7"/>
+				<text><![CDATA[Department]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="193" y="17" width="77" height="18" uuid="d24417d7-fdfe-4ac8-8fcd-d102f2dfd5eb"/>
+				<text><![CDATA[Rank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="15" width="211" height="18" uuid="296e6178-ebbc-4c56-a1a8-af0b2f1a1686"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No. of Seafarers]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="15" width="162" height="18" uuid="6e41077b-aaa2-4e7a-ac9e-4cc41bfb784d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Average Wages]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="10" width="796" height="1" uuid="42cd6d8b-1d7a-4d89-813a-71f63e81069f"/>
+			</line>
+			<line>
+				<reportElement x="1" y="35" width="796" height="1" uuid="3072fc7f-42a8-4505-b08a-1d1d4e7253fe"/>
+			</line>
+			<line>
+				<reportElement x="180" y="10" width="1" height="26" uuid="a8eff15a-bbce-445a-8dc8-9229043a044a"/>
+			</line>
+			<line>
+				<reportElement x="796" y="10" width="1" height="26" uuid="bb33f41d-8666-41eb-88cf-65a231d0cc7a"/>
+			</line>
+			<line>
+				<reportElement x="419" y="10" width="1" height="26" uuid="473ebe60-00e8-45b2-a07d-bac0ccd08683"/>
+			</line>
+			<line>
+				<reportElement x="631" y="10" width="1" height="26" uuid="8a9c37ce-9a63-4c54-a275-59e9f3d70aba"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="5" width="117" height="17" uuid="54cb2542-81f9-4644-a4e3-d1966db76a81"/>
+				<text><![CDATA[DECK DEPARTMENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="2" width="117" height="17" uuid="69e28ebe-e87c-4605-9222-4a1da8189ca6"/>
+				<text><![CDATA[JUNIOR SEAMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="23" width="117" height="17" uuid="797bb76f-3bc0-4949-a372-31e4acd298ce"/>
+				<text><![CDATA[SEAMAN I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="43" width="117" height="17" uuid="c1c198bc-f2c5-47a0-af2f-17ecff1d941f"/>
+				<text><![CDATA[SEAMAN II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="63" width="117" height="17" uuid="0dd79f00-9e5f-4050-bc2f-d42c7222f749"/>
+				<text><![CDATA[SEAMAN III]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="2" width="211" height="17" uuid="190974e7-ef83-4124-867c-6a6140109c6f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="19" width="211" height="17" uuid="7e18e368-4509-4aeb-9ee1-33b642248aa5"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="41" width="211" height="17" uuid="1a9d3aef-a5b3-475a-bcc5-be7b330a35c8"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="420" y="62" width="211" height="17" uuid="847aa1ed-ed4e-4e8d-b3ba-9b98488ce6de"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[40]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="631" y="2" width="164" height="17" uuid="ddd5deb5-5560-4566-bbba-67711f3c3a9d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="631" y="19" width="164" height="17" uuid="828b841f-4914-4a65-b1f3-595f40f613dd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="631" y="41" width="164" height="17" uuid="a9a36a57-9dcd-46dd-9301-5b5fc9c05c51"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="62" width="164" height="17" uuid="a6be7680-d175-44ce-bcbc-e7cac508e03a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="-27" width="1" height="26" uuid="3330aed4-4014-4897-a549-3f2f082c0819"/>
+			</line>
+			<line>
+				<reportElement x="1" y="-2" width="1" height="89" uuid="04b10c1f-a0ad-4f31-8a55-52b0a806c5ab"/>
+			</line>
+			<line>
+				<reportElement x="180" y="-2" width="1" height="85" uuid="d4b06f7d-cbc2-405c-ab18-ffb8803ed95b"/>
+			</line>
+			<line>
+				<reportElement x="631" y="-1" width="1" height="84" uuid="488f1205-7cb6-49b5-9311-4f19f9ebe5b2"/>
+			</line>
+			<line>
+				<reportElement x="419" y="-1" width="1" height="81" uuid="69dc8be2-1ec4-4b7a-8682-279636330e90"/>
+			</line>
+			<line>
+				<reportElement x="796" y="-1" width="1" height="84" uuid="cac0a373-971f-4c2f-ab03-958f3a82aa1b"/>
+			</line>
+			<line>
+				<reportElement x="180" y="82" width="617" height="1" uuid="0d1dee00-ff62-4dc1-8937-ce04ce8daf76"/>
+			</line>
+			<line>
+				<reportElement x="180" y="60" width="616" height="1" uuid="750f7533-36a2-4fd9-a980-d013603b2cb6"/>
+			</line>
+			<line>
+				<reportElement x="180" y="38" width="617" height="1" uuid="c54e4acd-6d59-416f-b2ec-fcc141b4956a"/>
+			</line>
+			<line>
+				<reportElement x="180" y="20" width="617" height="1" uuid="143e7e91-a531-4ca7-8ee0-0180d256ebb3"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="353" y="32" width="114" height="28" uuid="565c6695-2617-4431-a624-2cbd26ff5a83"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---- End Of Report ----]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="3" width="54" height="17" uuid="04e2ef6f-3f2f-4f14-af55-5e50f71208e0"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="3" width="211" height="17" uuid="8d9a3af3-9fae-488e-b3d2-7132df1c2f56"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[91]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="632" y="3" width="164" height="17" uuid="0e1f9dd7-838c-47b9-98de-bbebe0717a0c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<line>
+				<reportElement x="631" y="-3" width="1" height="28" uuid="12a7a69d-69ea-4f09-b25f-b47a20979782"/>
+			</line>
+			<line>
+				<reportElement x="1" y="25" width="796" height="1" uuid="58a46674-6176-46d3-b095-2b91be662b31"/>
+			</line>
+			<line>
+				<reportElement x="796" y="-4" width="1" height="29" uuid="180f9d10-7268-4e90-9900-5014b048331c"/>
+			</line>
+			<line>
+				<reportElement x="419" y="-3" width="1" height="29" uuid="b3727974-ec15-49c2-9792-d1192bfebe22"/>
+			</line>
+			<line>
+				<reportElement x="1" y="-4" width="1" height="29" uuid="2d96ac2e-7d25-42a9-9b6f-cea551edba65"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,9 @@
+<SOAP-ENV:Envelope
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   <SOAP-ENV:Body>
+       <m:retrieveVesselByIMORequest xmlns:m="http://soapService.ebs.ssrs.mardep.org/">
+           <m:imo>ABCDEFG</m:imo>
+       </m:retrieveVesselByIMORequest>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

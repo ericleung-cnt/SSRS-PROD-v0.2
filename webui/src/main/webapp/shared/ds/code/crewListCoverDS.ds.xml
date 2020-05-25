@@ -1,0 +1,15 @@
+<DataSource ID="crewListCoverDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="crewListCoverDMI" />
+	<fields>
+		<field name="vesselId" 		type="text" 	title="Vessel ID" 		required="true"/>
+		<field name="coverYymm" 	type="text" 	title="Cover YYMM"		required="true" 	length="6"/>
+		<field name="imoNo" 		type="text" 	title="IMO NO."			length="9"/>
+		<field name="commenceDate" 	type="date" 	title="Date of Commencement" displayFormat="dd/MM/yyyy"/>
+		<field name="commencePlace" type="text" 	title="Place of Commencement" 			length="30"/>
+		<field name="terminateDate" type="date" 	title="Date of Terminate" displayFormat="dd/MM/yyyy"/>
+		<field name="terminatePlace" type="text" 	title="Place of Terminate" 		length="30"/>
+		<field name="agreementPeriod" 	type="float" 	title="Agreement Period (Month)"/>
+		<field name="dgDesc" 		type="text" 	title="DG Description" 	length="30"/>
+		<field name="docLocation" 	type="text" 	title="Doucment location" 	length="100"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,22 @@
+<DataSource ID="demandNoteItemDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="demandNoteItemDMI" />
+	<fields>
+		<field name="itemId" 			type="integer" 	title="Item ID"	primaryKey="true"/>
+		<field name="applNo" 			type="text" 	title="Appl No" 	length="9"/>
+		<field name="applNoSuf" 		type="text" 	title="Appl No Suf"	length="1"/>
+		<field name="itemNo" 			type="integer" 	title="Item No"/>
+		<field name="dnDemandNoteNo" 	type="text" 	title="Demand Note NO."	/>
+		<field name="chargedUnits" 		type="integer" 	title="Charged Units"	/>
+		<field name="unitPrice"			type="float" 	title="Unit Price" 	/>
+		<field name="amount" 			type="float" 	title="Amount"  	/>
+		<field name="chgIndicator" 		type="text" 	title="Chg Indicator"  	length="1"/>
+		<field name="adhocDemandNoteText" 	type="text" title="Adhoc Demand Note Text"  length="2000"/>
+		<field name="userId" 			type="text" 	title="User ID"  	length="8"/>
+		<field name="generationTime" 	type="datetime" title="Generation Time" displayFormat="dd/MM/yyyy"/>
+		<field name="fcFeeCode" 		type="text" 	title="FC Fee Code"  length="50" required="true"/>
+		<field name="feeCode" 			type="any" 	/>
+		<field name="demandNoteHeader" 	type="any" 	/>
+		<field name="active" />
+		<field name="deleteReason" />
+	</fields>
+</DataSource>

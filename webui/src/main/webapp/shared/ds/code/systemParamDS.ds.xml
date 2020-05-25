@@ -1,0 +1,9 @@
+<DataSource ID="systemParamDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="systemParamDMI" />
+	<fields>
+		<field name="id" 		type="text" 	length="255"	title="ID" primaryKey="true"/>
+		<field name="value" 	type="text" 	length="10000000"	title="Value" 	/>
+		<field name="remark" 	type="text" 	length="100"	title="Remark" />
+
+	</fields>
+</DataSource>

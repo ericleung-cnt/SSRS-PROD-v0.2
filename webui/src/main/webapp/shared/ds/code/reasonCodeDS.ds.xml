@@ -1,0 +1,10 @@
+<DataSource ID="reasonCodeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="reasonCodeDMI" />
+	<fields>
+		<field name="reasonCode" 	type="text" title="Reason Code" primaryKey="true" length="50" required="true"/>
+		<field name="reasonType" 	type="text" title="Reason Type" primaryKey="true" length="50" required="true"/>
+		
+		<field name="engDesc" 	type="text" title="English Description" length="80" required="true"/>
+		<field name="chiDesc" 	type="text" title="Chinese Description" length="100" />
+	</fields>
+</DataSource>

@@ -1,0 +1,24 @@
+<DataSource ID="mortgageDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="mortgageDMI" />
+	<fields>
+		<field name="applNo" primaryKey="true"/>
+		<field name="priorityCode" primaryKey="true"/>
+		<field name="agreeTxt"/>
+		<field name="consentClosure"/>
+		<field name="consentTransfer"/>
+		<field name="higherMortgageeConsent" required="true" length="1"/>
+		<field name="mortStatus">
+			<valueMap>
+				<value ID="A">Active</value>
+				<value ID="R">Received</value>
+				<value ID="P">Pending for Documents</value>
+				<value ID="a">Approved</value>
+				<value ID="C">Cancelled</value>
+				<value ID="D">Discharged</value>
+				<value ID="W">Withdrawn</value>
+			</valueMap>
+		</field>
+		<field name="regTime" type="datetime" displayFormat="dd/MM/yyyy HH:mm:ss" />
+	</fields>
+</DataSource>

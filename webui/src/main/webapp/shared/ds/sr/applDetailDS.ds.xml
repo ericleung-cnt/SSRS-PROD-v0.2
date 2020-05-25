@@ -1,0 +1,141 @@
+<DataSource ID="applDetailDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="applDetailDMI" />
+	<fields>
+		<field name="applNo" required="true" length="9" />
+		<field name="applDate" type="date" displayFormat="dd/MM/yyyy" />
+		<field name="hullNo" length="8" />
+		<field name="prevName" length="40" />
+		<field name="prevChiName" length="30" />
+		<field name="builderCert" length="1" />
+		<field name="billOfSale" length="1" />
+		<field name="incorpHkid" length="1" />
+		<field name="formAuth" length="1" />
+		<field name="entitle" length="1" />
+		<field name="deletion" length="1" />
+		<field name="survey_cert" length="1" />
+		<field name="currTonCert" length="1" />
+		<field name="undertaking" length="1" />
+		<field name="courtOrder" length="1" />
+		<field name="noteIssue" length="1" />
+		<field name="noteReturn" length="1" />
+		<field name="ownerEncum" length="1" />
+		<field name="appFullReg" length="1" />
+		<field name="demiseEntitle" length="1" />
+		<field name="applForm" length="1" />
+		<field name="demiseExA" length="1" />
+		<field name="demiseExB" length="1" />
+		<field name="demiseIncorpHkid" length="1" />
+		<field name="demiseFormAuth" length="1" />
+		<field name="repIncorpHkid" length="1" />
+		<field name="repMemoAssoc" length="1" />
+		<field name="repPrevAppl" length="1" />
+		<field name="auditInsp" length="1" />
+		<field name="prevPort" length="50" />
+		<field name="prevPortCountry" length="50" />
+		<field name="prevRegYear" type="int" />
+		<field name="preOffNo" length="9" />
+		<field name="proposeRegDate" type="date" displayFormat="dd/MM/yyyy" />
+		<field name="placeUponRegister" length="50" />
+		<field name="cfTime" type="date" displayFormat="dd/MM/yyyy" />
+		<field name="cs1ClassSocCode" length="3" />
+		<field name="ccCountryCodePrevReg" length="3" />
+		<field name="evidenceDeletion" length="1" />
+		<field name="ownerAppoinRep" length="1" />
+		<field name="letConfIncorpCert" length="1" />
+		<field name="docCertifiedIncorpCert" length="1" />
+		<field name="applRegRequire" length="1" />
+		<field name="applScenario" length="1" />
+		<field name="billOfSaleAttorney" length="1" />
+		<field name="billOfSaleAttorneyReq" length="1" />
+		<field name="billOfSaleReq" length="1" />
+		<field name="builderCertAttorney" length="1" />
+		<field name="builderCertAttorneyReq" length="1" />
+		<field name="builderCertReq" length="1" />
+		<field name="builderDeclNosealReq" length="1" />
+		<field name="builderDeclarationNoseal" length="1" />
+		<field name="certDeletion2Reg" length="1" />
+		<field name="certDeletion2RegReq" length="1" />
+		<field name="certDeletionReq" length="1" />
+		<field name="certOwnership2Reg" length="1" />
+		<field name="certOwnership2RegReq" length="1" />
+		<field name="certOwnershipReq" length="1" />
+		<field name="certSurveyReq" length="1" />
+		<field name="courtOrderReq" length="1" />
+		<field name="dcBusinessReq" length="1" />
+		<field name="dcDeclNosealReq" length="1" />
+		<field name="dcFormAuthReq" length="1" />
+		<field name="dcReqDocReq" length="1" />
+		<field name="declEntitleDcReq" length="1" />
+		<field name="declEntitleReq" length="1" />
+		<field name="deliveryConfirmReq" length="1" />
+		<field name="evidenceDeletion2Reg" length="1" />
+		<field name="evidenceDeletion2RegReq" length="1" />
+		<field name="evidenceDeletionReq" length="1" />
+		<field name="itcProregReq" length="1" />
+		<field name="markingReq" length="1" />
+		<field name="mortgageeConsent2RegReq" length="1" />
+		<field name="ownerBusinessReq" length="1" />
+		<field name="ownerDcType" length="1" />
+		<field name="ownerDeclNosealReq" length="1" />
+		<field name="ownerEncumReq" length="1" />
+		<field name="ownerFormAuthReq" length="1" />
+		<field name="ownerRegDocReq" length="1" />
+		<field name="prqcConfirmReq" length="1" />
+		<field name="rpBusinessReq" length="1" />
+		<field name="rpCompDocReq" length="1" />
+		<field name="telexFaxMarking" length="1" />
+		<field name="sellerDeclNosealReq" length="1" />
+		<field name="sellerDeclarationNoseal" length="1" />
+		<field name="cosInfoState" title="Ship Particulars Status" length="3" required="true">
+			<valueMap>
+			   	<value ID="APP">Application</value>
+			   	<value ID="COS">Certificate of Survey</value>
+			   	<value ID="ITC">International Tonnage Certificate</value>
+	   		</valueMap>
+		</field>
+		<field name="clientDeregReason" title="Client Deregistration Reason">
+			<valueMap>
+			   	<value ID="0">No Return</value>
+			   	<value ID="1">Ship sold</value>
+			   	<value ID="2">Ship scrap</value>
+			   	<value ID="3">Change of flag for commercial consideration</value>
+			   	<value ID="4">Change of flag for better flag state services</value>
+			   	<value ID="5">Change of flag for other reasons</value>
+	   		</valueMap>
+		</field>
+		<field name="clientDeregRemark" length="100" />
+		<field name="builderCertDoc" length="255"/>
+		<field name="billOfSaleDoc" length="255"/>
+		<field name="ownerCoRegDoc" length="255"/>
+		<field name="formAuthDoc" length="255"/>
+		<field name="entitleDoc" length="255"/>
+		<field name="certOfDeletionDoc" length="255"/>
+		<field name="certOfSurveyDoc" length="255"/>
+		<field name="prqcConfirmationDoc" length="255"/>
+		<field name="courtOrderDoc" length="255"/>
+		<field name="declarationMarkingDoc" length="255"/>
+		<field name="pdaDoc" length="255"/>
+		<field name="dcDeclaratioDoc" length="255"/>
+		<field name="applicationFormDoc" length="255"/>
+		<field name="dcBusinessRegDoc" length="255"/>
+		<field name="dcCompanyRegDoc" length="255"/>
+		<field name="dcFormAuthDoc" length="255"/>
+		<field name="rpCompanyRegDoc" length="255"/>
+		<field name="rpBusinessRegDoc" length="255"/>
+		<field name="evidenceDeletionDoc" length="255"/>
+		<field name="itcForProRegDoc" length="255"/>
+		<field name="certOfOwnershipDoc" length="255"/>
+		<field name="ownerBusinessRegDoc" length="255"/>
+		<field name="billOfSaleAttorneyDoc" length="255"/>
+		<field name="builderCertAttorneyDoc" length="255"/>
+		<field name="builderDeclarationNosealDoc" length="255"/>
+		<field name="certDeletion2RegDoc" length="255"/>
+		<field name="certOwnership2RegDoc" length="255"/>
+		<field name="evidenceDeletion2RegDoc" length="255"/>
+		<field name="sellerDeclarationNosealDoc" length="255"/>
+		<field name="ownerDeclarationNosealDoc" length="255"/>		
+		<field name="ownerEncumDoc" length="255"/>	
+		<field name="mortgageeConsentDoc" length="255"/>
+	</fields>
+</DataSource>

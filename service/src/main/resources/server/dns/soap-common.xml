@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/xml
+    http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+    http://www.springframework.org/schema/integration/ws
+    http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+    
+	<bean id="dnsMessageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
+	
+	<bean id="dnsAbstract2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller" abstract="true">
+		<property name="marshallerProperties">
+			<map>
+				<entry key="jaxb.formatted.output">
+					<value type="java.lang.Boolean">true</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+	<bean id="dnsJaxb2MarshallerOut" class="org.springframework.oxm.jaxb.Jaxb2Marshaller" parent="dnsAbstract2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.createDemandNote.DemandNoteRequest</value>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.createDemandNote.DemandNoteResponse</value>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.createReceipt.ReceiptRequest</value>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.createReceipt.ReceiptResponse</value>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.refund.RefundRequest</value>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.refund.RefundResponse</value>
+            	<value>org.mardep.ssrs.dns.pojo.outbound.ServiceFault</value>
+            </list>
+		</property>
+	</bean>
+	<bean id="dnsJaxb2MarshallerIn" class="org.springframework.oxm.jaxb.Jaxb2Marshaller" parent="dnsAbstract2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.createReceipt.ReceiptStatusRequest</value>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.createReceipt.ReceiptStatusResponse</value>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.updateRefundStatus.RefundStatusRequest</value>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.updateRefundStatus.RefundStatusResponse</value>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.updateDemandNoteStatus.DemandNoteStatusRequest</value>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.updateDemandNoteStatus.DemandNoteStatusResponse</value>
+            	<value>org.mardep.ssrs.dns.pojo.inbound.ServiceFault</value>
+            </list>
+		</property>
+	</bean>
+	
+<!-- 	<bean id="soapEnvelopeLoggingInterceptor" class="org.springframework.ws.soap.server.endpoint.interceptor.SoapEnvelopeLoggingInterceptor"></bean> -->
+
+	<bean id="dnsSoapHeaderMapper" class="org.mardep.ssrs.dns.processor.DnsSoapHeaderMapper">
+		<property name="requestHeaderNames">
+			<list>
+				<value>controlId</value>
+				<value>from</value>
+				<value>requestDate</value>
+				<value>responseDate</value>
+			</list>
+		</property>
+	</bean>
+
+<!-- 	<bean id="resultToDocumentTransformer" class="org.springframework.integration.xml.transformer.ResultToDocumentTransformer"/> -->
+<!-- 	<bean id="resultToStringTransformer" class="org.springframework.integration.xml.transformer.ResultToStringTransformer"/> -->
+    
+	<bean id="abstractDnsSoapFaultDefinitionExceptionResolver" class="org.mardep.ssrs.dns.endpoint.DetailSoapFaultDefinitionExceptionResolver" abstract="true">
+		<property name="defaultFault" value="SERVER"/>
+		<property name="marshaller" ref="dnsJaxb2MarshallerIn"/>
+	</bean>
+    
+</beans>

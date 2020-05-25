@@ -1,0 +1,27 @@
+<DataSource ID="excelChangeTonnageDS" serverType="generic"
+ 	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="excelChangeTonnageDMI" />
+	<fields>
+		<field name="deRegDecreaseOGV" type="float" title="DeReg Decrease OGV"/>
+		<field name="newRegIncreaseOGV" type="float" title="New Reg Increase OGV"/>
+		<field name="existRegChangeOGV" type="float" title="Exist Reg Change OGV"/>
+		<field name="deRegDecreaseALL" type="float" title="DeReg Decrease ALL"/>
+		<field name="newRegIncreaseALL" type="float" title="New Reg Increase ALL"/>
+		<field name="existRegChangeALL" type="float" title="Exist Reg Change ALL"/>
+		<field name="deRegDecreaseCGO" type="float" title="DeReg Decrease CGO"/>
+		<field name="newRegIncreaseCGO" type="float" title="New Reg Increase CGO"/>
+		<field name="existRegChangeCGO" type="float" title="Exist Reg Change CGO"/>
+		<field name="deRegDecreasePAX" type="float" title="DeReg Decrease PAX"/>
+		<field name="newRegIncreasePAX" type="float" title="New Reg Increase PAX"/>
+		<field name="existRegChangePAX" type="float" title="Exist Reg Change PAX"/>
+		<field name="deRegDecreaseTAN" type="float" title="DeReg Decrease TAN"/>
+		<field name="newRegIncreaseTAN" type="float" title="New Reg Increase TAN"/>
+		<field name="existRegChangeTAN" type="float" title="Exist Reg Change TAN"/>
+		<field name="deRegDecreaseTUG" type="float" title="DeReg Decrease TUG"/>
+		<field name="newRegIncreaseTUG" type="float" title="New Reg Increase TUG"/>
+		<field name="existRegChangeTUG" type="float" title="Exist Reg Change TUG"/>
+		<field name="deRegDecreaseYHT" type="float" title="DeReg Decrease YHT"/>
+		<field name="newRegIncreaseYHT" type="float" title="New Reg Increase YHT"/>
+		<field name="existRegChangeYHT" type="float" title="Exist Reg Change YHT"/>
+	</fields>	
+</DataSource>

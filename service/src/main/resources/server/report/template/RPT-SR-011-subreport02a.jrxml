@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPT-SR-011-subreport01" pageWidth="525" pageHeight="842" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d60de621-3664-406b-9265-6f9a12b8ddd8">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="regDate" class="java.lang.String"/>
+	<field name="nature" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="0" width="178" height="15" uuid="9c819c67-df4c-4a36-b7f8-22cbbd7b9698"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Date & Hour of Registry]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="11" width="178" height="13" uuid="1bf24275-f859-4148-9024-aa35308ed1cf"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[註冊日期､ 時間]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="0" width="221" height="15" uuid="8dd1a930-ac42-48c5-806f-f8385ffc618f"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Nature of Transaction]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="11" width="221" height="13" uuid="8b53b7d6-180c-4800-b700-08d8677f1d34"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[抵押細節]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="5" y="3" width="176" height="48" uuid="c68705bf-67b5-4589-8441-49e2368443b6"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{regDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="181" y="3" width="313" height="48" uuid="3ecb54d3-0db4-4e93-82b9-90c99ca72574"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nature}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

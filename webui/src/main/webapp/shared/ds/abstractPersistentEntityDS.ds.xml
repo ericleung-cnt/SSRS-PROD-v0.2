@@ -1,0 +1,10 @@
+<DataSource ID="abstractPersistentEntityDS" serverType="generic">
+<serverObject/>
+<fields>
+    <field name="createdDate" type="datetime" displayFormat="dd/MM/yyyy HH:mm:ss" required="false" canFilter="false"/>
+    <field name="updatedDate" type="datetime" displayFormat="dd/MM/yyyy HH:mm:ss" required="false" canFilter="false"/>
+    <field name="createdBy" type="text" required="false" width="50" canFilter="false"/>
+    <field name="updatedBy" type="text" required="false" width="50" canFilter="false"/>
+    <field name="version" type="integer" />
+</fields>
+</DataSource>

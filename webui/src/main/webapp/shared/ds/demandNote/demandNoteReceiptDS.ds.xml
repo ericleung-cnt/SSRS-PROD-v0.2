@@ -1,0 +1,46 @@
+<DataSource ID="demandNoteReceiptDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="demandNoteReceiptDMI" />
+	<fields>
+		<field name="receiptId"			type="integer" 	title="Receipt ID"	primaryKey="true" required="true"/>
+		<field name="applNo" 			type="text" 	title="Appl No" 	length="9"/>
+		<field name="applNoSuf" 		type="text" 	title="Appl No Suf"	length="1"/>
+		<field name="demandNoteNo" 		type="text" 	title="Demand Note NO."	/>
+		<field name="receiptNo" 		type="text" 	title="Receipt NO." length="10" required="true"/>
+<!-- 		<field name="batchNo" 			type="datetime" displayFormat="dd/MM/yyyy"	title="Batch NO." 	required="true"/> -->
+		<field name="inputTime" 		type="datetime" title="InputTime" 	required="true"/>
+		<field name="amount" 			type="float" 	title="Amount"  	/>
+		<field name="canAdjStatus" 		type="text" 	title="Can Adj Status"  	length="1"/>
+		<field name="canAdjTime" 		type="datetime" displayFormat="dd/MM/yyyy" title="Can Adj Time"  />
+		<field name="canAdjRemark" 		type="text" 	title="Can Adj Remark"  	length="180"/>
+		<field name="canAdjBy" 			type="text" 	title="Can Adj By"  		length="10"/>
+		<field name="accounted" 		type="text" 	title="Accounted"  			length="1"/>
+
+		<field name="remark" 			type="text" 	title="Remark"  		length="255"/>
+		<field name="status" 			type="text" 	title="Status"  		length="1"/>
+		<field name="paymentType"		type="text" 	title="Payment Type"		length="15">
+			<valueMap>
+			   	<value ID="10">CASH</value>
+			   	<value ID="20">CHEQUE</value>
+			   	<value ID="30">EPS</value>
+			   	<value ID="40">REMITTANCE</value>
+			   	<value ID="50">CREDIT CARD</value>
+			   	<value ID="60">DEPOSIT</value>
+			   	<value ID="70">AUTOPAY</value>
+			   	<value ID="80">OCTOPUS</value>
+			   	<value ID="90">PPS</value>
+			   	<value ID="95">E-PAY</value>
+		   	</valueMap>
+		</field>
+		<field name="annualFeeCode"		type="text" 	title="Annual Fee Code"		length="3"/>
+
+		<field name="cancelDate" 		type="datetime" displayFormat="dd/MM/yyyy" title="Cancel Date"  />
+		<field name="cancelById"		type="text" 	title="Cancel By"		length="10"/>
+		<field name="refundById"		type="text" 	title="Refund By"		length="10"/>
+		<field name="refundAmount" 		type="float" 	title="Refund Amount"  	/>
+		<field name="refundRemark"		type="text" 	title="Refund Remark"		length="255"/>
+		<field name="paymentVoucherNo"	type="text" 	title="Payment Voucher NO."		length="50"/>
+		<field name="refundPaymentDate"	type="datetime" displayFormat="dd/MM/yyyy" title="Refund Payment Date"  />
+		<field name="refundVoucherDate"	type="datetime" displayFormat="dd/MM/yyyy" title="Refund Voucher Date"  />
+		<field name="machineCode" type="text" title="Machine Code" length="8" />
+	</fields>
+</DataSource>

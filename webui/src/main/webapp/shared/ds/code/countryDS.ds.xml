@@ -1,0 +1,7 @@
+<DataSource ID="countryDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="countryDMI" />
+	<fields>
+		<field name="id" 	type="text" title="Country Code" primaryKey="true" 	length="50"  required="true"/>
+		<field name="name" 	type="text" title="Country Name" 					length="50" required="true"/>
+	</fields>
+</DataSource>

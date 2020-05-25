@@ -1,0 +1,85 @@
+<DataSource ID="taskDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="taskDMI" />
+	<fields>
+		<field name="id" required="true" primaryKey="true"/>
+		<field name="name" type="enum">
+			<valueMap>
+			   	<value ID="preReserveApp_received">Pre Reserve Ship Name Application</value>
+
+			   	<value ID="newShipReg_received">New Ship Registration Received</value>
+			   	<value ID="newShipReg_pendingAccept">New Ship Registration Pending Accept</value>
+			   	<value ID="newShipReg_pendingDoc">New Ship Registration Pending for Documents</value>
+			   	<value ID="newShipReg_ready">New Ship Registration Ready for Approval</value>
+			   	<value ID="newShipReg_pendingPda">New Ship Registration Pending for PDA or Equivalent</value>
+			   	<value ID="newShipReg_readyIssueDM">New Ship Registration Ready for Issue Demand Note</value>
+
+			   	<value ID="deReg_received">De-Registration Received</value>
+			   	<value ID="deReg_pendingDoc">De-Registration - Pending for Documents</value>
+			   	<value ID="deReg_approved">De-Registration - Approved</value>
+<!-- 			   	<value ID="deReg_pendingCrossCheck">De-Registration - Pending Cross check CoD</value> -->
+				<value ID="deReg_pendingCrossCheck">De-Registration - CoD is Ready</value>
+			   	<value ID="reReg_received">Re-Registration Received</value>
+			   	<value ID="reReg_pendingDoc">Re-Registration - Pending for Documents</value>
+			   	<value ID="reReg_approved">Re-Registration - Approved</value>
+			   	<value ID="reReg_pendingCrossCheck">Re-Registration - Pending Cross check CoR</value>
+			   	<value ID="reReg_newApp">Re-Registration - New Application</value>
+
+			   	<value ID="changeDetails_received">Change Registration Details Received</value>
+			   	<value ID="changeDetails_pendingDoc">Change Registration Details - Pending for Documents</value>
+			   	<value ID="changeDetails_approved">Change Registration Details - Approved</value>
+<!-- 			   	<value ID="changeDetails_pendingCrossCheck">Change Registration Details - Pending Cross check CoR</value> -->
+			   	<value ID="changeDetails_pendingCrossCheck">Change Registration Details - CoR is Ready</value>
+
+			   	<value ID="registerMortgage_received">Register Mortgage Received</value>
+			   	<value ID="registerMortgage_accepted">Register Mortgage Accepted</value>
+			   	<value ID="registerMortgage_approved">Register Mortgage Approved</value>
+
+			   	<value ID="dischargeMortgage_received">Discharge Mortgage Received</value>
+			   	<value ID="dischargeMortgage_accepted">Discharge Mortgage Accepted</value>
+			   	<value ID="dischargeMortgage_approved">Discharge Mortgage Approved</value>
+
+			   	<value ID="cancelMortgage_received">Cancel Mortgage Received</value>
+			   	<value ID="cancelMortgage_accepted">Cancel Mortgage Accepted</value>
+			   	<value ID="cancelMortgage_approved">Cancel Mortgage Approved</value>
+
+			   	<value ID="transferMortgage_received">Transfer Mortgage Received</value>
+			   	<value ID="transferMortgage_accepted">Transfer Mortgage Accepted</value>
+			   	<value ID="transferMortgage_approved">Transfer Mortgage Approved</value>
+
+			   	<value ID="mortgageDetails_received">Mortgage Details Change Received</value>
+			   	<value ID="mortgageDetails_accepted">Mortgage Details Change Accepted</value>
+			   	<value ID="mortgageDetails_approved">Mortgage Details Change Approved</value>
+
+			   	<value ID="mortgageeDetails_received">Mortgagee Details Change Received</value>
+			   	<value ID="mortgageeDetails_accepted">Mortgagee Details Change Accepted</value>
+			   	<value ID="mortgageeDetails_approved">Mortgagee Details Change Approved</value>
+
+			   	<value ID="ownerChange_received">Owner Change Received</value>
+			   	<value ID="ownerChange_accepted">Owner Change Accepted</value>
+			   	<value ID="ownerChange_approved">Owner Change Approved</value>
+			   	<value ID="ownerChange_pendingCrossCheck">Owner Change Pending Cross-Check CoR</value>
+
+			   	<value ID="rpChange_received">RP Detail Application Received</value>
+			   	<value ID="rpChange_accepted">RP Detail Pending for Documents</value>
+			   	<value ID="rpChange_approved">RP Detail Application Approved</value>
+			   	<value ID="rpChange_pendingCrossCheck">RP Detail Pending Cross-Check CoR</value>
+
+			   	<value ID="bmChange_received">Builder Maker change Application Received</value>
+			   	<value ID="bmChange_accepted">Builder Maker change Pending for Documents</value>
+			   	<value ID="bmChange_approved">Builder Maker change Application Approved</value>
+			   	<value ID="bmChange_pendingCrossCheck">Builder Maker change Cross-Check CoR</value>
+
+			   	<value ID="transferOwnerChange_received">Transfer/Transmit Ownership Application Received</value>
+			   	<value ID="transferOwnerChange_accepted">Transfer/Transmit Ownership Pending for Documents</value>
+			   	<value ID="transferOwnerChange_approved">Transfer/Transmit Ownership Application Approved</value>
+			   	<value ID="transferOwnerChange_pendingCrossCheck">Transfer/Transmit Ownership Pending Cross-Check CoR</value>
+
+				<value ID='dnRefund_recommended'>Demand note refund recommended</value>
+	   		</valueMap>
+		</field>
+		<field name="param1" title="Parameter 1"/>
+		<field name="param2" title="Parameter 2" />
+		<field name="param3" title="Parameter 3" />
+		<field name="createdDate" title="Create Date" format="dd/MM/yyyy HH:mm:ss"/>
+	</fields>
+</DataSource>

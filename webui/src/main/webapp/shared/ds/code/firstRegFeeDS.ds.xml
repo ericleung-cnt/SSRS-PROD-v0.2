@@ -1,0 +1,9 @@
+<DataSource ID="firstRegFeeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="firstRegFeeDMI" />
+	<fields>
+		<field name="rfsTonLo" 	type="integer" title="Lo" primaryKey="true" length="10"/>
+		<field name="rfsTonHi" 	type="integer" title="Hi" primaryKey="true" length="10"/>
+		
+		<field name="rfsFee" 	type="float" title="Fee" />
+	</fields>
+</DataSource>

@@ -1,0 +1,7 @@
+<DataSource ID="mmoShipTypeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="mmoShipTypeDMI" />
+	<fields>
+		<field name="id" 		type="text" title="Ship Type Code" required="true" primaryKey="true" />
+		<field name="desc" 		type="text" title="Description"    required="true"/>
+	</fields>
+</DataSource>

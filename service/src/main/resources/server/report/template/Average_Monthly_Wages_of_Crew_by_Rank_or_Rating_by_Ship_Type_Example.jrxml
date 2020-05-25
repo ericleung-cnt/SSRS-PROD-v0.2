@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Average_Monthly_Wages_of_Crew_by_Rank_or_Rating_by_Ship_Type_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bb2d12c8-a2d4-4f91-ae6c-81d83ddef921">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="266" y="5" width="270" height="22" uuid="4e811a6e-b474-45a0-aa05-9b84849bc00c"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="30" width="318" height="23" uuid="9475fbba-d27c-42c4-9f79-78da7a85c21f"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Average Monthly Wages of Crew by Rank / Rating by Ship Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="5" width="62" height="35" uuid="c6a14e7f-80a2-4a35-846e-3b64078d66c3"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[SRS1150
+SRIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="6" width="92" height="20" uuid="1ae91642-bc4d-4dff-a440-41929c2a2925"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[10-DEC-2018 09:44]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="30" width="92" height="20" uuid="dbe1c6b5-160d-4ae8-b76e-d996067f339b"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Page 1 of 2]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="227" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="53" width="48" height="20" uuid="b5cadf00-5135-40eb-b566-370a2cf1e49c"/>
+				<text><![CDATA[Officer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="12" width="282" height="24" uuid="7867680f-ef26-4a12-a826-40a526bd5d03"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[AVERAGE MONTHLY WAGES OF OFFICER ON CGO
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="43" width="56" height="22" uuid="ec711354-1338-4a35-889c-74691e6cbbf2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[MASTER ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="43" width="90" height="22" uuid="6dc70773-c19d-495e-95b7-262dbf873d50"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[CHIEF OFFICER ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="43" width="90" height="22" uuid="bbf1ccb5-94dd-40e0-bf82-32c324c16dc9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[SECOND OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="43" width="90" height="22" uuid="41f79eaa-0ef1-4023-9991-81cfb1372b25"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[THIRD OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="43" width="115" height="22" uuid="d08fa58f-a017-435d-bbee-cbd566810d0d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NAVIGATING OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="42" width="100" height="22" uuid="909034cd-d151-4ec3-9445-069da30882f4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[AVIGATING CADET ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="43" width="100" height="22" uuid="ea5d3324-b02d-4e0f-b3aa-4f6f30da743d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[RADIO OFFICER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="71" width="56" height="22" uuid="dbb4cb1c-91d3-406d-a88f-d4efa95f4383"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$26,910]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="71" width="87" height="22" uuid="8506abcc-0fb0-4f39-bb95-25fe7304b7dc"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$17,603]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="71" width="90" height="22" uuid="d92cd70e-152e-450c-9d60-645d1165148a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$12,151]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="71" width="90" height="22" uuid="c5a8f222-0ba1-4dfd-8fa5-1322f2c8a5bb"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$10,145]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="71" width="115" height="22" uuid="d9c586eb-5849-4c63-8075-3f743a945c87"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$5,546 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="71" width="100" height="22" uuid="07081a7c-17e6-49c1-a6b8-42bc8714ae2b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$2,878]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="71" width="99" height="22" uuid="fc5fe8a8-71bc-4dc9-b92c-ac09c44a0551"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$11,379]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="155" width="48" height="20" uuid="839b166d-2cfc-4ec5-a34a-3536122c75f8"/>
+				<text><![CDATA[Rating]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="140" width="56" height="22" uuid="2223a1f8-0e90-498b-a3ce-9304980249d4"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[BOSUN ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="170" width="56" height="22" uuid="b2b8527f-9d75-415a-8422-d6aa1b205c6c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$7,000]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="140" width="56" height="22" uuid="5d603de6-a4a9-467c-ba69-b679d94f3e8d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[CARPENTER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="140" width="66" height="22" uuid="c0f3f6d8-e871-4d37-96a6-524960a4414d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[SEAMAN I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="170" width="56" height="22" uuid="72ec2d64-1fb5-4649-a6ac-06a9afa20e1e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$6,580]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="170" width="56" height="22" uuid="bcf7df75-c51a-414d-a4f8-d554a4189cbe"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$5,585]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="140" width="66" height="22" uuid="99c052cd-f399-42ab-9d4f-755798da0403"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[SEAMAN II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="140" width="66" height="22" uuid="5eb14c19-df99-4992-977f-65bf17689bf1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[SEAMAN III]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="485" y="140" width="86" height="22" uuid="8dc13c4b-44ae-40c5-bbc0-e80cce494353"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[JUNIOR SEAMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="140" width="86" height="22" uuid="7b0dcfec-4953-4c25-9a8d-df8757848ccf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FITTER (ENGINE)
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="170" width="56" height="22" uuid="8e404579-9b6c-4ef7-ad70-9b7b9c60766b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$4,477]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="170" width="56" height="22" uuid="4654de78-e12a-403a-8a97-d2fc977387cf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$2,289]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="170" width="56" height="22" uuid="6aa9d39c-3db4-4b47-9ef2-d8fa831b0ea0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$3,310]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="602" y="170" width="56" height="22" uuid="ce5955fe-466d-4225-9256-5941abe3cc4c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[$5,776]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="691" y="140" width="109" height="22" uuid="d9be798d-0411-4d52-abed-341021516e57"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[FITTER (ELECTRICAL)
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="703" y="170" width="56" height="22" uuid="06771e20-2a19-4f1e-bedc-5cb6aa596712"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ $4,251 ]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="344" y="26" width="114" height="27" uuid="e2ef524c-b4f8-49dc-a13f-a72baab5064b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---- End Of Report ----]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

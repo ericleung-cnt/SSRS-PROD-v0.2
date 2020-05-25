@@ -1,0 +1,19 @@
+<DataSource ID="demandNoteRefundDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="demandNoteRefundDMI" />
+	<fields>
+		<field name="refundId"			type="integer" 	title="Refund ID"	primaryKey="true"/>
+		<field name="demandNoteNo" 		type="text" 	title="Demand Note NO."	required="true"/>
+		<field name="refundAmount"		type="float" 	title="Amount"  	 required="true"/>
+		<field name="remarks" 			type="text" 	title="Remark"  	length="255"  required="false"/>
+		<field name="dnsResult"			type="text" 	title="DNS Result"  	/>
+		<field name="dnsDescription"	type="text" 	title="DNS Description"  	/>
+		<field name="status"	type="text" 	title="Demand Note Status"  	/>
+		<field name="voucherNo"	type="text" 	title="Voucher No"  	/>
+		<field name="repayDate"	type="text" 	title="Repay Date"  	/>
+		<field name="voucherDate"	type="text" 	title="Voucher Date"  	/>
+		<field name="refundStatus" type="text" title="Refund Status"/>
+		<field name="dnsRemark" type="text" title="DNS Remark"/>
+		<field name="userCode" 	type="text" 	title="Recommended User"  	/>
+		<field name="recommendedDate"	type="datetime" displayFormat="dd/MM/yyyy" 	title="Recommended Date"  	/>		
+	</fields>
+</DataSource>

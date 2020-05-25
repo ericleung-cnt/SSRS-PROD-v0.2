@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_of_Employment_Situation_of_Hong_Kong_Registered_Seatarer_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="840" leftMargin="1" rightMargin="1" topMargin="10" bottomMargin="20" uuid="bc701297-d69a-4ab2-9ad0-b4bd71b76423">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="0.9090909090909127"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String" />
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="shipNameEng" class="java.lang.String"/>
+	<field name="shipNameChi" class="java.lang.String"/>
+	<field name="shipType" class="java.lang.String"/>
+	<field name="grt" class="java.math.BigDecimal"/>
+	<field name="applicant" class="java.lang.String"/>
+	<field name="agent" class="java.lang.String"/>
+	<field name="proposedDate" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="72" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="25" width="182" height="24" uuid="832e4384-cad9-4b52-a0a0-1edd541bf960"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="24" uuid="d86032d6-01f8-4017-920e-445173d499fb"/>
+				<textElement>
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RM0120-2]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="669" y="0" width="149" height="24" uuid="ff732885-e8cd-4d67-adc0-873d0a946ef8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="669" y="23" width="118" height="20" uuid="4c81fc80-09e7-4875-9c41-ae54c7634708"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="787" y="23" width="31" height="20" uuid="a365c6b3-912f-4e70-8b70-0e8f0b8d962a"/>
+				<textElement>
+					<font fontName="Courier New" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="25" width="840" height="14" uuid="6793f3d3-9701-4080-93c6-783e68d9a5c1"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["LIST OF SHIPS IN THE PIPELINE"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="43" width="840" height="14" uuid="e46aea37-794b-46ba-855f-8eaaff0db240"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["AS AT "+$P{reportDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="15" width="258" height="14" uuid="71174a84-a087-462f-944c-cb3d37b429c8"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Name of Ship]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="15" width="183" height="14" uuid="e64000bf-c5d8-44a2-a225-7fa57177d16e"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Type of ship & G.R.T.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="466" y="15" width="238" height="14" uuid="4aa0b405-a7d4-4043-a0b5-982353668692"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Applicant/Agent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="714" y="0" width="110" height="29" uuid="bbeb5178-a380-4e7f-adde-e6e18b465332"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Proposed Date of]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="258" height="15" uuid="f301a9d7-606d-4ab4-a35f-552aa46d70be"/>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipNameEng}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="270" y="0" width="183" height="17" uuid="32c80d28-c336-4e21-b81d-ef69e060fdea"/>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="714" y="0" width="110" height="33" uuid="f2258223-6ed1-4a1b-b32c-09e86ab9cc28"/>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{proposedDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="466" y="0" width="238" height="17" uuid="e34dcee1-a274-402f-b3e4-21f045cfcedf"/>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{applicant}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="15" width="258" height="18" uuid="4f162252-eb5e-4d66-93a9-69a4394564a5"/>
+				<textElement textAlignment="Left">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipNameChi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="270" y="17" width="100" height="16" uuid="bbaa0879-7152-4e62-9cc4-9644d7718b25"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="466" y="17" width="238" height="16" uuid="ae0cffe0-3dcb-4a0c-84bf-64fba0beed3a"/>
+				<textElement textAlignment="Left">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{agent}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="29" width="832" height="27" uuid="64f7f9ba-b2eb-4114-ad25-aa12d5c4f98e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[END OF REPORT]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,12 @@
+<DataSource ID="soapMessageInDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="soapMessageInDMI" />
+	<fields>
+		<field name="id" 		type="integer" 	primaryKey="true" title="ID" />
+		<field name="request" 	type="text" 	title="Request" />
+		<field name="response" 	type="text" 	title="Response" />
+		<field name="sent" 		type="boolean" 	title="Sent" />
+		<field name="sentDate" 	type="datetime" title="Sent Date" 	displayFormat="dd/MM/yyyy HH:mm:ss"/>
+		<field name="error" 	type="boolean" 	title="Error" />
+		<field name="errorDate" type="datetime" title="Error Date" 	displayFormat="dd/MM/yyyy HH:mm:ss"/>
+	</fields>
+</DataSource>

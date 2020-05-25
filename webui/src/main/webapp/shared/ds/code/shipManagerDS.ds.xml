@@ -1,0 +1,12 @@
+<DataSource ID="shipManagerDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="shipManagerDMI" />
+	<fields>
+		<field name="id" 		type="integer" title="ID" primaryKey="true"  />
+		<field name="shipMgrName" 	type="text" title="Ship Manager Name" length="120"/>
+		<field name="addr1" 	type="text" title="Address 1" length="80" />
+		<field name="addr2" 	type="text" title="Address 2" length="80" />
+		<field name="addr3" 	type="text" title="Address 3" length="80" />
+		<field name="companyId" type="text" title="Company ID"/>
+		<field name="email" 	type="text" title="Email" length="50" />
+	</fields>
+</DataSource>

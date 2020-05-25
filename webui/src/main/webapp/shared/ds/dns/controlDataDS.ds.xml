@@ -1,0 +1,15 @@
+<DataSource ID="controlDataDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="controlDataDMI" />
+	<fields>
+		<field name="id" 		type="integer" primaryKey="true" title="ID" />
+		<field name="action" 	type="text" 	title="Action" />
+		<field name="entity" 	type="text" 	title="Entity" />
+		<field name="entityId" 	type="integer" 	title="Entity ID" />
+		<field name="ebsFlag" 	type="boolean" 	title="EBS" />
+		<field name="error" 	type="boolean" 	title="Error" />
+		<field name="errorDate" type="datetime" title="Error Date" 			displayFormat="dd/MM/yyyy"/>
+		<field name="processed" type="boolean" 	title="Processed" />
+		<field name="processedDate" type="datetime" title="Processed Date" 	displayFormat="dd/MM/yyyy"/>
+		<field name="fileRequired" 	type="boolean" title="File Required" />
+	</fields>
+</DataSource>

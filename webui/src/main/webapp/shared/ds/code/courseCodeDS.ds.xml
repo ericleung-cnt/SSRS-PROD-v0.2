@@ -1,0 +1,13 @@
+<DataSource ID="courseCodeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="courseCodeDMI" />
+	<fields>
+		<field name="id" 			 type="integer" 	title="Course NO" primaryKey="true"/>
+<!-- 		<field name="fcFeeCode" 	 type="text" 	title="Fee Code" 	length="50"/> -->
+<!-- 		<field name="feeCodeEngDesc" type="text" 	title="Fee Code English Description" 	length="200"  valueXPath="feeCode/engDesc"/> -->
+<!-- 		<field name="feeCodeChiDesc" type="text" 	title="Fee Code English Description" 	length="200"  valueXPath="feeCode/chiDesc"/> -->
+		<field name="institue" 	type="text" 	title="Institue" 				length="50"/>
+		<field name="engDesc" 	type="text" 	title="English Description" 	length="200"/>
+		<field name="chiDesc" 	type="text" 	title="Chinese Description" 	length="200"/>
+		<field name="status" 	type="boolean" 	title="Status" 					length="50"/>
+	</fields>
+</DataSource>

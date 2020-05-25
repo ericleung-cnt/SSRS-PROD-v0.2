@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPT-SR-011-subreport03" pageWidth="525" pageHeight="842" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d60de621-3664-406b-9265-6f9a12b8ddd8">
+	<property name="ireport.zoom" value="1.4641000000000015"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_2a" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="reportDateChi" class="java.lang.String"/>
+	<parameter name="issueTime" class="java.lang.String"/>
+	<parameter name="issueTimeChi" class="java.lang.String"/>
+	<parameter name="registrar" class="java.lang.String"/>
+	<parameter name="certified" class="java.lang.Boolean" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="shipName" class="java.lang.String"/>
+	<field name="officialNo" class="java.lang.String"/>
+	<field name="mortgages" class="java.util.List"/>
+	<field name="regMaster" class="org.mardep.ssrs.domain.sr.RegMaster"/>
+	<field name="reason" class="java.lang.String"/>
+	<field name="proRegExpiryDateEng" class="java.lang.String"/>
+	<field name="proRegExpiryDateChi" class="java.lang.String"/>
+	<field name="bProReg" class="java.lang.Boolean"/>
+	<field name="reasonChi" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Prevent">
+			<printWhenExpression><![CDATA[$F{bProReg} == true]]></printWhenExpression>
+			<textField>
+				<reportElement x="5" y="5" width="254" height="20" uuid="eec9d084-d514-4835-b9bb-d50de34a71c7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{proRegExpiryDateEng}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="5" width="222" height="20" uuid="9b4b63f6-5e3a-42a1-bc0d-7375072fb596"/>
+				<textFieldExpression><![CDATA[$F{proRegExpiryDateChi}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="28" splitType="Prevent">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<printWhenExpression><![CDATA[!Boolean.TRUE.equals($P{certified})]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="5" y="2" width="489" height="25" uuid="a55aee23-c7b1-43e1-812c-f37d1c47a0d1">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["The foregoing are an extract from the Register as at "+
+$P{reportDate}+
+".<br>上文為船舶註冊紀錄冊截至"
++$P{reportDateChi}+
+" 為止所載資料的摘錄。"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="75" splitType="Prevent">
+			<printWhenExpression><![CDATA[!"D".equals($F{regMaster}.getRegStatus()) &&
+Boolean.TRUE.equals($P{certified})]]></printWhenExpression>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="5" y="0" width="489" height="75" uuid="9b76ee2b-07c3-4493-a08e-5928e765a921"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["I hereby certify that the foregoing printed "+ ($F{mortgages} == null || $F{mortgages}.isEmpty() || $F{mortgages}.size()<=1 ? ("particular is"):("particulars are"))    +" a true extract from the Register now in my<br>charge, showing the descriptive particulars, registered ownership " +
+($F{mortgages} != null && !$F{mortgages}.isEmpty() ?
+("and details of mortgage of this vessel<br>\"" +$F{shipName}+"\"<br>- Official Number "+$F{officialNo}+", " ) :
+("of this vessel \"" +$F{shipName}+"\"<br>- Official Number "+$F{officialNo}+", free of mortgage "))
+
++ "as at "+$P{reportDate}+".<br>茲證明上文所印資料為本人主管的船舶註冊紀錄冊的真確摘錄,以示截至 "
++$P{reportDateChi}+
+" 為止,<br>本船的一般資料、註冊所有權," +
+($F{mortgages} != null && !$F{mortgages}.isEmpty() ?
+    "以及抵押資料。" :
+    "而且並無抵押。"
+    )]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="47" splitType="Prevent">
+			<printWhenExpression><![CDATA["D".equals($F{regMaster}.getRegStatus())]]></printWhenExpression>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="0" width="186" height="31" uuid="7d498f71-1444-44bb-856a-52eb6ad124f4"/>
+				<textFieldExpression><![CDATA["Registration closed on :" +
+new java.text.SimpleDateFormat("dd-MMM-yyyy", java.util.Locale.ENGLISH).format(
+    $F{regMaster}.getDeRegTime()).toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="196" y="0" width="223" height="20" uuid="21850dec-543c-4739-aab9-4d1f8f84a962"/>
+				<textFieldExpression><![CDATA["終止註冊日期:" +
+new java.text.SimpleDateFormat("yyyy年MM月dd日。")
+.format($F{regMaster}.getDeRegTime()
+)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="14" width="120" height="31" uuid="f0a1f8d3-1903-4fca-937b-68cb659502ad"/>
+				<textFieldExpression><![CDATA["Reason for closing :"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="25" width="115" height="20" uuid="87efff73-586f-4564-8778-8acc49a34e91"/>
+				<textFieldExpression><![CDATA["終止註冊原因:"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="128" y="14" width="397" height="31" uuid="03196ca0-24c6-488c-b92a-aee333985a4a"/>
+				<textFieldExpression><![CDATA[$F{reason}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="128" y="25" width="397" height="20" uuid="8c7ece4c-1cfe-4128-a104-7ce0aa49d587"/>
+				<textFieldExpression><![CDATA[$F{reasonChi} != null ? $F{reasonChi} : "-"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="45" splitType="Prevent">
+			<textField>
+				<reportElement x="5" y="0" width="489" height="45" uuid="422210d6-9aa0-4bad-98f3-3618c86c2e8e"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["This Transcript of Register was issued on (Local Time) "
++$P{issueTime}+
+".<br>本船舶註冊紀錄冊抄本發出日期、時間為香港時間 "
++$P{issueTimeChi}+
+"。"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="108" splitType="Prevent">
+			<printWhenExpression><![CDATA[Boolean.TRUE.equals($P{certified})]]></printWhenExpression>
+			<textField>
+				<reportElement x="251" y="66" width="274" height="20" uuid="9045604b-085c-4342-9612-b8eb171a8faa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{registrar} == null ? "": $P{registrar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="251" y="86" width="274" height="20" uuid="cfe885b2-25ef-42f3-942e-3297d493d3f5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Source Han Sans Normal" size="9"/>
+				</textElement>
+				<text><![CDATA[Registrar of Ships　船舶註冊官]]></text>
+			</staticText>
+			<line>
+				<reportElement x="251" y="86" width="274" height="1" uuid="3d182040-2858-4f33-9d9b-21baa5b1b1de"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+</jasperReport>

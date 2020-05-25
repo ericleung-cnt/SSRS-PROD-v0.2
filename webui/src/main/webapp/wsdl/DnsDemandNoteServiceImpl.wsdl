@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soapService.dns.ssrs.mardep.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns3="http://schemas.xmlsoap.org/soap/http" xmlns:ns2="http://refundstatus.soap.dns.ssrs.mardep.org/" xmlns:ns1="http://dnstatus.soap.dns.ssrs.mardep.org/" name="DNSSoapInterfaceServiceImplService" targetNamespace="http://soapService.dns.ssrs.mardep.org/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soapService.dns.ssrs.mardep.org/" targetNamespace="http://soapService.dns.ssrs.mardep.org/" version="1.0">
+
+  <xs:element name="createReceipt" type="tns:createReceipt"/>
+
+  <xs:element name="createReceiptResponse" type="tns:createReceiptResponse"/>
+
+  <xs:element name="demandNoteStatus" type="tns:demandNoteStatus"/>
+
+  <xs:element name="receipt" type="tns:receipt"/>
+
+  <xs:element name="refund" type="tns:refund"/>
+
+  <xs:element name="return" type="tns:return"/>
+
+  <xs:element name="updateDnStatusResponse" type="tns:dnStatusResult"/>
+
+  <xs:element name="updateRefundStatus" type="tns:updateRefundStatus"/>
+
+  <xs:element name="updateRefundStatusResponse" type="tns:updateRefundStatusResponse"/>
+
+  <xs:complexType name="demandNoteStatus">
+    <xs:sequence>
+      <xs:element name="dnNo" type="xs:string"/>
+      <xs:element name="userCode" type="xs:string"/>
+      <xs:element name="officeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="Remark" type="xs:string"/>
+      <xs:element name="billCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="writeOffDate" type="xs:dateTime"/>
+      <xs:element name="dnStatus" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dnStatusResult">
+    <xs:sequence>
+      <xs:element name="returnResult" type="tns:return"/>
+      <xs:element name="dnNo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="return">
+    <xs:sequence>
+      <xs:element name="result" type="xs:string"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateRefundStatus">
+    <xs:sequence>
+      <xs:element name="Action" type="xs:string"/>
+      <xs:element name="refund" type="tns:refund"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="refund">
+    <xs:sequence>
+      <xs:element name="dnNo" type="xs:string"/>
+      <xs:element name="userCode" type="xs:string"/>
+      <xs:element name="officeCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="Remark" type="xs:string"/>
+      <xs:element name="billCode" type="xs:string"/>
+      <xs:element name="dnStatus" type="xs:string"/>
+      <xs:element name="refundVouchorNo" type="xs:string"/>
+      <xs:element name="rePayDate" type="xs:dateTime"/>
+      <xs:element name="reVouDate" type="xs:dateTime"/>
+      <xs:element name="reFundAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="refId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="updateRefundStatusResponse">
+    <xs:sequence>
+      <xs:element name="returnResult" type="tns:return"/>
+      <xs:element name="dnNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="refId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createReceipt">
+    <xs:sequence>
+      <xs:element name="action" type="xs:string"/>
+      <xs:element name="payStatus" type="xs:string"/>
+      <xs:element name="receipt" type="tns:receipt"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="receipt">
+    <xs:sequence>
+      <xs:element name="receiptNo" type="xs:string"/>
+      <xs:element name="receiptDate" type="xs:dateTime"/>
+      <xs:element name="dnNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="machineID" type="xs:string"/>
+      <xs:element name="receiptAmount" type="xs:decimal"/>
+      <xs:element name="paymentRef" type="xs:string"/>
+      <xs:element minOccurs="0" name="paymentList" type="tns:paymentList"/>
+      <xs:element minOccurs="0" name="chargeItemList" type="tns:chargeItemList"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="paymentList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="payment" type="tns:payment"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="payment">
+    <xs:sequence>
+      <xs:element name="paymentAmount" type="xs:decimal"/>
+      <xs:element name="paymentType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="chargeItemList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="chargeItem" type="tns:chargeItem"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="chargeItem">
+    <xs:sequence>
+      <xs:element name="revenueType" type="xs:string"/>
+      <xs:element name="chargeAmount" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="createReceiptResponse">
+    <xs:sequence>
+      <xs:element name="returnResult" type="tns:return"/>
+      <xs:element name="receiptNo" type="xs:string"/>
+      <xs:element name="dnNo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://dnstatus.soap.dns.ssrs.mardep.org/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://dnstatus.soap.dns.ssrs.mardep.org/">
+  <xsd:element name="from" nillable="true" type="xsd:string"/>
+  <xsd:element name="requestDate" nillable="true" type="xsd:dateTime"/>
+</xsd:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://refundstatus.soap.dns.ssrs.mardep.org/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://refundstatus.soap.dns.ssrs.mardep.org/">
+  <xsd:element name="from" nillable="true" type="xsd:string"/>
+  <xsd:element name="requestDate" nillable="true" type="xsd:dateTime"/>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="updateDNStatus">
+    <wsdl:part name="updateDNStatus" type="tns:demandNoteStatus">
+    </wsdl:part>
+    <wsdl:part element="ns1:from" name="from">
+    </wsdl:part>
+    <wsdl:part element="ns1:requestDate" name="requestDate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateReFundStatus">
+    <wsdl:part name="updateRefundStatus" type="tns:updateRefundStatus">
+    </wsdl:part>
+    <wsdl:part element="ns2:from" name="from">
+    </wsdl:part>
+    <wsdl:part element="ns2:requestDate" name="requestDate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createReceipt">
+    <wsdl:part name="createReceipt" type="tns:createReceipt">
+    </wsdl:part>
+    <wsdl:part element="ns1:from" name="from">
+    </wsdl:part>
+    <wsdl:part element="ns1:requestDate" name="requestDate">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createReceiptResponse">
+    <wsdl:part name="result" type="tns:createReceiptResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateDNStatusResponse">
+    <wsdl:part name="result" type="tns:dnStatusResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateReFundStatusResponse">
+    <wsdl:part name="result" type="tns:updateRefundStatusResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DNSSoapInterfaceService">
+    <wsdl:operation name="updateDNStatus">
+      <wsdl:input message="tns:updateDNStatus" name="updateDNStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:updateDNStatusResponse" name="updateDNStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReFundStatus">
+      <wsdl:input message="tns:UpdateReFundStatus" name="UpdateReFundStatus">
+    </wsdl:input>
+      <wsdl:output message="tns:UpdateReFundStatusResponse" name="UpdateReFundStatusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createReceipt">
+      <wsdl:input message="tns:createReceipt" name="createReceipt">
+    </wsdl:input>
+      <wsdl:output message="tns:createReceiptResponse" name="createReceiptResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DNSSoapInterfaceServiceImplServiceSoapBinding" type="tns:DNSSoapInterfaceService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="updateDNStatus">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="updateDNStatus">
+        <soap:header message="tns:updateDNStatus" part="from" use="literal">
+        </soap:header>
+        <soap:header message="tns:updateDNStatus" part="requestDate" use="literal">
+        </soap:header>
+        <soap:body namespace="http://soapService.dns.ssrs.mardep.org/" parts="updateDNStatus" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateDNStatusResponse">
+        <soap:body namespace="http://soapService.dns.ssrs.mardep.org/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReFundStatus">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="UpdateReFundStatus">
+        <soap:header message="tns:UpdateReFundStatus" part="from" use="literal">
+        </soap:header>
+        <soap:header message="tns:UpdateReFundStatus" part="requestDate" use="literal">
+        </soap:header>
+        <soap:body namespace="http://soapService.dns.ssrs.mardep.org/" parts="updateRefundStatus" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateReFundStatusResponse">
+        <soap:body namespace="http://soapService.dns.ssrs.mardep.org/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createReceipt">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="createReceipt">
+        <soap:header message="tns:createReceipt" part="from" use="literal">
+        </soap:header>
+        <soap:header message="tns:createReceipt" part="requestDate" use="literal">
+        </soap:header>
+        <soap:body namespace="http://soapService.dns.ssrs.mardep.org/" parts="createReceipt" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createReceiptResponse">
+        <soap:body namespace="http://soapService.dns.ssrs.mardep.org/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DNSSoapInterfaceServiceImplService">
+    <wsdl:port binding="tns:DNSSoapInterfaceServiceImplServiceSoapBinding" name="DNSSoapInterfaceServiceImplPort">
+      <soap:address location="http://********:8080/ssrs/soap/DNSWebServices/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

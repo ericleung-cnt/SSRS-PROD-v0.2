@@ -1,0 +1,19 @@
+<DataSource ID="lawyerDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="lawyerDMI" />
+	<fields>
+		<field name="id" 	type="text" title="ID" 	primaryKey="true" length="10" required="true"/>
+		<field name="name" 	type="text" title="Name" 	length="80"  required="true"/>
+		<field name="address1" 	type="text" title="Address 1" 	length="80"/>
+		<field name="address2" 	type="text" title="Address 2" 	length="80"/>
+		<field name="address3" 	type="text" title="Address 3" 	length="80"/>
+		<field name="telNo" 	type="text" title="Tel NO." 	length="50"/>
+		<field name="faxNo" 	type="text" title="Fax NO." 	length="50"/>
+		<field name="email" 	type="text" title="Email" 		length="50"/>
+		<field name="lawyer" title="Lawyer" required="true" >
+			<valueMap>
+			   	<value ID="Y">Y</value>
+			   	<value ID="N">N</value>
+	   		</valueMap>
+		</field>
+	</fields>
+</DataSource>

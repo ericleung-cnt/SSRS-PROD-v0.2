@@ -1,0 +1,8 @@
+<DataSource ID="registrarDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="registrarDMI" />
+	<fields>
+		<field name="id" 		type="integer" 	title="Reg Seq NO" primaryKey="true"/>
+		<field name="name" 	type="text" 	title="Name" 	length="40" required="true"/>
+
+	</fields>
+</DataSource>

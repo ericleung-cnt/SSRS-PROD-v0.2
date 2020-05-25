@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Mortgage Transactions" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="812" leftMargin="15" rightMargin="15" topMargin="20" bottomMargin="20" uuid="bc701297-d69a-4ab2-9ad0-b4bd71b76423">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0000000000000044"/>
+	<property name="ireport.x" value="74"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDate" class="java.lang.String"/>
+	<parameter name="reportDateTime" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="startDate" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="endDate" class="java.util.Date" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="applNo" class="java.lang.String"/>
+	<field name="shipNameEng" class="java.lang.String"/>
+	<field name="shipNameChi" class="java.lang.String"/>
+	<field name="code" class="java.lang.String"/>
+	<field name="description" class="java.lang.String"/>
+	<field name="mortgagees" class="java.lang.String"/>
+	<field name="handlingAgent" class="java.lang.String"/>
+	<field name="handledBy" class="java.lang.String"/>
+	<field name="time" class="java.lang.String"/>
+	<variable name="time_1" class="java.lang.Integer" resetType="Group" resetGroup="tc" calculation="Count">
+		<variableExpression><![CDATA[$F{time}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="time_2" class="java.lang.Integer" resetType="Group" resetGroup="tc" calculation="Count">
+		<variableExpression><![CDATA[$F{time}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<group name="tc">
+		<groupExpression><![CDATA[$F{description}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField isBlankWhenNull="true">
+					<reportElement isPrintRepeatedValues="false" x="0" y="0" width="189" height="18" uuid="a4d8cf15-7ba1-4361-b312-7e2502f70d16"/>
+					<textElement>
+						<font fontName="Courier New" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="27">
+				<textField>
+					<reportElement x="162" y="0" width="100" height="20" uuid="3224c2b2-f7b6-4a41-a6f0-a0e5a3305898"/>
+					<textElement>
+						<font fontName="Courier New"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{time_2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="162" height="20" uuid="71832218-52f4-497b-ad4c-787184d940c9"/>
+					<textElement>
+						<font fontName="Courier New"/>
+					</textElement>
+					<text><![CDATA[Transactions retrieved :]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="812" height="18" uuid="e33f941a-d169-407f-b510-26d594908678"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="560" y="0" width="251" height="18" uuid="ff732885-e8cd-4d67-adc0-873d0a946ef8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DATE : " + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="662" y="18" width="118" height="18" uuid="4c81fc80-09e7-4875-9c41-ae54c7634708"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="780" y="18" width="31" height="18" uuid="a365c6b3-912f-4e70-8b70-0e8f0b8d962a"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="18" width="182" height="18" uuid="832e4384-cad9-4b52-a0a0-1edd541bf960"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="16" width="811" height="20" uuid="c6afef2d-d6aa-4949-9e2d-73e11bea7482"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Statistics of Mortgage Transactions from " + new java.text.SimpleDateFormat("dd-MM-yyyy").format($P{startDate}) + " to " + new java.text.SimpleDateFormat("dd-MM-yyyy").format($P{endDate})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="50" height="28" uuid="af5de390-a116-4c7e-a8f5-cece56ec08cb"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Appl No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="0" width="137" height="28" uuid="a7662207-d032-4d84-91aa-f2262c8b847f"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Ship Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="191" y="0" width="25" height="28" uuid="2344b745-28dd-4f36-b59e-9ce8ce0893ac"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="599" y="0" width="210" height="28" uuid="0eba532f-56d1-4820-ad6d-74f5c2815e5d"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Handling Agent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="0" width="210" height="28" uuid="e59e14d5-5647-4974-9398-983c26043f65"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Mortgagee(s)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="550" y="0" width="46" height="28" uuid="c363566d-5ccc-4cee-a40f-16016a5d585a"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Handled
+By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="432" y="0" width="117" height="28" uuid="43c99616-7733-40b6-8425-c837a5e90b41"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Mortgage Time
+(Transaction Time)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="50" height="15" uuid="d98ad692-0be4-4aaf-919e-3e3d2fd2c84b"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{applNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="0" width="136" height="15" uuid="b1ea2610-97b6-4ac5-a87a-055e0aed8dc8"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipNameEng}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="53" y="16" width="154" height="15" uuid="4c49fbb0-cc73-41eb-aecc-004e8063ea93"/>
+				<textFieldExpression><![CDATA[$F{shipNameChi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="210" height="31" uuid="c8ccc0bd-969b-4a2c-bcf8-a31ff336d219"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mortgagees}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="599" y="0" width="210" height="15" uuid="0c257a89-c76f-40f5-8f1e-9c586b2ae1cf"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{handlingAgent}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="0" width="25" height="15" uuid="5283a39a-e51a-4ab7-ab7a-59ac0f41e039"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="550" y="1" width="46" height="15" uuid="737e21f7-580c-407f-a120-f9016b83836d"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{handledBy}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="117" height="28" uuid="8d35f4e0-0e84-47e3-995f-96d50e09faf2"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="60" width="812" height="26" uuid="11cdc5a3-7484-4ff2-bab3-aeef10004703"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[END OF REPORT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="251" height="20" uuid="8e37b0f8-9107-4efe-a1cb-e4031a43e69e"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<text><![CDATA[Report Summary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="189" height="20" uuid="79a56848-9095-44ae-aee4-0e6c8df1a956"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<text><![CDATA[Total transactions retrieved :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="189" y="20" width="41" height="20" uuid="357f9f33-a95a-49fc-8222-2c56b89f07a4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

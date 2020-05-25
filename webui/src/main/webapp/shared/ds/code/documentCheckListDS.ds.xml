@@ -1,0 +1,11 @@
+<DataSource ID="documentCheckListDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="documentCheckListDMI" />
+	<fields>
+		<field name="id" 	type="integer" title="ID" 	primaryKey="true" length="10"/>
+		<field name="type" 	type="text" title="Type" 	length="50"/>
+		<field name="name" 	type="text" title="Checklist Name" 	length="50"/>
+		<field name="desc" 	type="text" title="Checklist Description" 	length="255"/>
+		<field name="descChi" 	type="text" title="Checklist Chinese Description" 	length="255"/>
+		<field name="active" type="boolean" title="Active"/>
+	</fields>
+</DataSource>

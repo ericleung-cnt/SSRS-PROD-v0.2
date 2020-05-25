@@ -1,0 +1,97 @@
+/*============================================================
+
+some Chinese characters cannot display in Chrome as known issue : https://code.google.com/p/chromium/issues/detail?id=245211
+For the character "", it has 2 versions:
+
+"":
+http://www.fileformat.info/info/unicode/char/e357/index.htm
+http://www.fileformat.info/info/unicode/char/e357/browsertest.htm
+Chrome sometimes cannot display this, depending on the font setting of Chrome and the website.
+
+"綫"
+http://www.fileformat.info/info/unicode/char/7dab/index.htm
+http://www.fileformat.info/info/unicode/char/7dab/browsertest.htm
+Chrome can display this.
+
+This situation happens to quite a number of characters.
+It seems that Chrome cannot fall back to a font that can display the character.
+
+============================================================*/
+@font-face{
+	font-family: secsEUDC;
+	src: url(SECS-EUDC.woff);
+}
+
+.secsStaticTextItem,
+.secsStaticTextItemDisabled,
+.secsStaticTextItemError {
+	font-family:secsEUDC,Arial,sans-serif,MingLiu_HKSCS; font-size:11px;
+	color:#333333;
+}
+.secsTextItem,
+.secsTextItemFocused,
+.secsTextItemDisabled,
+.secsTextItemError,
+.secsTextItemHint {
+	font-family:secsEUDC,Arial,sans-serif,MingLiu_HKSCS; font-size:11px;
+	padding:2px;
+    border:1px solid #6AA0BB; 
+    background:rgb(230,241,247) url(../isomorphic/skins/SilverWave/images/controls/text_input.gif) repeat-x scroll;
+    color:#333333;
+}
+
+
+.secsCell,
+.secsCellDark,
+.secsCellOver,
+.secsCellOverDark,
+.secsCellSelected,
+.secsCellSelectedDark,
+.secsCellSelectedOver,
+.secsCellSelectedOverDark,
+.secsCellDisabled,
+.secsCellDisabledDark {
+	font-family:secsEUDC,Arial,sans-serif,MingLiu_HKSCS; font-size:11px; text-overflow:ellipsis;
+	color:#333333;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #e0e0e0;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: #e0e0e0;
+}
+
+
+.secsCellDark {
+	color:#333333;
+	background-color:#D7E6EC;
+}
+.secsCellOver {
+	color:#333333;
+    background-color:rgb(159,200,232);
+}
+
+.secsCellOverDark {
+	color:#222222;
+    background-color:rgb(159,200,232);
+}
+
+.secsCellSelected,
+.secsCellSelectedDark,
+.secsCellSelectedOver,
+.secsCellSelectedOverDark{
+	color:#FFFFFF;
+    background-color:rgb(65,160,210);
+}
+
+ 
+.secsCellDisabled,
+.secsCellDisabledDark {
+	color:#A7C4D3;
+	background-color:#FFFFFF;
+}
+
+.secsFormHover {
+	font-family:secsEUDC,Arial,sans-serif,MingLiu_HKSCS; font-size:11px; color:black;
+    background-color:#FFFFD0; border:1px solid #808080; padding:5px;
+}

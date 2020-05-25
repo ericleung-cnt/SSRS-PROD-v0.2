@@ -1,0 +1,10 @@
+<DataSource ID="excelNoteShipRegDS" serverType="generic"
+ 	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="excelNoteShipRegDMI" />
+	<fields>
+		<field name="regDate" type="datetime" title="Reg Date"/>
+		<field name="grossTonSum" type="float" title="Gross Ton Sum"/>
+		<field name="regName" type="text" title="Reg Name"/>
+		<field name="ssStShipTypeCode" type="text" title="SS Ship Type Code"/>
+	</fields>	
+</DataSource>

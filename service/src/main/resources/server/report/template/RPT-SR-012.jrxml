@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report_of_Employment_Situation_of_Hong_Kong_Registered_Seatarer_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="836" leftMargin="3" rightMargin="3" topMargin="20" bottomMargin="20" uuid="bc701297-d69a-4ab2-9ad0-b4bd71b76423">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reportDateFrom" class="java.lang.String"/>
+	<parameter name="reportDateTo" class="java.lang.String"/>
+	<parameter name="totalItemsRetrieved" class="java.lang.String"/>
+	<parameter name="totalNormalAmount" class="java.lang.String"/>
+	<parameter name="totalNoOfDiscount" class="java.lang.String"/>
+	<parameter name="totalBilledAmount" class="java.lang.String"/>
+	<parameter name="userId" class="java.lang.String" />
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="applNo" class="java.lang.String"/>
+	<field name="shipName" class="java.lang.String"/>
+	<field name="imoNo" class="java.lang.String"/>
+	<field name="officialNo" class="java.lang.String"/>
+	<field name="invoiceNo" class="java.lang.String"/>
+	<field name="invoiceDate" class="java.lang.String"/>
+	<field name="billedAmount" class="java.lang.String"/>
+	<field name="normalAmount" class="java.lang.String"/>
+	<field name="noReducion" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="86" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="836" height="22" uuid="e33f941a-d169-407f-b510-26d594908678"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="25" width="182" height="24" uuid="832e4384-cad9-4b52-a0a0-1edd541bf960"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="24" uuid="d86032d6-01f8-4017-920e-445173d499fb"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<text><![CDATA[AD0100]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="27" width="836" height="22" uuid="63e4e751-7ca8-4360-851e-21ef74b609d9"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Invoice issued for Discounted ATC"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="54" width="836" height="22" uuid="af82dfed-bc63-4262-a3dc-f3f14053107f"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["From " + $P{reportDateFrom} + " To " + $P{reportDateTo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="686" y="0" width="149" height="24" uuid="ff732885-e8cd-4d67-adc0-873d0a946ef8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="686" y="23" width="118" height="20" uuid="4c81fc80-09e7-4875-9c41-ae54c7634708"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="804" y="23" width="31" height="20" uuid="a365c6b3-912f-4e70-8b70-0e8f0b8d962a"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="77" height="14" uuid="af5de390-a116-4c7e-a8f5-cece56ec08cb"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Appl No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="156" height="14" uuid="914d9149-b694-445d-8c72-983261edfdc4"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Ship Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="84" height="14" uuid="e81c5627-63d6-404b-8556-1eea28eac389"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[IMO No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="0" width="73" height="14" uuid="b0884ee3-1a85-4fd2-9a0b-f248a56bf109"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Official No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="0" width="75" height="14" uuid="34e59039-0271-4fb2-aa39-165ebe9c69d7"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Invoice No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="523" y="0" width="81" height="14" uuid="8e77975f-5a3d-4a89-baf4-b7c593a152ed"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Invoice Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="619" y="0" width="94" height="14" uuid="da7813a2-39e4-4dd7-883b-70c1885f971f"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Billed Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="723" y="0" width="89" height="14" uuid="0f93f1f1-3286-4984-b492-0984c2890572"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New" size="10"/>
+				</textElement>
+				<text><![CDATA[Normal Amount]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="77" height="22" uuid="81ba5d1b-57a6-473b-9b11-e0adf113b715"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{applNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="90" y="0" width="156" height="22" uuid="01e1dd60-aee7-49fa-a8a8-74eefe6e50c7"/>
+				<textFieldExpression><![CDATA[$F{shipName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="260" y="0" width="84" height="22" uuid="bef00d95-486a-43c7-ad35-70196240be71"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{imoNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="352" y="0" width="73" height="22" uuid="df4453a8-d7f2-421c-ba5c-547cad3ee74d"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{officialNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="0" width="73" height="22" uuid="efb48a18-d851-4591-a32d-056572fb9e88"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="523" y="0" width="81" height="22" uuid="f716ff6c-8bdf-41de-b917-aeda0ade6677"/>
+				<textElement>
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{invoiceDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="619" y="0" width="94" height="22" uuid="d5f95fcf-e31a-4ed0-b8a9-b66876fb43b6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billedAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="723" y="0" width="89" height="22" uuid="19fb2536-836c-4a9f-9df0-c94ce98cd013"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{normalAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="825" y="0" width="10" height="22" uuid="1fa4b853-8fbd-422c-ac39-3c4d05731ad8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Courier New"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{noReducion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="139" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="109" width="836" height="27" uuid="11cdc5a3-7484-4ff2-bab3-aeef10004703"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[END OF REPORT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="10" width="150" height="15" uuid="1e99efe2-ead7-4ed8-9e8d-cf9a8d426c6c"/>
+				<text><![CDATA[Report Summary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="25" width="150" height="15" uuid="44f240c7-625f-4d29-aae4-28f7e24d3bba"/>
+				<text><![CDATA[Total invoice items retrieved :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="40" width="150" height="15" uuid="21bcfb0f-e429-470c-9d92-1a13d831958d"/>
+				<text><![CDATA[Total invoice normal amount :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="55" width="150" height="15" uuid="ed964743-0e4e-4c0d-a635-23ce112c10f8"/>
+				<text><![CDATA[Total no of discount bills :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="70" width="150" height="15" uuid="63a6f297-c345-416b-8d07-577ad16df7f0"/>
+				<text><![CDATA[Total invoice billed amount :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="92" width="150" height="15" uuid="e06d23bb-008c-4f49-83c5-9ec72b3023a5"/>
+				<text><![CDATA[* - No reduction in billed ATC.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="157" y="25" width="151" height="15" uuid="0d477b6d-7b93-49eb-a0c4-9bde0382dfc6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{totalItemsRetrieved}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="40" width="151" height="15" uuid="3124e85c-562b-4c3a-881f-5816780c9e77"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{totalNormalAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="55" width="151" height="15" uuid="a53f5b93-7699-4e95-8fa5-720cc95e3376"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{totalNoOfDiscount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="70" width="151" height="15" uuid="0b28ab7b-0790-47be-8aaa-1e8ad15d0f2a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$P{totalBilledAmount}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

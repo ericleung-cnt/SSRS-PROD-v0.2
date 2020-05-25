@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RPT-SR-011-subreport01" pageWidth="525" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="525" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d60de621-3664-406b-9265-6f9a12b8ddd8">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pInterestHeldEng" class="java.lang.String"/>
+	<parameter name="pInterestHeldChi" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="ownerName" class="java.lang.String"/>
+	<field name="ownerAddress" class="java.lang.String"/>
+	<field name="percentage" class="java.lang.String"/>
+	<field name="placeOfIncorp" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="69" y="3" width="221" height="20" uuid="9c819c67-df4c-4a36-b7f8-22cbbd7b9698"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name, Address, and Description of Owners]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="14" width="221" height="18" uuid="1bf24275-f859-4148-9024-aa35308ed1cf"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[船東姓名 / 名稱､ 地址等資料]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="33" width="525" height="1" uuid="8f638505-f6a0-45a3-a6ec-7836f0a8ff07"/>
+			</line>
+			<textField>
+				<reportElement x="306" y="8" width="131" height="20" uuid="e4c82a39-ec84-427c-84d0-081871cab0ea"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pInterestHeldEng}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="8" width="80" height="20" uuid="d009cc27-e2e4-4797-942e-56161730c090">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pInterestHeldChi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="78" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="0" width="481" height="18" uuid="c68705bf-67b5-4589-8441-49e2368443b6"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ownerName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="16" width="481" height="45" uuid="3ecb54d3-0db4-4e93-82b9-90c99ca72574"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ownerAddress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="465" y="3" width="55" height="18" uuid="31cc7b07-4be5-434e-9b36-490d537a690a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{percentage}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="59" width="267" height="17" uuid="5b3180eb-3685-4159-94db-b432c6c6db86"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Place of Incorporation/Registration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="183" y="59" width="143" height="17" uuid="77dd238a-ca2a-413b-bb91-50e9f971f75a"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[公司成立/註冊地點 :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="280" y="59" width="201" height="17" uuid="9d8b845a-442b-4e17-967d-0b7964df8062"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placeOfIncorp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="2"/>
+	</columnFooter>
+</jasperReport>

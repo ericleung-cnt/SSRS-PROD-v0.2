@@ -1,0 +1,19 @@
+<DataSource ID="transcriptApplicationDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="transcriptApplicationDMI" />
+	<fields>
+		<field name="ocrTranscriptId" type="integer" title="ID" primaryKey="true"/>
+		<field name="issueType"  type="text" title="Issue Type" length="100" />
+		<field name="vesselName"  type="text" title="Ship Name" length="100" />
+		<field name="imoNumber"  type="text" title="IMO No." length="100" />
+		<field name="officialNumber"  type="text" title="Official No." length="100" />
+		<field name="forDate" type="date" title="For Date" displayFormat="dd/MM/yyyy"/>
+		<field name="applicantCompanyName"  type="text" title="Applicant Company Name" length="100" />
+		<field name="contactPerson"  type="text" title="Contact Person" length="100" />
+		<field name="address"  type="text" title="Owner Address" length="100" />
+		<field name="email"  type="text" title="Email" length="100" />
+		<field name="fax"  type="text" title="Fax" length="100" />
+		<field name="tel"  type="text" title="Tel" length="100" />
+		<field name="issueOffice" type="integer"/>
+	</fields>
+</DataSource>	

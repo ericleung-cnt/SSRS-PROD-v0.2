@@ -1,0 +1,13 @@
+<DataSource ID="etoCorDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="etoCorDMI" />
+	<fields>
+		<field name="id" type="integer" primaryKey="true" required="true"/>
+		<field name="applNo" type="text" length="9" title="Appl No."/>
+		<field name="applNoSuf" type="text" length="1" title="Suf"/>
+		<field name="regDate" type="date" title="Reg Date"/>
+		<field name="certIssueDate" type="date" title="Issue Date"/>
+		<field name="trackCode" type="text" length="20"/>
+		<field name="corValid" type="text" length="1" />
+		<field name="active" type="text" length="1" />
+	</fields>
+</DataSource>

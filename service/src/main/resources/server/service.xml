@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:component-scan base-package="org.mardep.ssrs.report" />
+	<context:component-scan base-package="org.mardep.ssrs.service" />
+	<context:component-scan base-package="org.mardep.ssrs.srReportService" />
+	<context:component-scan base-package="org.mardep.ssrs.certService" />
+	<context:component-scan base-package="org.mardep.ssrs.regionalDeskService" />
+	<context:component-scan base-package="org.mardep.ssrs.dao" />
+	<context:component-scan base-package="org.mardep.ssrs.vitaldoc" />
+	<!-- ocr -->
+    <context:component-scan base-package="org.mardep.ssrs.dms.ocr.service" />
+    <context:component-scan base-package="org.mardep.ssrs.dms.ocr.dbService" />
+    <context:component-scan base-package="org.mardep.ssrs.dms.ocr.action" />
+
+<!-- 	need assign DS -->
+	<import resource="classpath:/server/dns.xml" />
+	<import resource="classpath:/server/ebs.xml" />
+	<import resource="classpath:/server/transaction.xml" />
+
+	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:/server/ssrs-default.properties</value>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>

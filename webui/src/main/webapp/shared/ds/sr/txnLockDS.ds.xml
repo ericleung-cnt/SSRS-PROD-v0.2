@@ -1,0 +1,8 @@
+<DataSource ID="txnLockDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="txnLockDMI" />
+	<fields>
+		<field name="applNo" 		type="text" title="Appl No" 		length="9" 	primaryKey="true" />
+		<field name="lockTime"	type="dateTime" displayFormat="dd/MM/yyyy HH:mm:ss" 	title="Lock Time"		length="50"/>
+		<field name="lockText"	type="text" title="Lock Text"		length="50"/>
+	</fields>
+</DataSource>

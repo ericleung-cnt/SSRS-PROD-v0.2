@@ -1,0 +1,28 @@
+<DataSource ID="nextOfKinDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="nextOfKinDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID"  	primaryKey="true" 	required="true" length="20"/>
+		<field name="seqNo" 		type="integer" 	title="Seq NO." 		primaryKey="true"/>
+		<field name="kinName" 		type="text" 	title="Name of KIN"			length="40"/>
+		<field name="kinChiName" 	type="text" 	title="Chinese Name"	length="30"/>
+		<field name="kinHkid" 		type="text" 	title="HKID"			length="15"/>
+		<field name="relation" 		type="text" 	title="Relationship"		length="20">
+			<valueMap>
+			   	<value ID="FRIEND">FRIEND</value>
+			   	<value ID="FATHER">FATHER</value>
+			   	<value ID="MOTHER">MOTHER</value>
+			   	<value ID="BROTHER">BROTHER</value>
+			   	<value ID="SISTER">SISTER</value>
+			   	<value ID="HUSBAND">HUSBAND</value>
+			   	<value ID="WIFE">WIFE</value>
+			   	<value ID="OTHER">OTHER</value>
+	   		</valueMap>
+		</field>
+		<field name="marriageCertNo" type="text" 	title="Marriage Cert No"	length="20"/>
+		<field name="addr1" 		type="text" 	title="Address 1"		length="240"/>
+		<field name="addr2" 		type="text" 	title="Address 2"		length="240"/>
+		<field name="addr3" 		type="text" 	title="Address 3"		length="240"/>
+		<field name="telephone" 	type="text" 	title="Telephone"		length="15"/>
+		<field name="status" 		type="text" 	title="Status"			length="1"/>
+	</fields>
+</DataSource>

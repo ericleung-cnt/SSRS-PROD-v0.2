@@ -1,0 +1,14 @@
+<DataSource ID="documentRemarkDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="documentRemarkDMI" />
+	<fields>
+		<field name="id" 		type="text" title="Code" 	primaryKey="true" length="50"/>
+		<field name="remarkGroup" type="text" title="Group" length="10"/>
+<<<<<<< .mine
+		<field name="remark" 	type="text" title="Remark" 	length="2000"/>
+||||||| .r3093
+		<field name="remark" 	type="text" title="Remark" 	length="100"/>
+=======
+		<field name="remark" 	type="text" title="Remark" 	length="250"/>
+>>>>>>> .r3108
+	</fields>
+</DataSource>

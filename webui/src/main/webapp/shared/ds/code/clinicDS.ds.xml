@@ -1,0 +1,29 @@
+<DataSource ID="clinicDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="clinicDMI" />
+	<fields>
+		<field name="id" 	type="integer" title="ID" primaryKey="true"/>
+		<field name="name" 	type="text" title="Name" length="60"/>
+		<field name="chiName" 	type="text" title="Chinese Name" length="60"/>
+		<field name="adds1" 	type="text" title="Address 1" length="50"/>
+		<field name="adds2" 	type="text" title="Address 2" length="50"/>
+		<field name="adds3" 	type="text" title="Address 3" length="50"/>
+		<field name="chiAdds1" 	type="text" title="Chinese Address 1" length="40"/>
+		<field name="chiAdds2" 	type="text" title="Chinese Address 2" length="40"/>
+		<field name="chiAdds3" 	type="text" title="Chinese Address 3" length="40"/>
+		<field name="tel" 		type="text" title="Tel" 	length="18"/>
+		<field name="email" 	type="text" title="Email" 	length="50"/>
+		<field name="noq" 		type="text" title="NOQ" length="200"/>
+		<field name="year" 		type="text" 	title="Year" length="100"/>
+		<field name="regNo" 	type="text" 	title="Reg NO" length="50"/>
+		<field name="recognizedIndicator" 		type="text" title="Recognized Indicator" length="50"/>
+		<field name="applyDate" type="date" title="Apply Date" displayFormat="dd/MM/yyyy"/>
+		<field name="deleteDate" type="date" title="Delete Date" displayFormat="dd/MM/yyyy"/>
+		<field name="isEnabled" 	type="boolean" title="Is Enabled"/>
+	</fields>
+	<operationBindings>
+		<operationBinding operationType="custom" operationId="FIND_ENABLED">
+			<serverObject className="org.mardep.ssrs.dmi.codetable.ClinicDMI" lookupStyle="factory"></serverObject>
+			<serverMethod>fetch</serverMethod>
+		</operationBinding>
+	</operationBindings>
+</DataSource>

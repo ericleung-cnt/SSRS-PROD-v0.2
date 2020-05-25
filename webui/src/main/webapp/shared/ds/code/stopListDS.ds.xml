@@ -1,0 +1,8 @@
+<DataSource ID="stopListDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="stopListDMI" />
+	<fields>
+		<field name="id" 		type="integer" 	title="ID" 				primaryKey="true"/>
+		<field name="serbNo" 	type="text" 	title="SERB NO."  		length="8"/>
+		<field name="desc" 		type="text" 	title="Description"  	length="50"/>
+	</fields>
+</DataSource>

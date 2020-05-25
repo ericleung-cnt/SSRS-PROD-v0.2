@@ -1,0 +1,13 @@
+<DataSource ID="demandNoteBillingPersonDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="demandNoteBillingPersonDMI" />
+	<fields>
+		<field name="billingPerson"	type="text" title="Billing Person" 	length="80"/>
+		<field name="address1" 		type="text" title="Address1" 		length="80"/>
+		<field name="address2" 		type="text" title="Address2" 		length="80"/>
+		<field name="address3" 		type="text" title="Address3"  		length="80"/>
+		<field name="email"			type="text" title="Email"			length="50"/>
+		<field name="tel"			type="text" title="Tel"			length="50"/>		
+		<field name="fax"			type="text"	title="Fax"				length="50"/>
+		<field name="billingPersonType" type="text" title="Type"  		length="40"/>
+	</fields>
+</DataSource>

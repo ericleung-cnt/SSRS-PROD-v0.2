@@ -1,0 +1,1244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DN_SSRS" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="56637316-2262-414b-82e7-a64ecdcfd7df">
+	<property name="ireport.zoom" value="1.272292855117455"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="427"/>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="itemList" class="java.util.List"/>
+	<parameter name="dnAmt" class="java.lang.String"/>
+	<parameter name="qrCode" class="java.io.InputStream" isForPrompting="false"/>
+	<parameter name="logoLarge300" class="java.net.URL" isForPrompting="false"/>
+	<parameter name="bDNSR" class="java.lang.String"/>
+	<parameter name="watermark" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="copyLogo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="shipNameChi" class="java.lang.String"/>
+	<field name="shipNameEng" class="java.lang.String"/>
+	<field name="grossTon" class="java.lang.String"/>
+	<field name="netTon" class="java.lang.String"/>
+	<field name="issueDate" class="java.lang.String"/>
+	<field name="dueDate" class="java.lang.String"/>
+	<field name="dnNumber" class="java.lang.String"/>
+	<field name="dnAmt" class="java.lang.String"/>
+	<field name="billName" class="java.lang.String"/>
+	<field name="coName" class="java.lang.String"/>
+	<field name="addr1" class="java.lang.String"/>
+	<field name="addr2" class="java.lang.String"/>
+	<field name="addr3" class="java.lang.String"/>
+	<field name="enquireTel" class="java.lang.String"/>
+	<field name="deptRef" class="java.lang.String"/>
+	<field name="issuingSectionEng" class="java.lang.String"/>
+	<field name="issuingSectionChi" class="java.lang.String"/>
+	<field name="dnRemarks" class="java.lang.String"/>
+	<field name="reminderMsg" class="java.lang.String"/>
+	<field name="reminderDate" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement x="390" y="73" width="153" height="32" uuid="05582390-d4cd-47c0-8752-f6df8cc9d2fb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="50" y="123" width="111" height="32" uuid="29e254d2-891f-4dc6-ba58-799b622b37b1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="1" y="74" width="165" height="32" uuid="c21b1d93-7513-4970-8ee0-f6dda1a17aae">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="73" width="201" height="32" uuid="a58fcc7a-9bc9-4fcb-bcd1-5dc66b7766b7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="390" y="188" width="153" height="32" uuid="9ff11106-28c2-4561-ba7c-c99e6423b9ff">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="390" y="149" width="153" height="32" uuid="02a62dae-fe3c-4c85-8016-3b3c76b702bb">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="390" y="111" width="153" height="32" uuid="f53cea10-0ae6-4b5c-a3e0-d23381f3a5da">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="390" y="346" width="153" height="110" uuid="73e20632-cb44-4df4-8592-cb220c7d6478">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="399" y="350" width="138" height="45" uuid="e6864e5d-b8a0-4430-abb6-8d49b3324dca">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[凡以電匯繳費，請留意匯款時須指示銀行另行扣除一切會影響應繳金額的事項例如手續費等。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="395" width="138" height="55" uuid="befa9874-133b-42e9-8468-8fc93b5c487c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Please remit the exact amount which equals to the amount quoted in demand note to the destination account ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="230" width="46" height="14" uuid="08d36439-e081-4575-94e5-91f46e81db9c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[船名 ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="453" y="244" width="83" height="38" uuid="123c9a95-8a37-4e62-ba6e-ea9e9843ca4c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipNameEng}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="390" y="459" width="142" height="14" uuid="2bf4c1c3-4b42-409f-a812-7af4d727f242">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[(備註 : 收據須待支票收訖才屬有效)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="390" y="471" width="150" height="30" uuid="95beef94-1746-4f25-a75a-b504c6d2aaef">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[(N.B.: receipt is valid only after cheque is cleared)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="508" width="521" height="14" uuid="6dd3e60f-a735-4807-a999-5805f0fde2f6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[以下機印所示金額，經已收訖。RECEIVED THE SUM IMPRINTED BELOW.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="486" width="521" height="14" uuid="f29b2b99-44ab-4801-aa4f-2ebfe4b5ee42">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[繳款辦法請看背頁。For payment instructions, please SEE OVERLEAF.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="497" width="521" height="14" uuid="0af029be-a8b0-4c05-b0ee-8f9cc7e66d04">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[須於此收費單之到期繳款日或之前繳款。Payment must be made on or before the due date of this demand note.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="654" width="265" height="16" uuid="6383488e-a997-4f08-8fa1-449bc4ba58d8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[請勿將存根撕下 PLEASE DO NOT DETACH THIS STUB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="591" width="150" height="14" uuid="81cedd21-a279-4280-b715-c72aa5d6805a"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[M.O. 901B (Rev. 08/2019)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="575" width="150" height="14" uuid="ac2c1c31-8a4a-4c96-9d97-4141739fc1b2"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[M.O. 901B (Rev. 08/2019)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="674" width="140" height="15" uuid="f5041310-1860-49d6-8a89-bf9b05d253f3"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[繳款單編號 Demand Note Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="674" width="85" height="15" uuid="9a50624f-0b6a-4563-af3a-41fe939606bf"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[發單日期 Issue Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="674" width="67" height="15" uuid="f35a9f5d-aca2-441e-b20e-6fce22239be7"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[總額 Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="741" width="146" height="11" uuid="c927be83-d579-4241-b82a-3428731ccbb0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[香港特別行政區海事處]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="752" width="146" height="11" uuid="4802113a-04b9-4528-8193-d226f9720627"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[MARINE DEPARTMENT, HKSAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="763" width="146" height="11" uuid="e8879d81-ed1f-42ea-86e5-b260ca968b18">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[收費單 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="775" width="146" height="11" uuid="9539a578-baf2-4d56-87f7-3313974541f6">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[MISCELLANEOUS BILL]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="671" width="380" height="1" uuid="293f65da-5ef3-41c3-93b0-b3ba9025bf28">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="1" y="692" width="380" height="1" uuid="c16659e2-c73e-4f23-9e8d-a61da3e4ddff">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="1" y="714" width="380" height="1" uuid="659b0edc-241b-4f3b-b7d2-db743ab288aa">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="1" y="788" width="380" height="1" uuid="38bba627-568b-4abe-8ca1-943d61c10777">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="381" y="671" width="1" height="118" uuid="fc68e516-c5f7-437b-bb5c-5515707f64d1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="1" y="671" width="1" height="118" uuid="e0ea140c-7fc6-43ef-8de9-000868f61511">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="271" y="671" width="1" height="44" uuid="10ad418b-e782-44b1-9ade-6c00d5deae73">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="160" y="671" width="1" height="44" uuid="d62de76f-e7be-4025-b0b1-72d366bceb4e"/>
+			</line>
+			<line>
+				<reportElement x="214" y="737" width="1" height="52" uuid="73e2c94e-3991-49b8-a655-f123ebbc2b54"/>
+			</line>
+			<line>
+				<reportElement x="1" y="736" width="380" height="1" uuid="71c2cc9b-ac54-4708-bbaa-9535ebe5a013"/>
+			</line>
+			<staticText>
+				<reportElement x="441" y="33" width="111" height="15" uuid="a5889e1e-2ff9-44c8-9c11-76e9f8286bc8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[HKSAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="18" width="112" height="15" uuid="40b4b694-ed5b-4971-ab9f-ce497b0e3565">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MARINE DEPARTMENT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="75" width="184" height="14" uuid="c0b0cece-80b9-481c-89cf-d3af3bff10c8">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{issuingSectionChi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="204" width="50" height="14" uuid="1176911f-b723-430f-a4d2-cbafdcaa3d26">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Bill Type:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="125" width="45" height="14" uuid="81ffe63e-c0a0-4eb0-90e7-e8ec90f79426">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[查詢電話]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="187" y="90" width="184" height="14" uuid="423cec36-2c45-4985-9178-f5d14be694c7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{issuingSectionEng}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="180" y="123" width="201" height="32" uuid="70fc7a44-3f03-42d8-8895-cbaea4ceb3f9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="58" width="165" height="14" uuid="bd192c4a-6d7f-43a3-9097-d11a6fff9839">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[繳款單編號 Demand Note Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="114" width="46" height="14" uuid="c2737e4c-b252-4e6b-96df-f7c35cd9e5e5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[到期繳款日]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="221" width="290" height="14" uuid="d4d58e3d-1648-406e-b185-057095fe5876">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+					<paragraph leftIndent="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addr1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="221" width="88" height="14" uuid="018ae7e5-7379-4544-9958-ac7eef9cc059">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[地  址   Address :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="235" width="275" height="14" uuid="fea966ee-66c4-4550-a764-1e4fbff04c56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+					<paragraph leftIndent="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addr2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="165" width="88" height="14" uuid="eb11afef-f4a8-414e-886e-46d08a879146">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[名  稱    Name   :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="249" width="275" height="14" uuid="a45bd633-ccbc-45dc-8be3-acc36484b059">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+					<paragraph leftIndent="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{addr3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="32" width="121" height="15" uuid="460db164-b07e-43b3-893c-fbdf9f10a295">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MISCELLANEOUS BILL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="140" width="45" height="14" uuid="88269edb-97bf-4967-8236-b2d94302d2b7">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Enquiry Tel:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="58" width="101" height="14" uuid="cc812fb1-e1d2-41a3-b937-a5b5f0bf6173">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[發單日期 Issue Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="441" y="3" width="111" height="16" uuid="c1789851-5a9d-40b1-b2a0-3b57d1544bee">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[香港特別行政區海事處]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="193" width="275" height="28" uuid="38dd5407-a4c4-4e44-9414-58cb8931894d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+					<paragraph leftIndent="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{coName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="190" width="52" height="14" uuid="45730246-b8ce-4635-9d9e-9ef5230fa6f3">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[賬單類別]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="98" y="165" width="275" height="28" uuid="50276faf-1eda-40fa-b274-f51d264a74ea">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="9"/>
+					<paragraph leftIndent="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{billName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="194" y="58" width="186" height="14" uuid="128aa014-6575-4be4-b13e-d6c9ca9527ab">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[發單組別 Demand Note Issuing Section]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="17" width="121" height="15" uuid="0eeb8685-8fa9-4be0-b0ef-6d5e4960d8e0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[收  費  單]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="194" width="28" height="20" uuid="48b05a77-efad-4b51-b307-3ebc9ad4b838"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[05]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="166" width="85" height="14" uuid="ee329921-e4dd-458b-9716-fcefe8751d7c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Amount Payable ($):]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="48" width="553" height="1" uuid="64cdfea9-7897-47e1-abd7-045bc2325d2b"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="399" y="152" width="69" height="14" uuid="96470c4a-080f-4a9a-8203-4edcfda6116d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[應繳金額 ($)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="108" width="177" height="14" uuid="82e02381-2490-4952-b110-d062ac81ceb2">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[部門檔案 Department Reference]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="127" width="46" height="14" uuid="57f34760-7f66-4b7a-84c2-44612259521b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Due Date:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement mode="Transparent" x="5" y="295" width="368" height="142" uuid="fdbbe224-d318-4504-bf76-c0871157b8ee">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<subreportParameter name="dnAmt">
+					<subreportParameterExpression><![CDATA[$P{dnAmt}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{itemList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="5" y="80" width="155" height="21" uuid="797dba2c-a497-4c8f-b0c7-ed9615759a96"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dnNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="80" width="119" height="21" uuid="471c6af2-3561-4272-9f79-9ed32af3e83b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{issueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="116" width="86" height="21" uuid="4db22c7e-2680-4f90-be1b-95c6a380f9b3"/>
+				<textFieldExpression><![CDATA[$F{dueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="155" width="72" height="21" uuid="86717997-7af4-484e-9d71-6518e3f7bb9f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{dnAmt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="696" width="137" height="16" uuid="d863f756-9f50-4b95-b99e-c3a388949991">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dnNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="696" width="75" height="16" uuid="3de5ed1e-6218-4596-80e5-2bfc80f9bd97"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{dnAmt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="696" width="93" height="16" uuid="07244f0d-e96f-4f4d-ac4b-a06197ad5603"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{issueDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="130" width="91" height="21" uuid="81eba8f8-2dc9-4a8c-9ff2-7a343d536c17">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{enquireTel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="130" width="177" height="20" uuid="6d1f2226-455d-4414-beec-cbc98e6431b2">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{deptRef}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="230" y="4" width="71" height="40" uuid="1983446a-b4b3-42e2-8c33-1f157db2d48c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{logoLarge300}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="410" y="672" width="95" height="95" uuid="208f9e73-b9e4-4f93-a195-ad9575047368"/>
+				<imageExpression><![CDATA[$P{qrCode}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="399" y="283" width="50" height="14" uuid="51f82a07-cb1b-49f1-a052-c1988d27fa90">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[總噸位]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="297" width="50" height="14" uuid="40a06db6-4f0d-431e-a7e3-7965de6ac91e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Gross Ton.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="311" width="50" height="14" uuid="da76ec51-7d7d-4eeb-902e-5c0416c35569">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[淨噸位]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="325" width="50" height="14" uuid="2ccda7a5-2fe6-44e2-a448-2d98c39ddb08">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Net Ton.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="453" y="290" width="80" height="20" uuid="5a4ed763-d2b3-40d9-97d7-c96f5185a388">
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grossTon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="316" width="80" height="20" uuid="8d5c373e-1b78-408c-869a-c9b115ddf4f4">
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netTon}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="244" width="51" height="30" uuid="8e03ea9f-8120-43dd-914b-d7bc805cbbae">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Name of Ship:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="453" y="230" width="83" height="15" uuid="2b4773d9-9310-4c2e-b70c-02c950bddd3c">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{shipNameChi}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="288" y="271" width="1" height="215" uuid="406060c5-25f2-4913-95f4-0d0e5a71c6d8">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="381" y="271" width="1" height="215" uuid="6747a5b0-cd43-4c86-b0a5-4c3815c379f9">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="271" width="1" height="215" uuid="73274617-af3a-44ff-b1e7-7da3794ccb28">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="485" width="382" height="1" uuid="beb6e2c9-309c-408e-bba2-bf33a3897868">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="1" y="456" width="380" height="1" uuid="4926bbaa-776c-4c8c-8c01-9514520def7b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="271" width="382" height="1" uuid="de94f77c-2150-4b8d-84ea-c8e753e01ebb">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="1" y="290" width="380" height="1" uuid="df082ded-e1ae-4ce8-b5a4-b6f81bf6e110">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="74" y="274" width="100" height="14" uuid="4e867c55-69e4-4ba5-aa37-421e3a821b0d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[繳款項目 Particulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="274" width="80" height="14" uuid="31910c8b-b6c4-4c84-b223-4ddd5e5591ea"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[金額 Amount ($) ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="459" width="38" height="30" uuid="adaa113c-c454-490e-871f-598a11d1ee01">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[合計:
+Total $]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="291" y="462" width="75" height="21" uuid="42ed0004-d5f1-4192-b137-dfe6b94e0bfa"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dnAmt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="438" width="280" height="14" uuid="82e693d6-06e3-4634-880c-297416b0aae9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dnRemarks}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="160" width="382" height="1" uuid="203e9e24-15a2-4e8d-9629-777826c80881">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="266" width="382" height="1" uuid="3cef10b9-6676-4dd9-9700-49adc09b35a4">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="381" y="160" width="1" height="106" uuid="e986b96c-99ed-4bac-9ef0-4fb19f07ecb9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="0" y="160" width="1" height="106" uuid="2d99f910-c5d3-43a9-8bde-39ead25ed97d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="390" y="225" width="153" height="1" uuid="9e2d1cd0-22ab-49f6-9bc6-45f1c87d8945">
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="390" y="340" width="153" height="1" uuid="e1f20747-4793-41b1-90b7-50869cb6dc06">
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="390" y="225" width="1" height="115" uuid="9348f8b1-d1a2-4eed-ba23-23c4e16245d3">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="542" y="226" width="1" height="115" uuid="a8efe271-3a1c-49d5-943d-88f46c72d209">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<printWhenExpression><![CDATA[$P{bDNSR}=="Y"]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<textField>
+				<reportElement x="9" y="555" width="111" height="21" uuid="54ee992d-bd3a-4b35-aa33-b473c95fb244">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{copyLogo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="603" width="111" height="21" uuid="35e3af90-85cf-4b21-8bbf-fdaa8ded997f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{copyLogo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="589" width="558" height="1" uuid="c4047e03-e75a-4b2a-a822-5cc9c386b170">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="340" y="7" width="80" height="18" uuid="94314d77-c4e1-4e21-88ac-2beeb54c8856"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{reminderMsg}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="26" width="80" height="18" uuid="43b7b2a9-b723-4515-a991-1ed11f81c879">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{reminderDate}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="670">
+			<printWhenExpression><![CDATA["1"=="2"]]></printWhenExpression>
+			<staticText>
+				<reportElement x="10" y="15" width="62" height="14" uuid="94123776-9540-4923-9f7f-c69b53f0c6af">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[繳款辦法]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="29" width="517" height="14" uuid="7e917e67-6011-4404-aceb-b69883717f4f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[用支票、海外匯票或本票連同本收費單郵寄香港中環統一碼頭道 38 號海港政府大樓二十一字樓或香港郵政總局信箱 4155 號海事處處長收。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="45" width="154" height="14" uuid="0bc50f40-8315-4b59-a381-e731aa10e44d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[攜同本收費單到下列辦事處繳交：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="58" width="254" height="14" uuid="234e76fc-aa6e-4081-ba32-dc755b54b552">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[香港中環統一碼頭道 38 號海港政府大樓三字樓繳費處。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="45" width="100" height="14" uuid="999e0157-b902-4b73-8fed-033e1b596ac9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[收費時間：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="58" width="100" height="14" uuid="a56ec6b3-109f-4d2b-9504-62b810ef0a43">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[星期一至星期五]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="71" width="150" height="14" uuid="5b73b6fb-51b8-491f-bab2-22a7bbd31a7d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[上午八時三十分至十二時三十分]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="84" width="150" height="14" uuid="64ca224a-d950-4bc3-b4cd-889f65eab519">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[下午二時至四時三十分 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="100" width="517" height="14" uuid="daebe5ce-f78d-4036-a715-dfbc6357cc1d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[支票、匯票，及本票必須寫明支付「香港特別行政區政府」並加劃線。切勿寫明支付個別職員。請勿郵寄現金。期票將不獲接納。 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="29" width="21" height="14" uuid="f14cfaa0-044e-4ca5-87e4-120b9cf14b7b">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="45" width="21" height="14" uuid="eb478a8b-57a0-4ec2-af55-b8e9f4ff2ad6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="100" width="21" height="14" uuid="018ac304-5a27-44ba-82fc-72fee4998ccc">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="192" width="62" height="14" uuid="e597313e-c06e-48f7-909a-8f75c09085d5">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[廉潔要求:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="208" width="516" height="26" uuid="32e07f37-11a2-4ba5-a66e-753f1b1d4902">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[任何人與海事處進行任何事務往來時，均不得向海事處職員提供利益；否則，即可能違反《防止賄賂條例》（香港法例第 201 章）第4(1)條及／或第 8 條，最高可被判罰款五十萬元及監禁七年。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="294" width="241" height="14" uuid="326f76e0-99ff-4ec5-826b-a5aeb4741a56">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[In person at the following office:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="294" width="111" height="14" uuid="087b8b46-c309-45b3-8551-800939fb8d25">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Collecting Hours:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="309" width="73" height="14" uuid="4469aa53-840f-46a8-95bb-628ddd6a4f84">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Monday to Friday]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="324" width="141" height="14" uuid="679ecd9f-5f97-45c0-843f-ef9a4e2d86c0">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[8:30 a.m. – 12:30 p.m.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="339" width="140" height="14" uuid="0a5b4b74-5d73-49ca-8be3-1d795aede17d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2:00 p.m. – 4:30 p.m. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="355" width="506" height="40" uuid="cb80c169-c1c6-4e86-b463-9139226b549c">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Cheques, Drafts and Cashier Orders should be made payable the “The Government of the Hong Kong Special Administrative Region” and CROSSED. They must not be made payable to any individual Officer. Cash should not be sent through the post. Post-dated cheques will not be accepted. ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="355" width="21" height="18" uuid="540aed9d-9049-49dd-83dc-0678fe7b936c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="243" width="111" height="14" uuid="5bcc4d55-a719-4c4a-9909-7d368a5f1868">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PAYMENT METHODS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="264" width="21" height="14" uuid="754b33d6-ffad-4002-8197-33e171a1daa7">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="294" width="21" height="14" uuid="a11b08af-5721-434c-900a-31fb501f2a65">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="264" width="514" height="28" uuid="b031b5a2-f5a6-43a8-b8a6-6ff231e32767"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[By post enclosed with the cheque(s), draft(s) or cashier order(s) and this bill to the Director of Marine, 21/F., Harbour Building, 38 Pier Road,
+Hong Kong or G.P.O. Box 4155, Hong Kong.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="494" width="150" height="14" uuid="05d27219-2a57-4479-9a6a-6fcc9f31fdaa">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROBITY REQUIREMENT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="510" width="509" height="40" uuid="33da4086-3e15-4534-938e-a9d938fec437"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Anyone, while having dealings of any kind with the Marine Department (MD), should not offer advantage to the MD officers; or else, he may commit an offence under section 4(1) and/or section 8 of the Prevention of Bribery Ordinance (Chapter 201 of Laws of Hong Kong), and be liable to a maximum penalty of a fine of $500,000 and imprisonment for 7 years. ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-6" y="561" width="558" height="1" forecolor="#FFFFFF" uuid="092160c0-124b-4223-9599-7fb53e04b879">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="35" y="116" width="510" height="40" uuid="a8331ef7-c2b3-4bbd-9aef-ca85d90785ed"/>
+				<textElement markup="html">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["香港以外地區以電匯繳費,請付與<b>[香港特別行政區政府庫務署一號收款戶口]</b>,此戶口開立於香港中環皇后大道中一號,<b>香港上海滙豐銀行</b>,戶口號碼為<b>004-002-268126-008</b>. 銀行代碼為<b>HSBCHKHH</b>. 匯款時須引述背頁左上角所印的海事處發票號碼.此外,一切銀行手續費宜先行另繳,以確保銀行方面不會從本處應收的實數中扣除任何銀行手續費. 請向代辦銀行查詢有關手續詳情."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="14" y="116" width="21" height="14" uuid="ac82cb16-ff2c-4784-8993-a5e4616882c6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="393" width="21" height="18" uuid="455c78a3-8edd-4fd7-918a-33ed0c218f59"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="36" y="392" width="510" height="62" uuid="fcbb220b-46eb-46c1-9b3b-82f5708da349">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement markup="html">
+					<font size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Overseas Payment by Telegraphic transfer must be in the exact amount in Hong Kong Dollars <i>(net of all known bank charges)</i> and payable to <b>&quot;The Government of Hong Kong Special Administrative Region Treasury No.1 Collection account&quot; (Account No. 004-002-268126-008)</b>, Bank Swirf Code: <b>HSBCHKHH</b> with The Hongkong & Shanghai Banking Corporation Limited, 1 Queen's Road Central, Hong Kong and quote the Marine Department Demand Note Number __________<i>(as printed on the top left corner overleaf)</i> as the payment instruction. Please consult your banker and ensure that all bank charges will not be deducted from the exact amount."]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="309" width="300" height="14" uuid="5e5c8752-9906-46f7-8895-169c289e63d0">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Shroff Office, 3/F., Harbour Building, 38 Peier Road, Hong Kong]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="158" width="510" height="31" uuid="3dc32a5c-7245-410a-a8c6-a23819e37b94">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[如款項已經匯出, 請將匯款單複印本傳真[(852) 2542 4287] 或電郵[finance@mardep.gov.hk] 至本處, 提供相關的匯款資料 (如匯款銀行名稱,匯款號碼,匯款日期,海事處收費單編號及總數), 以便本處跟進.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="454" width="510" height="40" uuid="0ba5ee5c-ee3b-46c6-a93f-f0a7efce851d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[If the invoice(s) has/have been settled by Telegraphic Transfer/remittance, please provide with us a copy of the remittance receipt or application indicating the bank name, telegraphic transfer reference number, remittance date and amount [by fax: (852) 2542 4287 or email: finance@mardep.gov.hk] for our ease of reference.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

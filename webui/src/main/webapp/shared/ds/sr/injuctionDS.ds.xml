@@ -1,0 +1,10 @@
+<DataSource ID="injuctionDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="injuctionDMI" />
+	<fields>
+		<field name="applNo" required="true" length="9" primaryKey="true" />
+		<field name="injuctionCode" required="true" primaryKey="true" />
+		<field name="injuctionDesc" length="120" required="true"/>
+		<field name="expiryDate" type="datetime" displayFormat="dd/MM/yyyy" />
+	</fields>
+</DataSource>

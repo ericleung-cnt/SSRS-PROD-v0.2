@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Distribution_of_Crew_by_Rank_or_Ranking_by_Nationality_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="47865435-b7dd-424c-bfd7-5076b2f47fe1">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="nationality" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="ratingRank" class="java.lang.String"/>
+	<field name="ratingValue" class="java.lang.Integer"/>
+	<field name="ratingTotal" class="java.lang.Integer"/>
+	<field name="officerRank" class="java.lang.String"/>
+	<field name="officerValue" class="java.lang.Integer"/>
+	<field name="officerTotal" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="802" height="22" uuid="8d5b2c1b-120d-42f9-aeb0-b5b1c8d90e6e"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="802" height="23" uuid="be0ec8cc-4dbb-4015-82af-1aa2cee7e1a9"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Distribution of Crew by Rank / Rating by Nationality]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="5" width="62" height="35" uuid="a4c9b67a-727d-4e7c-8d8a-ba58f2dd9457"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[SRS1110
+SRIS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="670" y="28" width="100" height="20" uuid="83cbea65-6a75-4f68-85f3-36ff4f51f84a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="703" y="5" width="98" height="24" uuid="a8315024-7562-46e8-ac6a-46eaff9d1c6d"/>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="770" y="28" width="31" height="20" uuid="3abe50e4-c310-41fb-81fe-8abc6fec9ff8"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="172" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="120" width="120" height="22" uuid="a009996c-3d1c-4063-a5e5-c62a6bca8c15"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[TOTAL NO OF CREW:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="11" width="802" height="22" uuid="a93d7150-049b-4a01-8b2b-6acd89e2726c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["NUMBER OF "+$P{nationality}+" OFFICER"]]></textFieldExpression>
+			</textField>
+			<crosstab>
+				<reportElement stretchType="RelativeToBandHeight" x="20" y="46" width="93" height="58" uuid="0bd8b977-4313-46db-9b32-1cd0dfacf8f6"/>
+				<rowGroup name="1" width="0" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA["1"]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="officerRank" height="30" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{officerRank}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="94" height="30" uuid="1d976370-5908-4411-bb79-8f370e203e79"/>
+								<textFieldExpression><![CDATA[$V{officerRank}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="valueMeasure" class="java.lang.Integer" calculation="Sum">
+					<measureExpression><![CDATA[$F{officerValue}]]></measureExpression>
+				</measure>
+				<crosstabCell width="94" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="94" height="25" uuid="4639450c-6f82-4360-bf93-a7e04bdc57b9"/>
+							<textFieldExpression><![CDATA[$V{valueMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="94" height="0" rowTotalGroup="1">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" columnTotalGroup="officerRank">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="1" columnTotalGroup="officerRank">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+			<break>
+				<reportElement x="0" y="165" width="100" height="1" uuid="6c676c8f-3575-45a0-8544-9cc520b4e97a"/>
+			</break>
+			<textField>
+				<reportElement x="150" y="120" width="60" height="22" uuid="000a51ae-74d8-4e2e-bcac-135add2c9947"/>
+				<textFieldExpression><![CDATA[$F{officerTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="155">
+			<staticText>
+				<reportElement x="20" y="120" width="120" height="22" uuid="49d2e973-b40c-435b-ade5-3d274f9ebd96"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[TOTAL NO OF CREW:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="11" width="802" height="22" uuid="306c79a3-1d24-4be9-a8b2-9018cc7abd38"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["NUMBER OF "+$P{nationality}+" RATING"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="120" width="60" height="22" uuid="bc6d85af-b341-4da4-a483-459bb249a9ed"/>
+				<textFieldExpression><![CDATA[$F{ratingTotal}]]></textFieldExpression>
+			</textField>
+			<crosstab>
+				<reportElement stretchType="RelativeToBandHeight" x="20" y="46" width="93" height="58" uuid="ff924e48-7975-4b62-85d6-986c63c57c8b"/>
+				<rowGroup name="1" width="0" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA["1"]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="ratingRank" height="30" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{ratingRank}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+							<textField>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="94" height="30" uuid="00bb5fd5-476a-44f3-b096-2341c0d925e3"/>
+								<textFieldExpression><![CDATA[$V{ratingRank}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#FFFFFF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+							</box>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="valueMeasure" class="java.lang.Integer" calculation="Sum">
+					<measureExpression><![CDATA[$F{ratingValue}]]></measureExpression>
+				</measure>
+				<crosstabCell width="94" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="94" height="25" uuid="a700b9c4-fe86-46fc-9c81-a678e91349e5"/>
+							<textFieldExpression><![CDATA[$V{valueMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="94" height="0" rowTotalGroup="1">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" columnTotalGroup="ratingRank">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="0" height="0" rowTotalGroup="1" columnTotalGroup="ratingRank">
+					<cellContents backcolor="#FFFFFF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#FFFFFF"/>
+						</box>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="802" height="30" uuid="16e96b3f-ddd1-4ddb-82a7-5d713013f5ad"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[*** End of Report ***]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

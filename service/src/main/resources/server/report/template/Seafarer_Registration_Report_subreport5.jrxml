@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Seafarer_Registration_Report_subreport1" pageWidth="533" pageHeight="802" whenNoDataType="AllSectionsNoDetail" columnWidth="533" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" whenResourceMissingType="Key" uuid="7c249b8c-e6a9-4a93-ba1b-4f0d76b7236d">
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="seafarerId" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+'EYESIGHT_TEST' AS EYESIGHT_TEST, 'COLOUR_TEST' AS COLOUR_TEST, 'LETTER_TEST' AS LETTER_TEST,
+'dd-MM-yyyy' as TEST_DATE
+WHERE 1 <> 1]]>
+	</queryString>
+	<field name="EYESIGHT_TEST" class="java.lang.String"/>
+	<field name="COLOUR_TEST" class="java.lang.String"/>
+	<field name="LETTER_TEST" class="java.lang.String"/>
+	<field name="TEST_DATE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="19" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="533" height="19" uuid="04871021-2c5d-4677-8b5a-e2546d3ccfef"/>
+			</rectangle>
+			<textField>
+				<reportElement x="15" y="0" width="133" height="19" uuid="35c105d5-13b4-4003-b10d-d679619dea3d"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Eyesight Test: " + ($F{EYESIGHT_TEST}==null ? "" : $F{EYESIGHT_TEST})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="134" height="19" uuid="afe3a5fe-d171-4bd5-84e5-836d7121a647"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Date: " + ($F{TEST_DATE}==null ? "" : $F{TEST_DATE})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="88" height="19" uuid="11440ce0-00e0-4857-9947-93b814a6028a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Letter: " + ($F{LETTER_TEST}==null ? "" : $F{LETTER_TEST})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="0" width="163" height="19" uuid="5d3a7568-0d55-45c2-b11d-14867724141a"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Colour: " + ($F{COLOUR_TEST}==null ? "" : $F{COLOUR_TEST})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

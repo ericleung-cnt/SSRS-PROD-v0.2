@@ -1,0 +1,30 @@
+<DataSource ID="crewDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="crewDMI" />
+	<fields>
+		<field name="vesselId" 		type="text" 	title="Vessel ID" 		required="true"/>
+		<field name="coverYymm" 	type="text" 	title="Cover YYMM"	 	required="true" 	length="6"/>
+		<field name="referenceNo" 	type="integer" 	title="Reference NO." 	/>
+		<field name="seafarerName" 	type="text" 	title="Seafarer Name" 	length="30"/>
+		<field name="serbNo" 		type="text" 	title="SERB NO."		length="15"/>
+		<field name="nationalityId" type="integer" 	title="Nationality ID" 	required="true"/>
+		<field name="birthDate" 	type="date" 	title="Birth Date"		required="true" displayFormat="dd/MM/yyyy"/>
+		<field name="birthPlace" 	type="text" 	title="Birth Place"		length="30"/>
+		<field name="address1" 		type="text" 	title="Address 1"		length="40"/>
+		<field name="address2" 		type="text" 	title="Address 2"		length="40"/>
+		<field name="address3" 		type="text" 	title="Address 3"		length="40"/>
+		<field name="nokName" 		type="text" 	title="NOK Name"		length="30"/>
+		<field name="capacityId" 	type="integer" 	title="Capacity ID" 	required="true"/>
+		<field name="crewCert" 		type="text" 	title="Crew Cert"		length="30"/>
+		<field name="salary" 		type="decimal" 	title="Salary" 			required="true"/>
+		<field name="engageDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Engage Date"		required="true"/>
+		<field name="engagePlace" 	type="text" 	title="Engage Place"	length="30"/>
+		<field name="dischargeDate"	type="date" displayFormat="dd/MM/yyyy" 	title="Discharge Date"/>
+		<field name="dischargePlace" 	type="text" title="Discharge Place"	length="30"/>
+		<field name="status" 		type="text" 	title="Status"			length="1"/>
+		<field name="rSalary" 		type="integer" 	title="R Salary"		/>
+		<field name="currency" 		type="text" 	title="Currency"		length="5"/>
+		<field name="crewListCover" type="any"/>
+		<field name="nationality" 	type="any"/>
+		<field name="rank" 			type="any"/>
+	</fields>
+</DataSource>

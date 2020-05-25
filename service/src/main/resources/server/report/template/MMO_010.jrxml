@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MMO_distribution" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="5" bottomMargin="5" uuid="20d021eb-715c-401d-9718-09cf6f72461c">
+	<property name="ireport.zoom" value="1.1000000000000036"/>
+	<property name="ireport.x" value="124"/>
+	<property name="ireport.y" value="0"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="userId" class="java.lang.String"/>
+	<parameter name="reportId" class="java.lang.String"/>
+	<parameter name="reportTitle" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["E:\\ssrs_workspace\\service\\src\\main\\resources\\server\\report\\template\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="countryList" class="java.util.List"/>
+	<field name="tank" class="java.lang.String"/>
+	<field name="bean" class="org.mardep.ssrs.report.bean.MMO_010Bean"/>
+	<variable name="crewCount1" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount1()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="crewCount2" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount2()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="crewCount3" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount3()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="crewCount4" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount4()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="crewCount5" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount5()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="crewCount6" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount6()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="crewCount7" class="java.lang.Integer" resetType="Group" resetGroup="Rank" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{bean}.getCount7()]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<group name="Rank">
+		<groupExpression><![CDATA[$F{bean}.getRank()]]></groupExpression>
+		<groupHeader>
+			<band height="42">
+				<textField>
+					<reportElement x="0" y="0" width="802" height="20" uuid="2064687f-34e7-492c-bc14-f4e099c9d888"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{bean}.getRank()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="126" y="20" width="76" height="20" uuid="0f809172-3444-4ff6-896b-65e233f0fcb9"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType1()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="202" y="20" width="76" height="20" uuid="a3878d83-9bec-4284-9ead-dca9ebbbbdcd"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType2()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="278" y="20" width="76" height="20" uuid="0a006c73-1ea6-45aa-bd59-d5a7a5fcb1fb"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType3()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="354" y="20" width="76" height="20" uuid="30327605-4607-44c4-aef7-f26c6ef59744"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType4()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="430" y="20" width="76" height="20" uuid="85e94ecc-8208-47a2-ba42-57af37bdc11b"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType5()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="506" y="20" width="76" height="20" uuid="bb8d3b47-2d58-479f-a25f-b9fa5b958903"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType6()]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="582" y="20" width="76" height="20" uuid="0d1ebd96-2c99-4721-9564-7b713534863f"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType7()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="70">
+				<textField>
+					<reportElement x="126" y="0" width="76" height="20" uuid="a4904d2a-ba79-4192-adc3-699198d4abba"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType1() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount1})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="202" y="0" width="76" height="20" uuid="f148eab7-87cd-417b-9cf8-815d72fdbe4d"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType2() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount2})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="278" y="0" width="76" height="20" uuid="3bd7f93c-67e7-4be0-b104-30b91716b447"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType3() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount3})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="354" y="0" width="76" height="20" uuid="8bd4be2a-2ce1-4531-87d0-1b1f007ea8a9"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType4() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount4})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="0" width="76" height="20" uuid="4c467ca8-afeb-4cea-a4c6-0b8d6e817818"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType5() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount5})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="506" y="0" width="76" height="20" uuid="1a8e79e4-f1c0-4644-819f-1c509dfa2358"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType6() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount6})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="582" y="0" width="76" height="20" uuid="2e91f371-eef8-4de5-a0b1-4235bbda77fc"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType7() == null ? "" : new java.text.DecimalFormat("#").format($V{crewCount7})]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="126" y="20" width="76" height="20" uuid="4aa2822a-00d2-47ba-8f28-da3061ab26d4"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType1() == null ? "" : (
+$F{bean}.getAvg1() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg1()))
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="202" y="20" width="76" height="20" uuid="b717c5e4-35e2-4c72-82c0-458c2feedce3"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType2() == null ? "" : (
+$F{bean}.getAvg2() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg2()))
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="278" y="20" width="76" height="20" uuid="f868dd18-9760-417c-9c4c-7a82bf26af3d"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType3() == null ? "" : (
+$F{bean}.getAvg3() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg3()))
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="354" y="20" width="76" height="20" uuid="9bfa2053-780a-4e7a-9c4d-2525d2230530"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType4() == null ? "" : (
+$F{bean}.getAvg4() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg4()))
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="20" width="76" height="20" uuid="64c3a5f9-9ee0-4960-a25d-a2e06246415c"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType5() == null ? "" : (
+$F{bean}.getAvg5() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg5()))
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="506" y="20" width="76" height="20" uuid="45021671-f1d1-4e89-a571-9c760a10fc8c"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType6() == null ? "" : (
+$F{bean}.getAvg6() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg6()))
+]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="582" y="20" width="76" height="20" uuid="7b883beb-5d50-4172-97f8-b689fe4c45f4"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{bean}.getType7() == null ? "" : (
+$F{bean}.getAvg7() == null ? "-" : new java.text.DecimalFormat("$#,###.##").format(
+$F{bean}.getAvg7()))
+]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="126" height="20" uuid="e24aba22-f2a2-45c9-a8a1-04c21721155a"/>
+					<text><![CDATA[NO. OF CREWS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="20" width="126" height="20" uuid="b60d7c95-1126-4316-b94e-7179e827dfb7"/>
+					<text><![CDATA[AVERAGE]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="802" height="22" uuid="7adcb022-64ea-4b47-949f-4509b124e366"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="35" width="802" height="22" uuid="f724d6be-11e9-40fa-a174-18118e51aac3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reportTitle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="704" y="9" width="98" height="24" uuid="4223bf6b-f698-48a9-af45-a09f73c7c794"/>
+				<textFieldExpression><![CDATA["" + new SimpleDateFormat("dd-MMM-yyyy HH:mm", new Locale("en", "US")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="771" y="32" width="31" height="20" uuid="c638dc35-bb7c-4aa9-8f34-a8618d83dde4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="671" y="32" width="100" height="20" uuid="10667f76-8a2a-44c5-a6cf-5f591075604b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="9" width="100" height="20" uuid="823c6c92-de6c-4c4b-92ec-59b29daa74db"/>
+				<textFieldExpression><![CDATA[$P{reportId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="32" width="100" height="20" uuid="80942099-3cd3-4fd0-83a4-6dff1b0c2cf9"/>
+				<textFieldExpression><![CDATA[$P{userId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="126" height="21" uuid="f2af0af8-47aa-442a-a07a-4ad1e574d8d0"/>
+				<textFieldExpression><![CDATA[$F{bean}.getNationality()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="1" width="76" height="20" uuid="1c407adb-ee3b-4e28-ac00-9c03eb4ed1df"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType1() == null ?
+"" : ($F{bean}.getSalary1() == null ? "$0" : $F{bean}.getSalary1())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="1" width="76" height="20" uuid="6f344d32-88b3-4e29-8e7d-066c5507c799"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType2() == null ?
+"" : ($F{bean}.getSalary2() == null ? "$0" : $F{bean}.getSalary2())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="1" width="76" height="20" uuid="2f540512-2726-4016-a8d4-c06c9e8d366d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType3() == null ?
+"" : ($F{bean}.getSalary3() == null ? "$0" : $F{bean}.getSalary3())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="1" width="76" height="20" uuid="e3612d3c-9b21-4fc1-a3c7-6fde03fb827c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType4() == null ?
+"" : ($F{bean}.getSalary4() == null ? "$0" : $F{bean}.getSalary4())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="1" width="76" height="20" uuid="2af6a932-ed94-411e-bdb0-849dc685e61c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType5() == null ?
+"" : ($F{bean}.getSalary5() == null ? "$0" : $F{bean}.getSalary5())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="506" y="1" width="76" height="20" uuid="8544bf23-27e3-4a47-b21e-e5071413c688"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType6() == null ?
+"" : ($F{bean}.getSalary6() == null ? "$0" : $F{bean}.getSalary6())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="582" y="1" width="76" height="20" uuid="f4197773-84a3-481b-8cf4-c259c297b178"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{bean}.getType7() == null ?
+"" : ($F{bean}.getSalary7() == null ? "$0" : $F{bean}.getSalary7())]]></textFieldExpression>
+			</textField>
+		</band>
+		<band splitType="Prevent"/>
+	</detail>
+	<summary>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement isPrintRepeatedValues="false" x="0" y="32" width="802" height="28" uuid="565c6695-2617-4431-a624-2cbd26ff5a83"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[---- End Of Report ----]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

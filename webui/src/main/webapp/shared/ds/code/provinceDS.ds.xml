@@ -1,0 +1,6 @@
+<DataSource ID="provinceDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="provinceDMI" />
+	<fields>
+		<field name="id" 		type="text" title="Name" 	primaryKey="true" length="50"/>
+	</fields>
+</DataSource>

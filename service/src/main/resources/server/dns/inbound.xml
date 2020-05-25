@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:int="http://www.springframework.org/schema/integration"
+    xmlns:int-xml="http://www.springframework.org/schema/integration/xml"
+	xmlns:int-ws="http://www.springframework.org/schema/integration/ws"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/xml
+    http://www.springframework.org/schema/integration/xml/spring-integration-xml.xsd
+    http://www.springframework.org/schema/integration/ws
+    http://www.springframework.org/schema/integration/ws/spring-integration-ws.xsd">
+	
+	<int-ws:inbound-gateway id="dnsInboundGateway" request-channel="dnsInRequestPojoChannel" marshaller="dnsJaxb2MarshallerIn" unmarshaller="dnsJaxb2MarshallerIn" 
+		mapped-request-headers="from, requestDate" mapped-reply-headers="from, responseDate" reply-channel="dnsInResponsePojoChannel" />
+	
+	<int:payload-type-router input-channel="dnsInRequestPojoChannel">
+		<int:mapping type="org.mardep.ssrs.dns.pojo.inbound.createReceipt.ReceiptStatusRequest" 				channel="receiptRequestInChannel" />
+		<int:mapping type="org.mardep.ssrs.dns.pojo.inbound.updateDemandNoteStatus.DemandNoteStatusRequest"		channel="demandNoteRequestInChannel" />
+		<int:mapping type="org.mardep.ssrs.dns.pojo.inbound.updateRefundStatus.RefundStatusRequest" 			channel="refundRequestInChannel" />
+	</int:payload-type-router>
+	 
+	 
+	<int:service-activator input-channel="receiptRequestInChannel" 		ref="dnsInboundDemandNoteService" 	method="processDnsRequest" output-channel="outHeaderEnricherIn"/> 
+	<int:service-activator input-channel="demandNoteRequestInChannel" 	ref="dnsInboundDemandNoteService" 	method="processDnsRequest" output-channel="outHeaderEnricherIn"/> 
+	<int:service-activator input-channel="refundRequestInChannel" 		ref="dnsInboundDemandNoteService" 	method="processDnsRequest" output-channel="outHeaderEnricherIn"/> 
+	
+<!-- 1. remove from -->
+<!-- 2. add from  -->
+<!-- 3. add responseDate -->
+	<int:chain input-channel="outHeaderEnricherIn" output-channel="dnsInResponsePojoChannel">
+		<int:header-filter header-names="requestDate"/> 
+		
+		<int:header-enricher >
+			<int:header name="from" 		value="${ssrs.dns.ws.message.from}" overwrite="true"/>
+			<int:header name="responseDate" expression="T(org.apache.commons.lang.time.DateFormatUtils).ISO_DATETIME_FORMAT.format(new java.util.Date())"/>
+		</int:header-enricher>
+	</int:chain>
+	
+	<bean id="dnsDetailSoapFaultDefinitionExceptionResolver" class="org.mardep.ssrs.dns.endpoint.DetailSoapFaultDefinitionExceptionResolver" parent="abstractDnsSoapFaultDefinitionExceptionResolver">
+		<property name="mappedEndpoints">
+			<set>
+				<ref bean="dnsInboundGateway"/>
+			</set>
+		</property>
+	</bean>
+	
+	<int:channel id="dnsInRequestPojoChannel"/>
+	<int:channel id="dnsInResponsePojoChannel"/>
+	<int:channel id="receiptRequest"/>
+	<int:channel id="demandNoteRequest"/>
+	<int:channel id="refundRequest"/>
+	
+	 
+<!-- 	<import resource="classpath:/server/dns/soap-common.xml"/> -->
+</beans>        

@@ -1,0 +1,10 @@
+<DataSource ID="rankDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="rankDMI" />
+	<fields>
+		<field name="id" 	type="text" title="Rank Code" primaryKey="true" length="50"/>
+		<field name="engDesc" 	type="text" title="English Description" length="50" required="true"/>
+		<field name="chiDesc" 	type="text" title="Chinese Description" length="40" />
+		<field name="department" 	type="text" title="Department" length="40" required="true"/>
+		<field name="rankRating" 	type="text" title="Rating" length="50" required="true"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Transcript_Mortgagee_SubReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21f42846-b4e4-40cb-8149-da584010a1c9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="mortgageeName" class="java.lang.String"/>
+	<field name="mortgageeAddress" class="java.lang.String"/>
+	<field name="telNo" class="java.lang.String"/>
+	<field name="faxNo" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="7" width="201" height="17" uuid="056b9906-ccd7-4a9c-a120-0225e06f8186"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Name and Address of Mortgagee]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="17" width="201" height="18" uuid="917d91de-e989-406a-b5d2-4b190dc1d338"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[抵押權人姓名 / 名稱､ 地址]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="5" y="33" width="284" height="17" uuid="269ebd36-fcc3-49ea-a142-1dc2216b3568"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mortgageeName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="50" width="284" height="54" uuid="3e8666a5-e4f6-4735-90d7-fb41b75aab2a"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mortgageeAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="309" y="33" width="90" height="17" uuid="41e70c69-2556-4094-aabb-076a6531663b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Tel. No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="43" width="90" height="17" uuid="240a6ccb-3ba1-41a8-9a52-4d1486b0b49d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[電話號碼]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="54" width="90" height="17" uuid="9a237910-bbd1-4451-b38a-5ab471864f06"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fax No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="64" width="90" height="17" uuid="26cecbce-cf93-41af-99e8-d1953ed8a63c"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[傳真號碼]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="77" width="90" height="17" uuid="4c63f67a-6e2c-41ec-8951-3d1857ba0cfe"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Telex No./Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="87" width="90" height="17" uuid="63889520-bd13-4d01-8f7c-a9f8730f5bec"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[電傳號碼／電郵地址]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="399" y="33" width="119" height="21" uuid="3df78e45-becd-486e-98ce-9e752eefd4e3"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="399" y="54" width="119" height="21" uuid="ab150391-a5d9-4389-a61d-7b4ea05a60f5"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{faxNo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="399" y="77" width="119" height="21" uuid="611e3b0a-8798-4aa2-a75b-a50567f812e3"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

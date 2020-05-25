@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+
+	<New id="dataSource" class="org.eclipse.jetty.plus.jndi.Resource">
+		<Arg>jdbc/ssrsDS</Arg>
+		<Arg>
+			<New class="org.apache.commons.dbcp.BasicDataSource">
+				<Set name="driverClassName">com.microsoft.sqlserver.jdbc.SQLServerDriver</Set>
+				<Set name="url">jdbc:sqlserver://10.23.192.101:1433;databaseName=SSRSDB_DEV;sendTimeAsDateTime=false</Set>
+				<Set name="username">SSRSDB_DevApp</Set>
+				<Set name="password">password</Set>
+			</New>
+		</Arg>
+	</New>
+</Configure>

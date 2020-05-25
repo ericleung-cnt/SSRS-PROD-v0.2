@@ -1,0 +1,14 @@
+<DataSource ID="medicalDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="medicalDMI" />
+	<fields>
+		<field name="seafarerId" 	type="text" 	title="Seafarer ID" primaryKey="true"   required="true"	/>
+		<field name="seqNo" 		type="integer" 	title="Seq NO."		primaryKey="true" 					/>
+		<field name="expiryDate" 	type="date" displayFormat="dd/MM/yyyy" 	title="Expiry Date"/>
+		<field name="medicalRemark" type="text" 	title="Doctor/Medical Remark" 			length="60"/>
+		<field name="doctorRemark" 	type="text" 	title="Doctor Name" 			length="60"/>
+		<field name="xrayRemark" 	type="text" 	title="X-RAY Remark" 			length="60"/>
+		<field name="clinicNo" 		type="integer" 	title="Clinic NO."/>
+		<field name="examPlace" 	type="text" 	title="Exam Place" 		length="30"/>
+		<field name="examDate" 		type="date" displayFormat="dd/MM/yyyy" 	title="Exam Date"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,11 @@
+<DataSource ID="feeCodeDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="feeCodeDMI" />
+	<fields>
+		<field name="id" type="text" title="Fee Code" primaryKey="true"  required="true" length="50"/>
+		<field name="formCode" type="text" title="Form Code"  required="true"  length="50"/>
+		<field name="engDesc" type="text" title="English Description " required="true"  length="200"/>
+		<field name="chiDesc" type="text" title="Chinese Description"  length="200"/>
+		<field name="feePrice" type="float" title="Fee Price" required="true"/>
+		<field name="active" type="boolean" title="Active"/>
+	</fields>
+</DataSource>

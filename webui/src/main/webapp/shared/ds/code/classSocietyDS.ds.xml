@@ -1,0 +1,7 @@
+<DataSource ID="classSocietyDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="classSocietyDMI" />
+	<fields>
+		<field name="id" 	type="text" title="Class Society Code" primaryKey="true" length="50" required="true"/>
+		<field name="name" 	type="text" title="Name" length="50" required="true"/>
+	</fields>
+</DataSource>

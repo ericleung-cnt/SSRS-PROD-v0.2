@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProToFull_ACD" pageWidth="595" pageHeight="842" columnWidth="540" leftMargin="25" rightMargin="30" topMargin="30" bottomMargin="10" uuid="a91eb16a-35d1-4be6-85fc-49b79569c6a3">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="17"/>
+	<property name="ireport.y" value="137"/>
+	<parameter name="SUBREPORT_2" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="companyName" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="shipName" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="acdRemarks" class="java.util.List"/>
+	<parameter name="acdDocs" class="java.util.List"/>
+	<parameter name="acdShips" class="java.util.List"/>
+	<parameter name="SUBREPORT_3" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<variable name="ddMMyyyy" class="java.text.SimpleDateFormat">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.ENGLISH)]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="515" height="20" uuid="e4a674ae-4d1c-401c-a11c-850ed8844901"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Acknowledgement for Collection of Document]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="17" width="515" height="20" uuid="f9805ba8-d873-4797-a18a-0c83c183a078"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[領取文件確認書]]></text>
+			</staticText>
+			<line>
+				<reportElement x="115" y="17" width="286" height="1" uuid="3f693cee-1df4-4f61-b475-a9d50b69e1a7"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<subreport>
+				<reportElement mode="Transparent" x="0" y="0" width="475" height="35" isPrintWhenDetailOverflows="true" uuid="60c0784c-6dab-4cea-9ca8-6fb5c3506f21">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<subreportParameter name="shipName">
+					<subreportParameterExpression><![CDATA[$P{shipName}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="acdShips">
+					<subreportParameterExpression><![CDATA[$P{acdShips}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{acdShips})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_3}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="25" splitType="Stretch">
+			<subreport>
+				<reportElement mode="Transparent" x="0" y="0" width="530" height="25" isPrintWhenDetailOverflows="true" uuid="fb1f7172-5820-4d39-87dd-7fbb9188b777">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<subreportParameter name="acdDocs">
+					<subreportParameterExpression><![CDATA[$P{acdDocs}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{acdDocs})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band splitType="Stretch"/>
+		<band height="20" splitType="Stretch">
+			<subreport>
+				<reportElement mode="Transparent" x="0" y="0" width="475" height="20" isPrintWhenDetailOverflows="true" uuid="fdbbe224-d318-4504-bf76-c0871157b8ee">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<subreportParameter name="acdRemarks">
+					<subreportParameterExpression><![CDATA[$P{acdRemarks}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{acdRemarks})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_2}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band splitType="Stretch"/>
+	</lastPageFooter>
+	<summary>
+		<band height="165" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="250" height="20" uuid="9a645e5e-5c14-445d-a08e-ba4a8ee92a62"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Signed & Chopped on behalf of :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="250" height="20" uuid="e774a073-9340-49fb-975c-767f350ec14c"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[代右列司簽署及蓋章 :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="112" width="40" height="25" uuid="621c2e88-6fd7-4e7a-8c98-bb945ffd101e"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Note:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="112" width="455" height="28" uuid="0d556c3d-f9e8-4790-a4b8-3d1344da32a7"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isItalic="true"/>
+					<paragraph lineSpacing="Fixed" lineSpacingSize="6.0"/>
+				</textElement>
+				<text><![CDATA[If no company chop is presented, please allow our staff to copy your staff card or HKID Card for record purpose.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="150" width="515" height="15" uuid="358266ad-8a64-48b0-917a-94e4b26bd47d"/>
+				<textElement verticalAlignment="Top">
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[* ID Card copied must be chopped with ‘COPY’．／身分證影印本須蓋上’COPY’字樣。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="136" width="515" height="16" uuid="d79f678d-b91c-4877-9eaa-66228d6d6dbf"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[注  :     如未能出示公司印章, 請出示職員證或身分證並容許本處影印作紀錄用途。]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="88" width="35" height="20" uuid="fe521d6f-de36-49ea-860d-812734d15a2d"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date/]]></text>
+			</staticText>
+			<line>
+				<reportElement x="270" y="86" width="210" height="1" uuid="6652ad71-c8e5-47f4-b17f-17f999ad6a7e"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="330" y="108" width="150" height="1" uuid="14961365-fe23-445b-b05a-bc15593985e4"/>
+				<graphicElement>
+					<pen lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="39" width="485" height="20" uuid="2952628c-0b5a-49d3-9f5f-44e6dbf3c9c1"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{companyName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="303" y="88" width="40" height="20" uuid="4edcaa5c-b2f5-41bd-9b5d-1d053b9284c3"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[日期]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

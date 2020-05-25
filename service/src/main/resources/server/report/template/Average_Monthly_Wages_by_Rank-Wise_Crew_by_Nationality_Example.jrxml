@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Average_Monthly_Wages_by_Rank-Wise_Crew_by_Nationality_Example" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5f1a8c6b-ab6f-4bd1-b6c7-5172bd348805">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<group name="GP_SUBTOTAL">
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="76">
+				<staticText>
+					<reportElement x="20" y="14" width="120" height="22" uuid="01db98c8-b798-427d-8dc8-f97f2a912c0c"/>
+					<textElement textAlignment="Left">
+						<font size="10" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[NO. OF CREW]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="14" width="70" height="22" uuid="6e115aa3-98c7-4c9e-8538-0d4800bf81d8"/>
+					<textElement textAlignment="Center">
+						<font size="10" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[18]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="14" width="70" height="22" uuid="09868718-0c83-4a7a-ad33-418121f61c4e"/>
+					<textElement textAlignment="Center">
+						<font size="10" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[1]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="40" width="120" height="22" uuid="464bf163-d44d-49ef-9156-4db394b31845"/>
+					<textElement textAlignment="Left">
+						<font size="10" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[AVERAGE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="180" y="40" width="70" height="22" uuid="cd828b5a-46e3-44e1-99e5-8b8eca352161"/>
+					<textElement textAlignment="Center">
+						<font size="10" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[$7,079.61]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="300" y="40" width="70" height="22" uuid="ef49d6da-f832-48e0-ba68-69f2f1665b2b"/>
+					<textElement textAlignment="Center">
+						<font size="10" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[1]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="266" y="5" width="270" height="22" uuid="e68d342c-441e-4523-80b9-5912d22b4e0f"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[SHIPS AND SEAFARERS REGISTRATION SYSTEM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="30" width="298" height="23" uuid="f991f25b-9e34-4651-bc22-c4dc9172b1ef"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Average Monthly Wages of Rank-Wise Crew by Nationality]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="5" width="62" height="35" uuid="cca24ee1-6ee3-4ace-8425-6575aa20851f"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[SRS1140
+SRIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="6" width="92" height="20" uuid="9654e320-ee68-4995-8885-da3028bd9cd1"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[10-DEC-2018 09:38]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="705" y="30" width="92" height="20" uuid="0ac0a30f-1a1b-4c5d-89e1-13f4e2effd41"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Page 1 of 14
+]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="332" y="8" width="162" height="22" uuid="b5e363ac-8c78-446e-bcdd-3b187be1a5a8"/>
+				<textElement textAlignment="Center">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[ASST. FITTER (ELECTRICAL)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="184" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="51" width="110" height="22" uuid="b29f7974-7a5f-4935-9a65-d10ef2e2eea0"/>
+				<textElement textAlignment="Left">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[AUSTRALIAN ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="84" width="109" height="22" uuid="3dd6b7bc-712c-46cb-86cd-f40a9d388fd1"/>
+				<textElement textAlignment="Left">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[AZERBAIJANIAN ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="114" width="109" height="22" uuid="5ae3db2f-c424-4f79-9944-f4ca02ac1935"/>
+				<textElement textAlignment="Left">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CHINESE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="150" width="131" height="22" uuid="269824ac-02e7-4f7f-8bef-bf7418a1206b"/>
+				<textElement textAlignment="Left">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CHINESE (HONG KONG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="20" width="70" height="22" uuid="68572a1a-53b7-4d24-9ec4-35a06fdb379f"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CGO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="20" width="70" height="22" uuid="ea3843a5-96fb-4d9a-b89b-0aa03c3caf11"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[TAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="51" width="70" height="22" uuid="777e771c-99e3-4219-b4ba-3ce093309a06"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$7,560]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="51" width="70" height="22" uuid="0f35de78-eab0-4067-8348-30c6d752f13a"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="84" width="70" height="22" uuid="997d1afa-59b9-4a66-8031-690b622e94e1"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="84" width="70" height="22" uuid="db9ac4fa-b887-4434-9518-aec70606cb8e"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$43,368 ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="150" width="70" height="22" uuid="dc9709f8-6e0c-40f3-ad69-5adef57aa70a"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$34,234]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="114" width="70" height="22" uuid="1ab73ab8-ec55-485d-8518-a46eac4fbd21"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="150" width="70" height="22" uuid="fb263424-4b72-4bcf-8ecd-f33d9471713f"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="114" width="70" height="22" uuid="fe7f1020-0855-4a6a-a4c8-64b1d1e93cdf"/>
+				<textElement textAlignment="Center">
+					<font size="10" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[$35,568]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="353" y="10" width="114" height="30" uuid="b62f1101-5014-4b44-ab5a-ebeea8d638a6"/>
+				<textElement>
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[*** End of Report ***]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

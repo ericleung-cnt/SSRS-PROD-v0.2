@@ -1,0 +1,8 @@
+<DataSource ID="certificateDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="certificateDMI" />
+	<fields>
+		<field name="id" 	type="text" title="Cert Code" primaryKey="true" length="50"/>
+		<field name="name" 	type="text" title="Name" length="50"/>
+		<field name="desc" 	type="text" title="Description" length="100"/>
+	</fields>
+</DataSource>

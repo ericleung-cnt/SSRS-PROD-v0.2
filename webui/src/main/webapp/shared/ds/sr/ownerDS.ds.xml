@@ -1,0 +1,31 @@
+<DataSource ID="ownerDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="ownerDMI" />
+	<fields>
+		<field name="applNo" required="true" length="9" />
+		<field name="ownerSeqNo" type="integer" required="true"/>
+		<field name="name" required="true" length="160" />"
+		<field name="type" length="1" />
+		<field name="status" length="1" />
+		<field name="qualified" length="1" />
+		<field name="nationPassport" length="50" />
+		<field name="address1" length="80" />
+		<field name="address2" length="80" />
+		<field name="address3" length="80" />
+		<field name="email" length="50" />
+		<field name="intMixed" type="number" />
+		<field name="intNumberator" type="number" />
+		<field name="intDenominator" type="number" />
+		<field name="hkic" length="9"/>
+		<field name="occupation" length="20"/>
+		<field name="incortCert" length="15"/>
+		<field name="overseaCert" length="15"/>
+		<field name="incorpPlace" length="30"/>
+		<field name="regPlace" length="30"/>
+		<field name="charterSdate" type="date" displayFormat="dd/MM/yyyy" />
+		<field name="charterEdate" type="date" displayFormat="dd/MM/yyyy" />
+		<field name="majorOwner" type="boolean" />
+		<field name="corrAddr1" length="80"/>
+		<field name="corrAddr2" length="80"/>
+		<field name="corrAddr3" length="80"/>
+	</fields>
+</DataSource>

@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CSRForm" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="55" bottomMargin="20" uuid="025c2706-23fa-414d-bd01-0ef788c5fd2b">
+	<property name="ireport.zoom" value="1.1000000000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="510"/>
+	<parameter name="formNo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="formApplyDate" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="registrationDate" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="shipName" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="owner" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ownerId" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="demise" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="safety" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="classSoc" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="compliance" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="safetySoc" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="iss" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="deregDate" class="java.util.Date" isForPrompting="false"/>
+	<parameter name="remark" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="safetyId" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["N/A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="formSeq" class="java.lang.Number" isForPrompting="false">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="imoNo" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["-------"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="registrar" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="SUBREPORT_1" class="net.sf.jasperreports.engine.JasperReport" isForPrompting="false"/>
+	<parameter name="issueDate" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="docAuthority" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="docAudit" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="smcAuthority" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="smcAudit" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="isscAuthority" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="isscAudit" class="java.lang.String" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="ownerList" class="java.util.List"/>
+	<variable name="todaydmy" class="java.lang.String">
+		<variableExpression><![CDATA[new java.text.SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date())]]></variableExpression>
+	</variable>
+	<variable name="CURRENT_PAGE" class="java.lang.Number" incrementType="Page" calculation="Count">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[1]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="92" splitType="Stretch">
+			<textField>
+				<reportElement x="10" y="11" width="555" height="70" uuid="7a42de3d-e407-4682-a4e7-119530f3e2a5"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FORM             1" + "\nCONTINUOUS SYNOPSIS RECORD (CSR) DOCUMENT\nNUMBER ............................. FOR THE SHIP\nWITH IMO NUMBER: IMO ............................."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="39" width="197" height="20" uuid="51283a45-5502-49b3-ae48-19adad0db90d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{formSeq} != null ? $P{formSeq}.toString() : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="272" y="55" width="157" height="20" uuid="c6e100a6-c498-45ff-9e91-5ea080391b56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{imoNo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="167" splitType="Stretch">
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="1" width="1" height="166" uuid="c8f8b424-dd70-44f1-8618-710523b20413"/>
+			</line>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="f784b4f4-a1fc-4238-90f6-fb67b55fb2f2"/>
+			</line>
+			<line>
+				<reportElement x="0" y="17" width="555" height="1" uuid="9d64812c-7f6e-4840-becd-837553bca3d0"/>
+			</line>
+			<line>
+				<reportElement x="0" y="31" width="555" height="1" uuid="61705a90-4333-4c9b-9450-ac5a4a2364ab"/>
+			</line>
+			<line>
+				<reportElement x="0" y="45" width="555" height="1" uuid="3844b89c-1da2-4450-8b72-982a2536691f"/>
+			</line>
+			<line>
+				<reportElement x="0" y="60" width="555" height="1" uuid="351c9000-30e7-4860-97da-29689be52509"/>
+			</line>
+			<line>
+				<reportElement x="0" y="76" width="555" height="1" uuid="4faf41c1-2f3f-42bf-8da4-b10e360783a2"/>
+			</line>
+			<line>
+				<reportElement x="0" y="91" width="555" height="1" uuid="85ebd6dc-516c-4f17-ab42-5d73259c0a6a"/>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="32" y="17" width="1" height="150" uuid="1ab6bc38-d30a-4a9e-809c-875ae7b4488a"/>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="287" y="17" width="1" height="150" uuid="33d1c526-50af-4bf0-959b-10afe01232d7"/>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="555" y="1" width="1" height="166" uuid="6f4e9174-0412-4256-9213-5fe246751f9d"/>
+			</line>
+			<staticText>
+				<reportElement x="10" y="18" width="20" height="14" uuid="f95b3989-84bd-4820-9acf-d8857c017da0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="32" width="20" height="13" uuid="2fe435ba-36bd-4261-be70-2955756c7759"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="47" width="20" height="13" uuid="6ecf88cf-c06b-47a4-b2dd-e56d578e2a4b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="62" width="20" height="13" uuid="34be1239-ee3f-406d-a9d3-dca7ca3ba053"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="78" width="20" height="13" uuid="11d59ca3-0028-48ab-b0f2-d8b5375d6a3c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="92" width="20" height="13" uuid="acdbf9e7-0143-4b6c-967f-c0d2774fa7ab"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="62" width="250" height="13" uuid="877cc185-3a3c-4524-9336-9e2a953d3e70"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name of ship:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="18" width="250" height="14" uuid="33104cd9-7a44-4be8-9884-c172846ffd6d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[This document applies from (date):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="32" width="250" height="13" uuid="46b34ecd-63ed-48dd-8e38-ae910c19d18e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Flag State:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="47" width="250" height="13" uuid="50965f7f-f9d0-422f-8828-fa1f2e092784"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date of registration with the State indicated in 2:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="78" width="250" height="13" uuid="dad56f80-b7b1-462f-986a-f2e78f31f745"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Port of registration:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="1" width="552" height="13" uuid="9c2f2489-c166-4a34-93e1-96d630b7c61b"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="32" width="210" height="13" uuid="4c7b93a6-add2-4f8f-b64c-ad7cfa1bb1e3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Hong Kong, China]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="18" width="210" height="14" uuid="13c9b0a9-450d-41f1-a052-0fb269a960a5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy/MM/dd").format($P{formApplyDate})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="498" y="18" width="54" height="14" uuid="cc6ec1c3-3a12-4d36-909d-612e8ba748d8"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(yyyy/mm/dd)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="47" width="54" height="13" uuid="e36b99d8-54ba-4f38-acfc-15c92b7d83de"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(yyyy/mm/dd)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="47" width="210" height="13" uuid="088ee26e-68b5-4f0f-8144-fb0bd46a7a52"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("yyyy/MM/dd").format($P{registrationDate})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="62" width="210" height="13" uuid="8d2ce426-d34e-4895-96c2-33bd18e35753"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{shipName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="78" width="265" height="13" uuid="3414283b-58ce-4197-b01e-7898f83bdb8d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Hong Kong]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="35" y="92" width="520" height="75" uuid="1da5cc4b-e79e-483a-b24c-30cc2a7a6c9e"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRMapCollectionDataSource($F{ownerList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_1}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement x="35" y="92" width="237" height="40" uuid="54325ac5-c409-4d06-8eea-daa3b1d5e49a">
+					<printWhenExpression><![CDATA[$F{ownerList} == null || $F{ownerList}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name of current registered owner:
+Registered Address:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="92" width="237" height="40" uuid="97fd2280-45c8-4ae2-873f-139727f12447">
+					<printWhenExpression><![CDATA[$F{ownerList} == null || $F{ownerList}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[N/A]]></text>
+			</staticText>
+		</band>
+		<band height="440" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="16" width="20" height="13" uuid="28b6cd5a-be95-4bcf-b128-03003d0853ff"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="20" height="14" uuid="aa3f9d83-193e-41c5-b28d-706dfb1f0a9b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="83" width="20" height="13" uuid="1f398106-72dd-4437-a31c-d2b5647474cc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[9]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="206" width="20" height="13" uuid="dbf9f08a-2eb6-4f4e-a80d-ea194eab2e31"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="224" width="20" height="13" uuid="29af0124-5de5-444f-ac05-70624a76d41f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="376" width="20" height="13" uuid="2691f92b-630b-4860-8e4b-da1a568c7612"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="255" width="20" height="13" uuid="0e785939-09eb-4abf-aab8-caf8880d07f9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="315" width="20" height="13" uuid="0214fcd9-0b5d-410c-b72a-18499f89c346"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[13]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="255" width="250" height="60" uuid="3380be8d-a934-4585-b18c-41d6afc6d4ad"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Administration/Government/Recognized
+Organization which issued Document of
+Compliance:
+
+Body which carried out audit (if different):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="224" width="250" height="25" uuid="2b01587b-71a2-4da7-a13a-9d06baf50f1e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Name(s) of all classification societies with
+which the ship is classed:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="206" width="250" height="13" uuid="1cfc35c8-2b67-44b8-99c8-0ab864aa21d9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Company identification number:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="0" width="250" height="14" uuid="aad36072-0878-497c-b6f7-38b9ae91a37c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Registered owner identification number:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="35" y="15" width="250" height="68" uuid="0162ad68-d4f3-4856-bcd5-edba60ed5ee2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["If applicable, name of current registered\n"+
+"bareboat/demise charterer(s):\n\n"+
+"Registered Address(es):"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="83" width="250" height="122" uuid="62daaa05-70ad-4b9f-bfea-7f521d9917fb"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Name of Company (International Safety Management):\n"+
+"\n"+
+"Registered Address(es):\n\n\n" +
+"Address(es) of its safety management\nactivities:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="35" y="315" width="250" height="60" uuid="0ecd5f97-e620-4ff6-81e3-0fe6e15d77f9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Administration/Government/Recognized
+Organization which issued Safety
+Management Certificate:
+
+Body which carried out audit (if different):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="376" width="250" height="60" uuid="a249e36f-d4e8-4460-8b8e-850b83c8f784"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Administration/Government/Recognized
+Security Organization which issued
+International Ship Security Certificate:
+
+Body which carried out verification (if different):]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="0" width="210" height="14" uuid="08515d18-f51d-4865-91d1-61ac43ed496a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ownerId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="84" width="250" height="121" uuid="d5535fdc-18cf-45d7-bcb0-ab1dfbd7dc5a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{safety}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="15" width="250" height="68" uuid="71459681-0154-4f0f-893b-bb29cbeb9e31">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{demise}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="206" width="210" height="13" uuid="db237f06-53e6-486a-b798-ee318291d8b8"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{safetyId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="224" width="210" height="26" uuid="a5910c60-ceca-49b8-87df-c45674f0748c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{classSoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="255" width="210" height="46" uuid="59bc6eaa-3c54-4e5c-b6ec-63d7ded19059"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{compliance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="315" width="210" height="48" uuid="854c1fdd-6a21-4028-890b-8f3a7c6072a5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{safetySoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="376" width="210" height="39" uuid="b403c767-7464-4781-80c5-29e9b337468f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{iss}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="434" width="555" height="1" uuid="614423ac-0a30-4a38-9c20-0beb2a2d01f4"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="74dad492-6f38-4f16-826c-ab2758d45421"/>
+			</line>
+			<line>
+				<reportElement x="0" y="16" width="555" height="1" uuid="01568626-6ba5-4693-a744-c3afab6623db"/>
+			</line>
+			<line>
+				<reportElement x="0" y="84" width="555" height="1" uuid="901b844f-8a9c-40df-86e3-caa8b23b8904"/>
+			</line>
+			<line>
+				<reportElement x="0" y="206" width="555" height="1" uuid="d74e5d40-1457-4972-bc2e-544cd940b54d"/>
+			</line>
+			<line>
+				<reportElement x="0" y="221" width="555" height="1" uuid="5d5bbf0e-484b-4d32-9f6c-0bd7fed2fa70"/>
+			</line>
+			<line>
+				<reportElement x="0" y="254" width="555" height="1" uuid="4b16ac31-2cb7-4f22-86cd-0fab9f2f4d79"/>
+			</line>
+			<line>
+				<reportElement x="0" y="314" width="555" height="1" uuid="6dbe66c2-89b1-49e8-a565-6694d100d004"/>
+			</line>
+			<line>
+				<reportElement x="0" y="374" width="555" height="1" uuid="236715ca-34ac-4fc0-838f-a203f44c0f5b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="1" height="434" uuid="7da3afc2-04d3-4242-8a19-be718fb1100a"/>
+			</line>
+			<line>
+				<reportElement x="32" y="0" width="1" height="434" uuid="bbcf5726-6c59-43f8-8ae4-369b5e375be2"/>
+			</line>
+			<line>
+				<reportElement x="287" y="0" width="1" height="434" uuid="f7f1f268-281a-4917-a244-793891d240f2"/>
+			</line>
+			<line>
+				<reportElement x="555" y="0" width="1" height="434" uuid="2bc02b6b-9c1d-4c71-9fbe-43366d67d3ac"/>
+			</line>
+			<textField>
+				<reportElement x="290" y="301" width="210" height="14" uuid="62da6aab-0171-407a-a2a8-643663c42fe4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{docAuthority} != null && $P{docAudit} != null &&
+!$P{docAuthority}.equals($P{docAudit}) ?
+$P{docAudit} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="360" width="210" height="14" uuid="3ad34938-504e-4103-9e30-882b6ce3795b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{smcAuthority} != null && $P{smcAudit} != null &&
+!$P{smcAuthority}.equals($P{smcAudit}) ?
+$P{smcAudit} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="420" width="210" height="14" uuid="55e17e3f-3b91-44fb-88dc-cd1bca479070"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{isscAuthority} != null && $P{isscAudit} != null &&
+!$P{isscAuthority}.equals($P{isscAudit}) ?
+$P{isscAudit} : ""]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="570" splitType="Stretch">
+			<break>
+				<reportElement x="0" y="0" width="100" height="1" uuid="19a9ddf3-9005-4636-99bd-54783451be38"/>
+			</break>
+			<line>
+				<reportElement x="0" y="124" width="555" height="1" uuid="2668a29d-1d30-42c9-a5e8-3d19f6ed3d39"/>
+			</line>
+			<line>
+				<reportElement x="0" y="48" width="555" height="1" uuid="483bf414-fa40-4fb9-8298-8de6b44b06be"/>
+			</line>
+			<line>
+				<reportElement x="0" y="11" width="555" height="1" uuid="a87f820a-e983-4211-a347-709fdc2d9e8e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="11" width="1" height="113" uuid="d64b3dd3-7a66-4ff1-9aa5-a08f35c05599"/>
+			</line>
+			<line>
+				<reportElement x="554" y="11" width="1" height="113" uuid="36598748-17be-4f48-8adb-0a199f4bf902"/>
+			</line>
+			<line>
+				<reportElement x="287" y="12" width="1" height="113" uuid="5ef9f36b-2a88-4d16-a899-dc54884f67b5"/>
+			</line>
+			<line>
+				<reportElement x="0" y="174" width="555" height="1" uuid="2dc29916-95dc-426e-8b5f-d73e273934ff"/>
+			</line>
+			<line>
+				<reportElement x="0" y="217" width="554" height="1" uuid="627a25d4-f7c8-4a5a-bf2c-b32e6f173828"/>
+			</line>
+			<line>
+				<reportElement x="1" y="356" width="553" height="1" uuid="73825a13-0ff2-4299-b6ba-52f15212cd13"/>
+			</line>
+			<line>
+				<reportElement x="0" y="174" width="1" height="182" uuid="3854e177-9f50-4974-8faa-6199f8c92cd7"/>
+			</line>
+			<line>
+				<reportElement x="554" y="174" width="1" height="182" uuid="bfcda192-be6c-4f35-ac2a-2da475421d41"/>
+			</line>
+			<line>
+				<reportElement x="75" y="316" width="100" height="1" uuid="0252e4b6-7565-4ec4-984d-01b8619d178c"/>
+			</line>
+			<line>
+				<reportElement x="75" y="345" width="100" height="1" uuid="dd05d0c2-8816-41c4-bc46-4abf5b6d232a"/>
+			</line>
+			<line>
+				<reportElement x="345" y="329" width="170" height="1" uuid="7c3d3103-cdf7-4794-84ea-c27e9990df39"/>
+			</line>
+			<staticText>
+				<reportElement x="35" y="49" width="250" height="42" uuid="88238bdc-07f0-4c98-a174-ece022f96947"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Remarks (insert relevant information as
+appropriate):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="48" width="20" height="13" uuid="46ad6083-d2c9-40be-bce5-03045f939219"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[16]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="11" width="20" height="13" uuid="5bb4fb74-bd7c-4ec8-9771-f68e68beccab"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[15]]></text>
+			</staticText>
+			<line>
+				<reportElement x="31" y="11" width="1" height="113" uuid="a4bbde73-b81c-4073-b69e-f6f2f3161ae9"/>
+			</line>
+			<staticText>
+				<reportElement x="35" y="12" width="250" height="37" uuid="ae35020c-f4ff-400e-8572-41574fcb6308"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date on which the ship ceased to be
+registered with the State indicated in 2:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="175" width="288" height="43" uuid="28747547-b3ac-4c88-9f63-a1432e748376"/>
+				<text><![CDATA[THIS IS TO CERTIFY THAT this record is correct in all respects. Issued by the Administration of: Hong Kong, China]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="300" width="73" height="20" uuid="f027f220-c1da-4a60-8de1-ed5380586223"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Place of issue:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="329" width="73" height="20" uuid="2baef092-1662-403b-b000-3636b4cb718c"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Date of issue:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="330" width="170" height="20" uuid="4a490785-aab9-43ab-8c08-e3941d76631c"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Signature of authorized person]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="75" y="300" width="100" height="20" uuid="709b09db-588d-46d2-98da-8551600d8bf9"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Hong Kong]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="357" width="539" height="20" uuid="596b5e9a-6f54-4e7a-bdb0-d798b5f71d44"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[*w.e.f. 1-1-2015, all CSRs issued will bear the official stamp of "Marine Department, HK China".]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="377" width="539" height="20" uuid="848e0a76-3d38-423d-b6b9-6e529fe96fdf"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[CSR issued before 1-1-2015 (bearing no official stamp) remains valid and needs not to be re-issued nor renew.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="528" width="550" height="20" uuid="7e9b6899-c303-4446-9165-58fdc2f27af8"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[This document was received by the ship and attached to the ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="548" width="550" height="20" uuid="d3a58936-d763-4ac7-831c-10fc9d84b396"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[ship's CSR file on the following date ................................ [fill in (yyyy/mm/dd)] Signature: ..................................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="498" y="12" width="54" height="20" uuid="7f0dacf6-1a1f-40a5-bbab-f3c625622d04"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[(yyyy/mm/dd)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="12" width="210" height="20" uuid="1620b29c-e026-45e4-9db7-e924eec13a9a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{deregDate} == null ? "N/A" : new java.text.SimpleDateFormat("yyyy/MM/dd").format( $P{deregDate})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="49" width="210" height="75" uuid="a361634a-d4a8-4a87-b719-25462ce0c940"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{remark}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="329" width="100" height="20" uuid="a46d75a9-507c-4c3e-b3ae-d1035541c189"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{issueDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="345" y="310" width="170" height="20" uuid="e6ab6d74-d703-4c8e-9d56-a9517a74ee1e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{registrar}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="50"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="35" height="20" uuid="a24706ac-ebee-4b94-8c50-528120d9ad49"/>
+				<textFieldExpression><![CDATA[msg("Page {0} ", $V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="35" y="0" width="78" height="20" uuid="ee4479fe-f6be-4dd1-8778-703ce37e7663"/>
+				<textFieldExpression><![CDATA[msg("of {0}", $V{PAGE_NUMBER})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

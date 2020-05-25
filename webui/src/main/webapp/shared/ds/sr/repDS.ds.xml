@@ -1,0 +1,22 @@
+<DataSource ID="repDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="representativeDMI" />
+	<fields>
+		<field name="applNo" required="true" length="9" />
+		<field name="status" required="true" >
+			<valueMap>
+				<value>C</value>
+				<value>I</value>
+			</valueMap>
+		</field>
+		<field name="name" length="160" required="true" />
+		<field name="hkic" length="20" />
+		<field name="incorpCert" length="15" />
+		<field name="address1" length="80" />
+		<field name="address2" length="80" />
+		<field name="address3" length="80" />
+		<field name="telNo" length="18" />
+		<field name="faxNo" length="18" />
+		<field name="email" length="50" />
+	</fields>
+</DataSource>

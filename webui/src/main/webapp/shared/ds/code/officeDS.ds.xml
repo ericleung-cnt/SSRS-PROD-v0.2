@@ -1,0 +1,16 @@
+<DataSource ID="officeDS" serverType="generic"
+	inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="officeDMI" />
+	<fields>
+		<field name="id" type="integer" title="ID" primaryKey="true" />
+		<field name="code" type="text" title="Code" length="10"/>
+		<field name="DNCode" type="text" title="Demand Note Code" length="30"/>
+		<field name="name" type="text" title="Name" length="80" />
+		<field name="address1" type="text" title="Address 1" length="50" />
+		<field name="address2" type="text" title="Address 2" length="50" />
+		<field name="address3" type="text" title="Address 3" length="50" />
+		<field name="email" type="text" title="Email" length="50" />
+		<field name="tel" type="text" title="Tel" length="18" />
+
+	</fields>
+</DataSource>

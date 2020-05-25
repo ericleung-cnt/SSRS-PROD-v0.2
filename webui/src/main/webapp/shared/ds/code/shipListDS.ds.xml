@@ -1,0 +1,20 @@
+<DataSource ID="shipListDS" serverType="generic" inheritsFrom="abstractPersistentEntityDS">
+	<serverObject lookupStyle="spring" bean="shipListDMI" />
+	<fields>
+		<field name="id" 			type="integer" 	title="ID" 				primaryKey="true"/>
+		<field name="vesselName" 	type="text" 	title="Vessel Name"		length="40"			required="true"/>
+		<field name="partType" 		type="text" 	title="Part Type"		length="1">
+			<valueMap>
+			   	<value ID="1">Part I</value>
+			   	<value ID="2">Part II</value>
+	   		</valueMap>
+			
+		</field>
+		<field name="companyName" 	type="text" 	title="Company Name"	length="50"			required="true"/>
+		<field name="flag" 			type="text" 	title="Flag"			length="20"			required="true"/>
+		<field name="noOfReg" 		type="integer" 	title="No of Reg"		length="5"/>
+		<field name="noOfExempt" 	type="integer" 	title="No of Exempt"	length="5"/>
+		<field name="noOfForeign" 	type="integer" 	title="No of Foreign"	length="5"/>
+		<field name="remark" 		type="text" 	title="Remark"  		length="60"/>
+	</fields>
+</DataSource>
